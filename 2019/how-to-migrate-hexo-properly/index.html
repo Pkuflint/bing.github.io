@@ -56,18 +56,18 @@
   };
 </script>
 
-  <meta name="description" content="一句话，不要保留旧电脑hexo博客文件夹中的package.json文件。迁移的其他步骤，百度可以搜到教程，教程大多都没问题，就是这一条，非常有误导性，如果保留可能会导致奇怪的报错。 既然已经来了，这里就列出所有的迁移顺序。">
+  <meta name="description" content="一句话，不要保留旧电脑hexo博客文件夹中的package.json文件。百度搜到的迁移教程，整体步骤没错，就是这一条，非常有误导性，如果保留下来可能会导致奇怪的报错。 下面是我验证有效的迁移步骤。">
 <meta name="keywords" content="博客,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="换电脑时如何正确地迁移Hexo博客">
 <meta property="og:url" content="http://shenxiaobing.com/2019/how-to-migrate-hexo-properly/index.html">
 <meta property="og:site_name" content="小兵的诗篇">
-<meta property="og:description" content="一句话，不要保留旧电脑hexo博客文件夹中的package.json文件。迁移的其他步骤，百度可以搜到教程，教程大多都没问题，就是这一条，非常有误导性，如果保留可能会导致奇怪的报错。 既然已经来了，这里就列出所有的迁移顺序。">
+<meta property="og:description" content="一句话，不要保留旧电脑hexo博客文件夹中的package.json文件。百度搜到的迁移教程，整体步骤没错，就是这一条，非常有误导性，如果保留下来可能会导致奇怪的报错。 下面是我验证有效的迁移步骤。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T11:21:26.246Z">
+<meta property="og:updated_time" content="2019-10-12T11:41:43.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="换电脑时如何正确地迁移Hexo博客">
-<meta name="twitter:description" content="一句话，不要保留旧电脑hexo博客文件夹中的package.json文件。迁移的其他步骤，百度可以搜到教程，教程大多都没问题，就是这一条，非常有误导性，如果保留可能会导致奇怪的报错。 既然已经来了，这里就列出所有的迁移顺序。">
+<meta name="twitter:description" content="一句话，不要保留旧电脑hexo博客文件夹中的package.json文件。百度搜到的迁移教程，整体步骤没错，就是这一条，非常有误导性，如果保留下来可能会导致奇怪的报错。 下面是我验证有效的迁移步骤。">
   <link rel="canonical" href="http://shenxiaobing.com/2019/how-to-migrate-hexo-properly/">
 
 
@@ -353,8 +353,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>一句话，不要保留旧电脑hexo博客文件夹中的<code>package.json</code>文件。迁移的其他步骤，百度可以搜到教程，教程大多都没问题，就是这一条，非常有误导性，如果保留可能会导致奇怪的报错。</p>
-<p>既然已经来了，这里就列出所有的迁移顺序。</p>
+        <p>一句话，不要保留旧电脑hexo博客文件夹中的<code>package.json</code>文件。百度搜到的迁移教程，整体步骤没错，就是这一条，非常有误导性，如果保留下来可能会导致奇怪的报错。</p>
+<p>下面是我验证有效的迁移步骤。</p>
 <a id="more"></a>
 
 <h2 id="保存旧数据"><a href="#保存旧数据" class="headerlink" title="保存旧数据"></a>保存旧数据</h2><p>从旧电脑的博客目录中，拷贝保存以下文件或文件夹：</p>
@@ -375,7 +375,17 @@
 <li>安装deploy插件：<code>npm install hexo-deployer-git --save</code></li>
 </ol>
 <h2 id="替换旧数据"><a href="#替换旧数据" class="headerlink" title="替换旧数据"></a>替换旧数据</h2><p>这个直接替换同名文件和文件夹，覆盖即可。</p>
-<p>如果运气好，网速快，10分钟就可以搞定。如果你运气不好，像我一样，又被教程误导，那可能要浪费一个下午的宝贵时光。</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>我迁移前没保留主题，这里需要重新下载我用的主题<code>next</code>。先cd到博客主目录，然后执行下面的命令。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/theme-<span class="keyword">next</span>/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+
+<p>我的主题的自定义配置，是另外创建了一个名为<code>next.yml</code>的文件保存在站点目录<code>/source/_data</code>文件夹中（如果<code>_data</code>文件夹不存在，可以手动创建一个）。这样我可以直接升级主题，而不用担心配置冲突。</p>
+<h2 id="按需安装插件"><a href="#按需安装插件" class="headerlink" title="按需安装插件"></a>按需安装插件</h2><ul>
+<li>Local Search：<code>npm install generator-search --save</code></li>
+<li>Rss生成：<code>npm install hexo-generator-feed --save</code></li>
+<li>Sitemap生成：<code>hexo-generator-sitemap --save</code></li>
+</ul>
+<p>如果运气好，网速快，15分钟就可以搞定。如果你运气不好，像我一样，又被教程误导，那可能要浪费一个下午的宝贵时光。</p>
+<p>祝你好运！</p>
 
     </div>
 
@@ -501,7 +511,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#保存旧数据"><span class="nav-number">1.</span> <span class="nav-text">保存旧数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装必备模块"><span class="nav-number">2.</span> <span class="nav-text">安装必备模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化博客目录"><span class="nav-number">3.</span> <span class="nav-text">初始化博客目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换旧数据"><span class="nav-number">4.</span> <span class="nav-text">替换旧数据</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#保存旧数据"><span class="nav-number">1.</span> <span class="nav-text">保存旧数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装必备模块"><span class="nav-number">2.</span> <span class="nav-text">安装必备模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化博客目录"><span class="nav-number">3.</span> <span class="nav-text">初始化博客目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换旧数据"><span class="nav-number">4.</span> <span class="nav-text">替换旧数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装主题"><span class="nav-number">5.</span> <span class="nav-text">安装主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需安装插件"><span class="nav-number">6.</span> <span class="nav-text">按需安装插件</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
