@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。 KVO实现起来比较简单，主要的流程只有3个：  添加观察者 在监听方法中处理监听结果 监听结束后移除观察者  下面我们用一个实际的例子来说明一下这3个步骤。在App里使用WKWebView来加载网页时，我们希望实现一个在页面顶部的进度条，来">
+<meta name="keywords" content="Swift,KVO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解KVO - 用Swift在WKWebView中添加进度条">
+<meta property="og:url" content="http://shenxiaobing.com/2018/understanding-kvo-in-swift/index.html">
+<meta property="og:site_name" content="小兵的诗篇">
+<meta property="og:description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。 KVO实现起来比较简单，主要的流程只有3个：  添加观察者 在监听方法中处理监听结果 监听结束后移除观察者  下面我们用一个实际的例子来说明一下这3个步骤。在App里使用WKWebView来加载网页时，我们希望实现一个在页面顶部的进度条，来">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-13T05:39:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解KVO - 用Swift在WKWebView中添加进度条">
+<meta name="twitter:description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。 KVO实现起来比较简单，主要的流程只有3个：  添加观察者 在监听方法中处理监听结果 监听结束后移除观察者  下面我们用一个实际的例子来说明一下这3个步骤。在App里使用WKWebView来加载网页时，我们希望实现一个在页面顶部的进度条，来">
+  <link rel="canonical" href="http://shenxiaobing.com/2018/understanding-kvo-in-swift/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>理解KVO - 用Swift在WKWebView中添加进度条 | 小兵的诗篇</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7390efd508bf472b486211e3538692d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵的诗篇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">The powerful play goes on, and we may contribute a verse.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shenxiaobing.com/2018/understanding-kvo-in-swift/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小兵">
+      <meta itemprop="description" content="记录有价值的思考和经历">
+      <meta itemprop="image" content="/asset/image/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵的诗篇">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            理解KVO - 用Swift在WKWebView中添加进度条
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-28 05:40:11" itemprop="dateCreated datePublished" datetime="2018-06-28T05:40:11+08:00">2018-06-28</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2018/understanding-kvo-in-swift/" class="post-meta-item leancloud_visitors" data-flag-title="理解KVO - 用Swift在WKWebView中添加进度条" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/understanding-kvo-in-swift/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/understanding-kvo-in-swift/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。</p>
+<p>KVO实现起来比较简单，主要的流程只有3个：</p>
+<ol>
+<li>添加观察者</li>
+<li>在监听方法中处理监听结果</li>
+<li>监听结束后移除观察者</li>
+</ol>
+<p>下面我们用一个实际的例子来说明一下这3个步骤。在App里使用<code>WKWebView</code>来加载网页时，我们希望实现一个在页面顶部的进度条，来表示网页加载的进度。而恰好<code>WKWebView</code>的实例有一个<code>estimatedProgress</code>属性，我们可以在此基础上使用KVO来实现。</p>
+<h2 id="添加观察者"><a href="#添加观察者" class="headerlink" title="添加观察者"></a>添加观察者</h2><p>第一步，是要正确地声明变量。因为KVO是在Objective-C中提供的，要在Swift中使用，被观察的属性必须添加<code>@objc</code>和<code>dynamic</code>关键词，来确保可以正确地被观察到。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 声明属性，我们的网页视图</span></span><br><span class="line"><span class="meta">@objc</span> <span class="keyword">var</span> webview: <span class="type">WKWebView!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建私有变量，用于添加观察者时创建context参数</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> progressContext = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>第二步，就是在适合的位置添加观察者。一般来说在<code>viewDidLoad</code>中添加就可以。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 订阅观察webView.estimatedProgress属性</span></span><br><span class="line">webView.addObserver(<span class="keyword">self</span>, forKeyPath: #keyPath(estimatedProgress), options: [.new, .old], context: &amp;progressContext)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>对于方法<code>func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutableRawPointer?)</code>简单介绍下其参数：</p>
+<ul>
+<li><p>方法消息接受者，就是被监听的对象。不过就上面的代码而言，<code>webView</code>同样也是<code>self</code>当前controller的属性，所以这条消息也可以发送给<code>self</code>，但是<code>keyPath</code>就要相应地修改为<code>keyPath(webView.estimatedProgress)</code>。</p>
+</li>
+<li><p>观察者，即订阅观察的对象，在被观察者数值变化时收到通知。一般来说，就是当前的controller。</p>
+</li>
+<li><p>keyPath，即相对于接受者对象，需要观察的属性。可以直接用明确的字符串<code>&quot;estimatedProgress&quot;</code>来替代<code>#keyPath(estimatedProgress)</code>，但那样直接操作字符串出现打错，还是用#keyPath构造比较简单。</p>
+</li>
+<li><p>options，这里是接收对象时，选择接收的累类型。总共有4种，需要接受就添加其enum值进入数组参数传入：</p>
+<ul>
+<li><code>.new</code>，接收到变化后的新数值。</li>
+<li><code>.old</code>，接收到变化前的老数值。</li>
+<li><code>initial</code>，即要求立刻返回通知给观察者，在注册观察者方法返回之前。</li>
+<li><code>.prior</code>，即是否需要在数值变化前和变化后各发送一条通知，而不是默认的只在变化后发送通知。</li>
+</ul>
+</li>
+<li><p>context，这里的环境变量，一般用于在不同的观察者在观察相同的<code>keyPath</code>时用于区分。上面的添加观察者代码中，我其实没必要传入<code>context</code>，只是为了演示如何创建与传入<code>context</code>。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 首先是声明私有变量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> myContext = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后直接使用`&amp;myContext`作为`context`参数传入。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="接收被观察者通知并响应处理"><a href="#接收被观察者通知并响应处理" class="headerlink" title="接收被观察者通知并响应处理"></a>接收被观察者通知并响应处理</h2><p>我们的目的是实现进度条，因此需要先添加一条进度条。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setUpWebView</span><span class="params">()</span></span> &#123;</span><br><span class="line">    webView.frame = view.bounds</span><br><span class="line">    webView.navigationDelegate = <span class="keyword">self</span></span><br><span class="line">    webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> url = <span class="type">URL</span>(string: urlString!) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"url is nil"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    webView.load(<span class="type">URLRequest</span>(url: url))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建名为progress的进度条</span></span><br><span class="line">    <span class="keyword">let</span> progress = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: webView.frame.width, height: <span class="number">3</span>))</span><br><span class="line">    webView.addSubview(progress)</span><br><span class="line">    <span class="comment">// 之前已经提前声明了progressLayer作为实例变量，方便作为进度条修改</span></span><br><span class="line">    progressLayer = <span class="type">CALayer</span>()</span><br><span class="line">    progressLayer.backgroundColor = <span class="type">APPColor</span>.orange.cgColor</span><br><span class="line">    progress.layer.addSublayer(progressLayer!)</span><br><span class="line"></span><br><span class="line">    view.addSubview(webView)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置进度条进度的方法，这里直接在打开网页时，设置10%的加载进度，让页面加载看起来更快</span></span><br><span class="line">    progressLayer!.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: webView.frame.width * <span class="number">0.1</span>, height: <span class="number">3</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>进度条配置好了，下面就可以设置监听方法，来处理进度条了。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">observeValue</span><span class="params">(forKeyPath keyPath: String?, of object: <span class="keyword">Any</span>?, change: [NSKeyValueChangeKey : <span class="keyword">Any</span>]?, context: UnsafeMutableRawPointer?)</span></span> &#123;</span><br><span class="line"><span class="keyword">if</span> keyPath == #keyPath(webView.estimatedProgress) &amp;&amp; context == &amp;progressContext &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> changes = change <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">    <span class="comment">//	请注意这里读取options中数值的方法</span></span><br><span class="line">    <span class="keyword">let</span> newValue = changes[<span class="type">NSKeyValueChangeKey</span>.newKey] <span class="keyword">as</span>? <span class="type">Double</span> ?? <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> oldValue = changes[<span class="type">NSKeyValueChangeKey</span>.oldKey] <span class="keyword">as</span>? <span class="type">Double</span> ?? <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 因为我们已经设置了进度条为0.1，所以只有在进度大于0.1后再进行变化</span></span><br><span class="line">    <span class="keyword">if</span> newValue &gt; oldValue &amp;&amp; newValue &gt; <span class="number">0.1</span> &#123;</span><br><span class="line">        progressLayer.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: webView.frame.width * <span class="type">CGFloat</span>(newValue), height: <span class="number">3</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 当进度为100%时，隐藏progressLayer并将其初始值改为0</span></span><br><span class="line">    <span class="keyword">if</span> newValue == <span class="number">1.0</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> time1 = <span class="type">DispatchTime</span>.now() + <span class="number">0.4</span></span><br><span class="line">        <span class="keyword">let</span> time2 = time1 + <span class="number">0.1</span></span><br><span class="line">        <span class="type">DispatchQueue</span>.main.asyncAfter(deadline: time1) &#123;</span><br><span class="line">            <span class="keyword">weak</span> <span class="keyword">var</span> weakself = <span class="keyword">self</span></span><br><span class="line">            weakself?.progressLayer.opacity = <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">DispatchQueue</span>.main.asyncAfter(deadline: time2) &#123;</span><br><span class="line">            <span class="keyword">weak</span> <span class="keyword">var</span> weakself = <span class="keyword">self</span></span><br><span class="line">            weakself?.progressLayer.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">0</span>, height: <span class="number">3</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="移除观察者"><a href="#移除观察者" class="headerlink" title="移除观察者"></a>移除观察者</h2><p>在不需要监听时，或者至少在<code>观察者</code>要被释放之前，需要移除观察者身份。</p>
+<p>在<code>viewDidDisappear</code>或者其他适当的位置，调用：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">removeObserver(<span class="keyword">self</span>, forKeyPath: #keyPath(webView.estimatedProgress))</span><br></pre></td></tr></table></figure>
+
+<p>这样利用KVO实现加载进度条的目的已经达成了。</p>
+<h2 id="更Swifty的实现方式：Block-based-KVO"><a href="#更Swifty的实现方式：Block-based-KVO" class="headerlink" title="更Swifty的实现方式：Block-based KVO"></a>更Swifty的实现方式：Block-based KVO</h2><p>在Swift4里，官方推荐了另外Key-value Oberservation的实现方式。简单来说，就是创建一个变量observation、给obervation赋值。赋值实现了既添加观察者又实现响应通知的功能。最后在不需要观察时，直接把observation设置为<code>nil</code>即可。</p>
+<p>针对上面的进度加载条，实现代码如下：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 声明变量，被观察的属性依然还需要添加@objc和dynamic</span></span><br><span class="line"><span class="meta">@objc</span> <span class="keyword">var</span> webView = <span class="type">WKWebView</span>()</span><br><span class="line"><span class="keyword">var</span> progressLayer: <span class="type">CALayer!</span></span><br><span class="line"><span class="keyword">var</span> progressObervation: <span class="type">NSKeyValueObservation?</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置观察</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupObserver</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// 请务必注意方法的写法</span></span><br><span class="line">    progressObservation = observe(\.webView.estimatedProgress, options: [.old, .new], changeHandler: &#123; (<span class="keyword">self</span>, change) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">let</span> newValue = change.newValue  ?? <span class="number">0</span></span><br><span class="line">        <span class="keyword">let</span> oldValue = change.oldValue  ?? <span class="number">0</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"new value is \(newValue)"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"new value is \(oldValue)"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> newValue &gt; oldValue &amp;&amp; newValue &gt; <span class="number">0.1</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"time to reset new value"</span>)</span><br><span class="line">            <span class="keyword">weak</span> <span class="keyword">var</span> weakself = <span class="keyword">self</span></span><br><span class="line">            weakself?.progressLayer.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: (weakself?.webView.frame.width)! * <span class="type">CGFloat</span>(newValue), height: <span class="number">3</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> newValue == <span class="number">1.0</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> time1 = <span class="type">DispatchTime</span>.now() + <span class="number">0.4</span></span><br><span class="line">            <span class="keyword">let</span> time2 = time1 + <span class="number">0.1</span></span><br><span class="line">            <span class="type">DispatchQueue</span>.main.asyncAfter(deadline: time1) &#123;</span><br><span class="line">                <span class="keyword">weak</span> <span class="keyword">var</span> weakself = <span class="keyword">self</span></span><br><span class="line">                weakself?.progressLayer.opacity = <span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">DispatchQueue</span>.main.asyncAfter(deadline: time2) &#123;</span><br><span class="line">                <span class="keyword">weak</span> <span class="keyword">var</span> weakself = <span class="keyword">self</span></span><br><span class="line">                weakself?.progressLayer.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">0</span>, height: <span class="number">3</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">destroyObserver</span><span class="params">()</span></span> &#123;</span><br><span class="line">    progressObservation = <span class="literal">nil</span></span><br><span class="line">    </span><br><span class="line">    progressObserver?.invalidate()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样看来是不是很简单？而且一个NSKeyValueObservation对象只负责观察一个<code>keyPath</code>，非常清晰。同时只用一行代码和闭包，更简洁。</p>
+<p>这里介绍下给observation赋值的方法参数。</p>
+<ul>
+<li><p>receiver，即方法的接受者。上面的方法可以改成：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">progressObserver = webView.observe(\.estimatedProgress, options: [.old, .new], changeHandler: &#123; (webView, change) &#123;</span><br><span class="line">	<span class="comment">// code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>keyPath，这里的<code>keyPath</code>与上文中的<code>keyPath</code>接收的参数类型不同。这里是<code>KeyPath</code>类型，而上面<code>addObserver</code>方法中的<code>keyPath</code>是字符串。写法是<code>\.property</code>，这里的<code>property</code>是相对于<code>receiver</code>的，所以当<code>receiver</code>是controller时，<code>keyPath</code>就是<code>\.webView.estimatedProgress</code>；而当<code>receiver</code>是<code>webView</code>时，keyPath则是<code>\.estimatedProgress</code>。</p>
+</li>
+<li><p>options，与上文一样，传入可选的<code>.new, .old, .initial, .prior</code>。可不传入options，这样的话，不能从闭包中接收到的<code>change</code>里的<code>newValue</code>和<code>oldValue</code>都是0。</p>
+</li>
+<li><p>closure，闭包接收2个参数，即<code>receiver</code>和作为<code>NSKeyValueObservedChange</code>类型的<code>change</code>。从change可以读取其<code>newValue</code>和<code>oldValue</code>。</p>
+</li>
+</ul>
+<p>最后关于停止监听，有两个办法可选：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 销毁</span></span><br><span class="line">progressObserver = <span class="literal">nil</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不销毁，仅仅停止监听</span></span><br><span class="line">progressObserver?.invalidate()</span><br></pre></td></tr></table></figure>
+
+<p>如果不需要停止，可以不用处理，也不用刻意去移除监听，<code>controller</code>作为<code>observation</code>的<code>owner</code>会自动处理。</p>
+<blockquote>
+<p>本人初学，有错误或疏漏之处，欢迎斧正！</p>
+</blockquote>
+<p>参考文档：</p>
+<ul>
+<li><a href="http://swifter.tips/kvo/" target="_blank" rel="noopener">http://swifter.tips/kvo/</a></li>
+<li><a href="https://cocoacasts.com/key-value-observing-kvo-and-swift-3" target="_blank" rel="noopener">https://cocoacasts.com/key-value-observing-kvo-and-swift-3</a></li>
+<li><a href="https://www.jianshu.com/p/24b3e3ddc946" target="_blank" rel="noopener">https://www.jianshu.com/p/24b3e3ddc946</a></li>
+<li><a href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/using_key_value_observing_in_swift" target="_blank" rel="noopener">Using Key-Value Observing in Swift | Apple Developer Documentation</a></li>
+<li><a href="https://nshipster.com/key-value-observing/" target="_blank" rel="noopener">https://nshipster.com/key-value-observing/</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/asset/image/wechatpay.png" alt="小兵 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/asset/image/alipay.png" alt="小兵 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小兵
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shenxiaobing.com/2018/understanding-kvo-in-swift/" title="理解KVO - 用Swift在WKWebView中添加进度条">http://shenxiaobing.com/2018/understanding-kvo-in-swift/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+            
+              <a href="/tags/KVO/" rel="tag"><i class="fa fa-tag"></i> KVO</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/swift-iap-pitfalls/" rel="next" title="苹果内购接入的坑与核心流程 - Swift">
+                  <i class="fa fa-chevron-left"></i> 苹果内购接入的坑与核心流程 - Swift
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/progress-bar-like-wechat-webview/" rel="prev" title="仿照微信WebView实现ProgressBar">
+                  仿照微信WebView实现ProgressBar <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加观察者"><span class="nav-number">1.</span> <span class="nav-text">添加观察者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接收被观察者通知并响应处理"><span class="nav-number">2.</span> <span class="nav-text">接收被观察者通知并响应处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除观察者"><span class="nav-number">3.</span> <span class="nav-text">移除观察者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更Swifty的实现方式：Block-based-KVO"><span class="nav-number">4.</span> <span class="nav-text">更Swifty的实现方式：Block-based KVO</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/asset/image/avatar.jpg"
+      alt="小兵">
+  <p class="site-author-name" itemprop="name">小兵</p>
+  <div class="site-description" itemprop="description">记录有价值的思考和经历</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:pkuflint@gmail.com" title="E-Mail &rarr; mailto:pkuflint@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19049773号 </a><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank"> </a>
+  </div>
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小兵的诗篇</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: '5nxAXNGRN9qW7YzsbrSTQIqi-gzGzoHsz',
+    appKey: 'cw5bUfHdfqCiITOe0fguV11D',
+    placeholder: '',
+    avatar: 'retro',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

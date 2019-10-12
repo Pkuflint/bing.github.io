@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。  直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！  不要寻找复杂的解释。即使是最简单的疏忽或错别字都会造成非常诡异的行为。认真地看代码，不要想着代码太简单不可能出错，就对简单语句一扫而过。">
+<meta name="keywords" content="调试,debug,翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于调试的11个真相">
+<meta property="og:url" content="http://shenxiaobing.com/2018/11-truths-of-debugging/index.html">
+<meta property="og:site_name" content="小兵的诗篇">
+<meta property="og:description" content="原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。  直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！  不要寻找复杂的解释。即使是最简单的疏忽或错别字都会造成非常诡异的行为。认真地看代码，不要想着代码太简单不可能出错，就对简单语句一扫而过。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-26T07:38:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于调试的11个真相">
+<meta name="twitter:description" content="原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。  直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！  不要寻找复杂的解释。即使是最简单的疏忽或错别字都会造成非常诡异的行为。认真地看代码，不要想着代码太简单不可能出错，就对简单语句一扫而过。">
+  <link rel="canonical" href="http://shenxiaobing.com/2018/11-truths-of-debugging/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>关于调试的11个真相 | 小兵的诗篇</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7390efd508bf472b486211e3538692d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵的诗篇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">The powerful play goes on, and we may contribute a verse.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shenxiaobing.com/2018/11-truths-of-debugging/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小兵">
+      <meta itemprop="description" content="记录有价值的思考和经历">
+      <meta itemprop="image" content="/asset/image/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵的诗篇">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            关于调试的11个真相
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-26 15:31:59" itemprop="dateCreated datePublished" datetime="2018-01-26T15:31:59+08:00">2018-01-26</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2018/11-truths-of-debugging/" class="post-meta-item leancloud_visitors" data-flag-title="关于调试的11个真相" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/11-truths-of-debugging/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/11-truths-of-debugging/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。</p>
+<ol>
+<li><p>直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！</p>
+</li>
+<li><p>不要寻找复杂的解释。即使是最简单的疏忽或错别字都会造成非常诡异的行为。认真地看代码，不要想着代码太简单不可能出错，就对简单语句一扫而过。</p>
+<a id="more"></a>
+</li>
+<li><p>代码出问题的线索在你变量的值以及条件语句的流程中。尽力去看事实是怎样的。电脑不会误导你。从事实出发。</p>
+</li>
+<li><p>要有系统性，要坚持不懈。别慌张！Bug 又不会在你的代码里乱动，也不会去欺骗或者躲避你。它只是呆在那个地方，每次都以相同的方式做着错误的事情。</p>
+</li>
+<li><p>如果你的代码一分钟前还好好的，现在却出问题了，那么你最后一次改动了什么？这是条超级可靠的经验法则，也就是为什么你的小组长告诉你代码要边写边测试，而不是到最后一起测试。</p>
+</li>
+<li><p>不要为了追踪 bug 去随意地改动代码。这就好像科学家在做实验时一次性更改了不止一个变量。这会让我们更难解释观察到的行为，而且你可能会引入新的 bug。</p>
+</li>
+<li><p>如果你发现有些代码错误，但是看起来跟你要追踪的 bug 并不相关，也要顺手修复这些代码错误。许多时候错误的代码与 bug 是相关联的或者是以你没有想象到的方式掩盖了bug。</p>
+</li>
+<li><p>你应当能够像福尔摩斯一样解释一系列的事实，测试和最终引导你找到 bug 的推论。而如果有一个 bug 而你又无法定位它，你应当尝试去跟一个认真的第三方论证为什么你的每一个函数不可能有 bug。其中一份论证会有漏洞，因为你的某个函数事实上有 bug。尝试构建论证可能会帮助你发现这个漏洞。</p>
+</li>
+<li><p>对自己代码的信心要有批判心态。当你直觉某个函数是无辜的，那几乎不可能发现这个函数中的 bug。只有当事实证明毫无疑问某个函数不是问题的源头，你才可以假定它是正确的。</p>
+</li>
+<li><p>尽管你需要系统地 debug，但还是会需要信心、预感和猜测等。在你系统性地搜寻 bug 时，用你的直觉去指导搜寻的顺序。先去检查你最怀疑的函数。好的直觉从经验中获得。</p>
+</li>
+<li><p>debug 依靠客观和理性的路径。它依赖对你的代码作用的理解以及全局的合理判断。debug 比写代码还要耗费心智。当你尝试追踪 bug 而无果的时间越长，你会越不能理智判断。当你意识到无法对你的代码 debug 进行理智判断时，休息一下，睡个觉。当你思路不清时你没法 debug。很多时候一个程序员在深夜花费数个小时去定位 bug 却最终在凌晨4点放弃。第二天他们10分钟内就找到了 bug。什么让他们能够在第二天这么快地找到 bug？也许他们只是需要睡眠以及合理判断恢复的时间。或者可能他们的潜意识在他们睡觉的时候想出来了。不管怎样，「去干会别的事情，回来，然后立即找到 bug 」这样的场景太常见，不可能只是意外。</p>
+</li>
+</ol>
+<p>以下是原文：</p>
+<ol>
+<li><p>Intuition and hunches are great—you just have to test them out. When a hunch and a fact collide, the fact wins. That’s life in the city.</p>
+</li>
+<li><p>Don’t look for complex explanations. Even the simplest omission or typo can lead to very weird behavior. Everyone is capable producing extremely simple and obvious errors from<br>time to time. Look at code critically—don’t just sweep your eye over that series of simple statements assuming that they are too simple to be wrong.</p>
+</li>
+<li><p>The clue to what is wrong in your code is in the values of your variables and the flow of<br>control. Try to see what the facts are pointing to. The computer is not trying to mislead<br>you. Work from the facts.</p>
+</li>
+<li><p>Be systematic and persistent. Don’t panic. The bug is not moving around in your code,<br>trying to trick or evade you. It is just sitting in one place, doing the wrong thing in the same<br>way every time.</p>
+</li>
+<li><p>If you code was working a minute ago, but now it doesn’t—what was the last thing you<br>changed? This incredibly reliable rule of thumb is the reason your section leader told you<br>to test your code as you go rather than all at once.</p>
+</li>
+<li><p>Do not change your code haphazardly trying to track down a bug. This is sort of like a<br>scientist who changes more than one variable in an experiment at a time. It makes the<br>observed behavior much more difficult to interpret, and you tend to introduce new bugs.</p>
+</li>
+<li><p>If you find some wrong code that does not seem to be related to the bug you were tracking,<br>fix the wrong code anyway. Many times the wrong code was related to or obscured the bug<br>in a way you had not imagined.</p>
+</li>
+<li><p>You should be able to explain in Sherlock Holmes style the series of facts, tests, and<br>deductions that led you to find a bug. Alternately, if you have a bug but can’t pinpoint it,<br>then you should be able to give an argument to a critical third party detailing why each one<br>of your functions cannot contain the bug. One of these arguments will contain a flaw since<br>one of your functions does in fact contain a bug. Trying to construct the arguments may<br>help you to see the flaw.</p>
+</li>
+<li><p>Be critical of your beliefs about your code. It’s almost impossible to see a bug in a function<br>when your instinct is that the function is innocent. Only when the facts have proven<br>without question that the function is not the source of the problem should you assume it to<br>be correct.</p>
+</li>
+<li><p>Although you need to be systematic, there is still an enormous amount of room for beliefs,<br>hunches, guesses, etc. Use your intuition about where the bug probably is to direct the<br>order that you check things in your systematic search. Check the functions you suspect the<br>most first. Good instincts will come with experience.</p>
+</li>
+<li><p>Debugging depends on an objective and reasoned approach. It depends on overall<br>perspective and understanding of the workings of your code. Debugging code is more<br>mentally demanding than writing code. The longer you try to track down a bug without<br>success, the less perspective you tend to have. Realize when you have lost the perspective<br>on your code to debug. Take a break. Get some sleep. You cannot debug when you are not<br>seeing things clearly. Many times a programmer can spend hours late at night hunting for a<br>bug only to finally give up at 4:00A.M. The next day, they find the bug in 10 minutes. What<br>allowed them to find the bug the next day so quickly? Maybe they just needed some sleep<br>and time for perspective. Or maybe their subconscious figured it out while they were asleep.<br>In any case, the ―go do something else for a while, come back, and find the bug<br>immediately‖ scenario happens too often to be an accident.</p>
+<p>   — Nick Parlante, Stanford University</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/asset/image/wechatpay.png" alt="小兵 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/asset/image/alipay.png" alt="小兵 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小兵
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shenxiaobing.com/2018/11-truths-of-debugging/" title="关于调试的11个真相">http://shenxiaobing.com/2018/11-truths-of-debugging/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/调试/" rel="tag"><i class="fa fa-tag"></i> 调试</a>
+            
+              <a href="/tags/debug/" rel="tag"><i class="fa fa-tag"></i> debug</a>
+            
+              <a href="/tags/翻译/" rel="tag"><i class="fa fa-tag"></i> 翻译</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/an-overview-of-local-board-game/" rel="next" title="我所知的地方棋牌">
+                  <i class="fa fa-chevron-left"></i> 我所知的地方棋牌
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/hello-brad/" rel="prev" title="那一刻，我感觉到一种疼痛 —— 观《你好，波拉德》">
+                  那一刻，我感觉到一种疼痛 —— 观《你好，波拉德》 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/asset/image/avatar.jpg"
+      alt="小兵">
+  <p class="site-author-name" itemprop="name">小兵</p>
+  <div class="site-description" itemprop="description">记录有价值的思考和经历</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:pkuflint@gmail.com" title="E-Mail &rarr; mailto:pkuflint@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19049773号 </a><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank"> </a>
+  </div>
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小兵的诗篇</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: '5nxAXNGRN9qW7YzsbrSTQIqi-gzGzoHsz',
+    appKey: 'cw5bUfHdfqCiITOe0fguV11D',
+    placeholder: '',
+    avatar: 'retro',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

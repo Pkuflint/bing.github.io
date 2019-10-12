@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="引用类型，Reference Type，多个实例可以共享统一份数据。 数值类型，Value Type，一个实例独享一份数据。这里的数据指的是内存中位置，并不是指具体的数值。 如果要将一个引用类型的的实例，赋值给一个变量，那么变量仅仅是共享内存中的这份数据，变量获得的是对这份数据的引用；如果是将一个数值类型的实例赋值给一个变量，那么将会在内存中创建一份相同的数据，赋值给变量。 两者的核心在于：  引">
+<meta name="keywords" content="iOS,Swift,引用类型,数值类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="引用类型 vs 数值类型">
+<meta property="og:url" content="http://shenxiaobing.com/2018/reference-type-and-value-type/index.html">
+<meta property="og:site_name" content="小兵的诗篇">
+<meta property="og:description" content="引用类型，Reference Type，多个实例可以共享统一份数据。 数值类型，Value Type，一个实例独享一份数据。这里的数据指的是内存中位置，并不是指具体的数值。 如果要将一个引用类型的的实例，赋值给一个变量，那么变量仅仅是共享内存中的这份数据，变量获得的是对这份数据的引用；如果是将一个数值类型的实例赋值给一个变量，那么将会在内存中创建一份相同的数据，赋值给变量。 两者的核心在于：  引">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-04T16:13:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="引用类型 vs 数值类型">
+<meta name="twitter:description" content="引用类型，Reference Type，多个实例可以共享统一份数据。 数值类型，Value Type，一个实例独享一份数据。这里的数据指的是内存中位置，并不是指具体的数值。 如果要将一个引用类型的的实例，赋值给一个变量，那么变量仅仅是共享内存中的这份数据，变量获得的是对这份数据的引用；如果是将一个数值类型的实例赋值给一个变量，那么将会在内存中创建一份相同的数据，赋值给变量。 两者的核心在于：  引">
+  <link rel="canonical" href="http://shenxiaobing.com/2018/reference-type-and-value-type/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>引用类型 vs 数值类型 | 小兵的诗篇</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7390efd508bf472b486211e3538692d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兵的诗篇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">The powerful play goes on, and we may contribute a verse.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shenxiaobing.com/2018/reference-type-and-value-type/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小兵">
+      <meta itemprop="description" content="记录有价值的思考和经历">
+      <meta itemprop="image" content="/asset/image/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兵的诗篇">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            引用类型 vs 数值类型
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-04 23:24:24" itemprop="dateCreated datePublished" datetime="2018-07-04T23:24:24+08:00">2018-07-04</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span id="/2018/reference-type-and-value-type/" class="post-meta-item leancloud_visitors" data-flag-title="引用类型 vs 数值类型" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/reference-type-and-value-type/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/reference-type-and-value-type/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>引用类型，Reference Type，多个实例可以共享统一份数据。</p>
+<p>数值类型，Value Type，一个实例独享一份数据。这里的数据指的是内存中位置，并不是指具体的数值。</p>
+<p>如果要将一个引用类型的的实例，赋值给一个变量，那么变量仅仅是共享内存中的这份数据，变量获得的是对这份数据的引用；如果是将一个数值类型的实例赋值给一个变量，那么将会在内存中创建一份相同的数据，赋值给变量。</p>
+<p>两者的核心在于：</p>
+<ul>
+<li>引用类型实例赋值给其他变量后，对变量的修改，原引用实例会一起被修改；</li>
+<li>数值类型实例赋值给其他变量后，对变量的修改，不会影响原来的数值实例。</li>
+</ul>
+<p>平时在使用和选择时，务必要记得这一点，否则可能会像我一样用踩坑来获取知识。（PS，我也不好说踩坑一定不好，我踩了一天的坑，对这个问题才会印象深刻。）</p>
+<a id="more"></a>
+
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>一般的类，大多都是引用类型，自定义的类更是如此。</p>
+<p>下面用代码说明下引用类型赋值后共享数据的情况：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(<span class="number">_</span> name: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> firstPerson = <span class="type">Person</span>(<span class="string">"Shen"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将引用类型的实例赋值给变量</span></span><br><span class="line"><span class="keyword">var</span> secondPerson = firstPerson</span><br><span class="line">secondPerson.name = <span class="string">"Mike"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果是Mike，因为引用类型共享同一份数据</span></span><br><span class="line"><span class="built_in">print</span>(firstPerson.name)</span><br></pre></td></tr></table></figure>
+
+<h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><p>在Swift里，基本数据类型，都是数值类型，比如：<code>Int</code>、<code>Bool</code>、<code>Double</code>等。</p>
+<p>另外，<code>String</code>、<code>Array</code>、<code>Dictionary</code>这些基础的类也是数值类型。</p>
+<p>最后，<code>struct</code>、<code>enum</code>、<code>tuple</code>这些也都是数值类型。</p>
+<p>下面用代码说明下，数据类型赋值后，独享数据互不干涉的情况：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SuperPerson</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> firstSuper = <span class="type">SuperPerson</span>(name: <span class="string">"Clark"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> secondSuper = firstSuper</span><br><span class="line">secondSuper.name = <span class="string">"Bruce"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果是Clark，因为Struct是数值类型，赋值给其他变量时，是直接复制给其他变量的。</span></span><br><span class="line"><span class="built_in">print</span>(firstSuper.name)</span><br></pre></td></tr></table></figure>
+
+<h2 id="特殊情形：Array里的引用类型"><a href="#特殊情形：Array里的引用类型" class="headerlink" title="特殊情形：Array里的引用类型"></a>特殊情形：Array里的引用类型</h2><p>Array是数值类型，就是说，将一个Array赋值给另一个变量时，变量持有的是不同的Array，在内存中的数据是不同的。比如下面的代码：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> firstPerson = <span class="type">Person</span>(<span class="string">"Huo"</span>)</span><br><span class="line"><span class="keyword">let</span> secondPerson = <span class="type">Person</span>(<span class="string">"Shi"</span>)</span><br><span class="line"><span class="keyword">let</span> persons = [firstPerson, secondPerson]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将数值类型的Array赋值给一个变量</span></span><br><span class="line"><span class="keyword">var</span> newPersons = persons</span><br><span class="line"><span class="comment">// 修改变量</span></span><br><span class="line">newPersons[<span class="number">0</span>] = <span class="type">Person</span>(<span class="string">"Mike"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果是Huo，即newPersons和persons其实是两个不同的对象。</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(persons[0].name)"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>对于一般的赋值，比如上面的<code>var newPersons = persons</code>，因为<code>persons</code>里面的元素本身是引用类型，而且这种默认执行的是<strong>浅复制</strong>，所以在新的<code>newPersons</code>中包含的并不是拥有全新数据的元素，而仅仅是分享<code>persons</code>中所包含的元素的内存数据而已，就像上面讨论的引用类型一样。请参考下面的代码：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取newPersons中的第2个元素，并修改元素的name属性</span></span><br><span class="line"><span class="keyword">let</span> second = newPersons[<span class="number">1</span>]</span><br><span class="line">second.name = <span class="string">"Jim"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果也是Jim，即虽然newPersons和persons是不同的数组。</span></span><br><span class="line"><span class="comment">// 但由于其生成方式是直接赋值，两个数组里其实是相同的元素。</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(persons[1].name)"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果你在赋值时，关心里面的元素且需要对元素进行独立修改，那么就需要使用<strong>深复制</strong>，或者将元素替换为数值类型。</p>
+<p>以下是对上面<code>Person</code>类的深复制代码实例：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 自定义一个深复制方法，其实就是重新创建一个实例，并且对其属性赋予相同的数值。</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">copy</span><span class="params">()</span></span> -&gt; <span class="type">Person</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> person = <span class="type">Person</span>(name)</span><br><span class="line">        <span class="keyword">return</span> person</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对每个元素进行深复制然后加入新的Array</span></span><br><span class="line"><span class="keyword">var</span> newerPersons = persons.<span class="built_in">map</span> &#123; $<span class="number">0</span>.copy() &#125;</span><br><span class="line"><span class="keyword">let</span> secondP = newerPersons[<span class="number">1</span>]</span><br><span class="line">secondP.name = <span class="string">"Jim"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果不是Jim</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(persons[1].name)"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用数据类型时的注意事项"><a href="#使用数据类型时的注意事项" class="headerlink" title="使用数据类型时的注意事项"></a>使用数据类型时的注意事项</h2><p>务必记得，要修改数据变量，必须直接对其进行修改，而不能像对普通类的对象一样，先进行一次临时变量赋值，再对变量进行修改。</p>
+<p>最后：</p>
+<blockquote>
+<ul>
+<li>引用类型实例赋值给其他变量后，对变量的修改，原引用实例会一起被修改；</li>
+<li>数值类型实例赋值给其他变量后，对变量的修改，不会影响原来的数值实例。</li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/asset/image/wechatpay.png" alt="小兵 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/asset/image/alipay.png" alt="小兵 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>小兵
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://shenxiaobing.com/2018/reference-type-and-value-type/" title="引用类型 vs 数值类型">http://shenxiaobing.com/2018/reference-type-and-value-type/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+            
+              <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+            
+              <a href="/tags/引用类型/" rel="tag"><i class="fa fa-tag"></i> 引用类型</a>
+            
+              <a href="/tags/数值类型/" rel="tag"><i class="fa fa-tag"></i> 数值类型</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/localization-of-ios-project/" rel="next" title="iOS工程的本地化-Swift">
+                  <i class="fa fa-chevron-left"></i> iOS工程的本地化-Swift
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/puzzle-random-algorithm/" rel="prev" title="数字华容道怎样才能有解">
+                  数字华容道怎样才能有解 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用类型"><span class="nav-number">1.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值类型"><span class="nav-number">2.</span> <span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊情形：Array里的引用类型"><span class="nav-number">3.</span> <span class="nav-text">特殊情形：Array里的引用类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用数据类型时的注意事项"><span class="nav-number">4.</span> <span class="nav-text">使用数据类型时的注意事项</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/asset/image/avatar.jpg"
+      alt="小兵">
+  <p class="site-author-name" itemprop="name">小兵</p>
+  <div class="site-description" itemprop="description">记录有价值的思考和经历</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:pkuflint@gmail.com" title="E-Mail &rarr; mailto:pkuflint@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19049773号 </a><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank"> </a>
+  </div>
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小兵的诗篇</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: '5nxAXNGRN9qW7YzsbrSTQIqi-gzGzoHsz',
+    appKey: 'cw5bUfHdfqCiITOe0fguV11D',
+    placeholder: '',
+    avatar: 'retro',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
