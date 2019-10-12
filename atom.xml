@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shenxiaobing.com/"/>
-  <updated>2019-10-12T11:41:43.401Z</updated>
+  <updated>2019-10-12T20:19:25.432Z</updated>
   <id>http://shenxiaobing.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>零基础自学编程有多难</title>
+    <link href="http://shenxiaobing.com/2019/how-hard-is-self-taught-programming/"/>
+    <id>http://shenxiaobing.com/2019/how-hard-is-self-taught-programming/</id>
+    <published>2019-10-12T20:16:59.000Z</published>
+    <updated>2019-10-12T20:19:25.432Z</updated>
+    
+    <content type="html"><![CDATA[<p>一个零基础的文科生学编程有多难？为什么单把文科生拎出来，这里不是歧视文科生，只是想强调过往没有任何的编程和计算机基础这一点，而大多数理工科的毕业生多少都有一点基础。</p><p>我到现在都不能说自己是个程序员，但我自认为有足够曲折的编程自学经历来现身说法。</p><a id="more"></a><h2 id="第一难：学什么语言"><a href="#第一难：学什么语言" class="headerlink" title="第一难：学什么语言"></a>第一难：学什么语言</h2><p>6年前的春天，我买了第一本编程书，一本C语言的书，得有4厘米厚，京东畅销书。这可能是任何一个自学编程的人能做出的最差的选择。然而，我不知道是听信了谁的鬼话，也不记得为何没有进行网上搜索，也许那时还没养成搜索的习惯。</p><p>正确答案是：Java、Python、JavaScript，随便选一个吧。</p><h2 id="第二难：选择什么教程"><a href="#第二难：选择什么教程" class="headerlink" title="第二难：选择什么教程"></a>第二难：选择什么教程</h2><p>上面说我学编程的第一步是买书。这是我犯的第二个错误。书籍中的内容更新滞后，远远比不上现代的编程语言。书籍的内容偏重理论，而编程是一个注重实操的手艺。而且不是每个人都适合跟着书学习，视频的互动更强一些。书不会照顾一个新手，而视频课程的设计者会考虑新手的学习曲线，会把教学和练习相结合，会根据编程学习的特点强调实践。另外，编程书一般都非常厚，里面不是文字就是代码，真的让人望而却步，尤其是对于战战兢兢的新手来说。</p><p>正确的选择是：靠谱的视频课程，推荐Udemy这种大平台的热门课程。不要选大学课程，那也是偏理论的。</p><h2 id="第三难：如何面对报错"><a href="#第三难：如何面对报错" class="headerlink" title="第三难：如何面对报错"></a>第三难：如何面对报错</h2><p>我已记不清有多少次了，百度我的报错文本根本没有结果。为什么？因为没有人出过这个报错。只有我，只有纯新手，才会因为种种奇葩的原因，发现全新的报错。而根据我的经验，这个报错的原因一般是一个低级错误。</p><p>前两天，Xcode就无法预览某一个View。我有什么办法？没办法，我跳过了。</p><p>我觉得对于无关紧要的问题或者报错，一个核心态度就是打不过就跑，认怂。不要在上面浪费无谓的时间和精气。同理，对于那些一时不能理解和掌握的概念，留给时间，留给后面的学习。</p><h2 id="第四难：如何练习"><a href="#第四难：如何练习" class="headerlink" title="第四难：如何练习"></a>第四难：如何练习</h2><p>初学编程时，我以为练习就是要去<code>codewars</code>这样的网站完成一个个小任务，一个个代码片段，对基本的编程语法做练习。</p><p>但这样的练习做一万遍，还是徒劳。正确的做法是以项目为导向。练习一开始的目标就是完成一个项目。项目可大可小，但项目有明确的用途。在完成项目的过程中，你会学习从整体看问题，会学习试着解决任何一个出现的小问题。</p><p>正确的做法：从项目学习，用项目练习。</p><h2 id="第五难：如何坚持"><a href="#第五难：如何坚持" class="headerlink" title="第五难：如何坚持"></a>第五难：如何坚持</h2><p>对于新手来说，很多概念都是闻所未闻的。每一个闻所未闻的概念，都是似懂非懂的。就是这种似懂非懂的状态下，持续往下学习。累积的似懂非懂越多，就越心虚，越决定自己不行。</p><p>同时，越深入学习，越觉得编程中有太多的细枝末节需要考虑，太多的库需要学习，太多的弱点需要强化。胡适会说，进一寸就进一寸的欢喜。但霸王别姬里的小豆子，却哭着喊“这得挨多少打啊”。不是所有人都能面对重压。</p><p>对自己的怀疑，加上对编程学习本身的质疑，放弃真是一个诱人的选择。</p><p>这里的建议是，不要对自己太苛求。累了就休息，休息好了就继续。别有完美情结。</p><h2 id="第六难：学习编程为什么"><a href="#第六难：学习编程为什么" class="headerlink" title="第六难：学习编程为什么"></a>第六难：学习编程为什么</h2><p>千辛万苦学会了一门编程语言，做了一两个小项目。然后呢？转行基本没门。本职工作好像也不怎么用得上。那这个新学的手艺就撂这儿啦？只要3个月不写代码，再捡起来就又得重新复习那些本就基础不牢的语法。捡起来后也还是不知道能拿这个来干什么。</p><p>所以，如果你想能够持续地学下去，你得知道自己想用编程做什么。仅仅是喜欢？这是一个不错的答案。不管什么答案，都一定会有一个与之匹配的结局，种瓜得瓜种豆得豆而已。</p><p>祝你学有所得，学有所成。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个零基础的文科生学编程有多难？为什么单把文科生拎出来，这里不是歧视文科生，只是想强调过往没有任何的编程和计算机基础这一点，而大多数理工科的毕业生多少都有一点基础。&lt;/p&gt;
+&lt;p&gt;我到现在都不能说自己是个程序员，但我自认为有足够曲折的编程自学经历来现身说法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://shenxiaobing.com/categories/essay/"/>
+    
+    
+      <category term="编程" scheme="http://shenxiaobing.com/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="自学" scheme="http://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>换电脑时如何正确地迁移Hexo博客</title>
@@ -36,9 +62,9 @@
       <category term="随笔" scheme="http://shenxiaobing.com/categories/essay/"/>
     
     
-      <category term="博客" scheme="http://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="hexo" scheme="http://shenxiaobing.com/tags/hexo/"/>
+    
+      <category term="博客" scheme="http://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -297,9 +323,9 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
       <category term="引用类型" scheme="http://shenxiaobing.com/tags/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/"/>
     
@@ -336,9 +362,9 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
       <category term="Loalization" scheme="http://shenxiaobing.com/tags/Loalization/"/>
     
@@ -370,9 +396,9 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
       <category term="App" scheme="http://shenxiaobing.com/tags/App/"/>
     
@@ -509,13 +535,13 @@
     
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
     
+      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
+    
       <category term="IAP" scheme="http://shenxiaobing.com/tags/IAP/"/>
     
       <category term="In App Purchase" scheme="http://shenxiaobing.com/tags/In-App-Purchase/"/>
     
       <category term="内购" scheme="http://shenxiaobing.com/tags/%E5%86%85%E8%B4%AD/"/>
-    
-      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
     
   </entry>
   
@@ -543,13 +569,13 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
+      <category term="自学" scheme="http://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/"/>
     
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
     
-      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
-      <category term="自学" scheme="http://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/"/>
+      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
     
       <category term="Scheme" scheme="http://shenxiaobing.com/tags/Scheme/"/>
     
@@ -635,11 +661,11 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
     
       <category term="Core Data" scheme="http://shenxiaobing.com/tags/Core-Data/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
   </entry>
   
@@ -667,72 +693,6 @@
     
       <category term="随笔" scheme="http://shenxiaobing.com/categories/essay/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>做事靠系统——读《小强升职记》</title>
-    <link href="http://shenxiaobing.com/2018/getting-things-done/"/>
-    <id>http://shenxiaobing.com/2018/getting-things-done/</id>
-    <published>2018-03-07T09:15:20.000Z</published>
-    <updated>2018-03-08T02:32:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。</p><p>书中主要的核心内容有以下三点：</p><ol><li>如何制作待办任务清单</li><li>如何完成复杂项目</li><li>如何专注地工作</li></ol><h2 id="如何制作待办任务清单"><a href="#如何制作待办任务清单" class="headerlink" title="如何制作待办任务清单"></a>如何制作待办任务清单</h2><p>任务清单可以让我们专注于做事，而不用时时刻刻去挂念其他任务。清单让我们清空大脑专注在某个事情上面。</p><p>制作任务清单主要有以下3个步骤：</p><ol><li>用事务篮收集所有想到的被交付的或大或小的待办项目</li><li>将以上待办项目整理为三份清单加一份日程表</li><li>专注于行动清单，要事为先</li></ol><h3 id="收集任务"><a href="#收集任务" class="headerlink" title="收集任务"></a>收集任务</h3><p>我们平时会接到工作上领导派发的需求，以及自己职责内的事务。它们经常在我们正在忙于另一件事情时出现，我们不应当打断正在做的事情，而是要把这件事情加入待办事务篮。待办事务篮里面可能有打电话这样的小事，也可能有准备某项目的运营计划这样的大事。</p><p>收集的作用是为了不打断当前工作且不遗忘重要的事务，同时也是为后续正确地归类最准备。</p><h3 id="归类清单"><a href="#归类清单" class="headerlink" title="归类清单"></a>归类清单</h3><p>将收集到任务根据「可行动」以及「时间」属性，分类添加到3个清单和1份日程表中。</p><ul><li>行动清单，该清单里都是直接行动的事项，有空就去做；任务是有多个行动组成的，由任务分解后的「下一步行动」也直接写进行动清单。比如：找工作，本身是不能立刻行动的，需要拆分为：写简历、投简历、准备面试等可行动事务。</li><li>项目清单，该清单类似任务清单，由多个行动组成。与任务的区别在于，任务多是靠一个人可以完成，而项目则需要与他人协作。比如：新游戏上线最终确认这个事情，就需要联合多部门进行。</li><li>将来清单，该清单上的事务是不确定某个时间要做，先记录上，待时机成熟时，会转变为行动清单或日程表或者被丢进垃圾箱。</li><li>日程表，就是在确定的未来某个时间需要做的行动，所以这里的行动要写的非常具体，免得过了一段时间忘记。需要转交给其他人完成的事务，也写在日程表里，提醒追踪和验收。</li></ul><p>任务和项目分解后，应该包含着多个「下一步行动」，这个拆分后的行动添加进入行动清单。</p><p>如果有2分钟内就可以解决的事，那么应该立刻去做，不用写进行动清单里，比如：填个报销单。</p><p>有了以上的3个清单，我们脑袋里就不用装着沉甸甸的包袱，专注于清单中的事务就行。</p><h3 id="要事为先"><a href="#要事为先" class="headerlink" title="要事为先"></a>要事为先</h3><p>在行动清单里，列出了我们一天中（或某个时间段）需要做的事情。如何安排他们的优先顺序呢？要事为先！</p><p>把事务根据「重要性」和「紧急性」分类为四类：</p><ol><li>重要且紧急</li><li>重要但不紧急</li><li>不重要但紧急</li><li>不重要也不紧急</li></ol><p>重要且紧急的事情，当然是优先完成；不重要但紧急的事情如果可以转交别人完成，或者有礼貌地拒绝别人丢过来的任务；不重要也不紧急的就不要做了。</p><p>关键是重要而不紧急的行动，这个是关键。如果这类行动做的好，那么「重要且紧急」的事情就会少很多，多数的「重要且紧急」的事情都是因为没有处理好「重要但不紧急」的事情导致的。</p><p>怎么判断「重要性」呢？书中说是依据自己的职业价值观，即某事按照你的职业价值观能最大化你的收益，就是最重要的；不过我觉得一般不牵涉价值观，而仅仅涉及到工作中实际的效用，即业务的实际情况。</p><p>怎么判断「紧急性」呢？依据事务的截止日期。比如：这个需求很简单，你看着办，明天给我。如果说这句话的是某个产品，你可能想怼他；但如果是老板，立马变成了一个「紧急性」超高的任务。</p><a id="more"></a><h2 id="如何完成复杂项目"><a href="#如何完成复杂项目" class="headerlink" title="如何完成复杂项目"></a>如何完成复杂项目</h2><p>面对复杂项目或复杂任务，我们往往拖延症发作，焦虑，不知道从何入手，一直拖延到死线降至，潦草完事。</p><p>系统的方法则是：确认目标与任务分解。</p><h3 id="确认目标"><a href="#确认目标" class="headerlink" title="确认目标"></a>确认目标</h3><p>目标要落地，在制定时就要合理，可以采用SMART原则：</p><ul><li>Specific，目标明确，不能模糊；</li><li>Measurable，可衡量，有实现的标准；</li><li>Attainable，可实现性，经过努力可以实现；</li><li>Relevant，与其他目标有相关性，对其他目标有帮助；</li><li>Time-based，有时限，在规定时间内达成。</li></ul><h3 id="任务分解的步骤"><a href="#任务分解的步骤" class="headerlink" title="任务分解的步骤"></a>任务分解的步骤</h3><p>对项目或任务进行分解，可以采用以下三个步骤：</p><ol><li>确认项目或任务的主要事项，可以先分出模块，在大类里面想这个模块里面的具体的小的任务。这个环节，可以利用「思维导图」来完成。</li><li>将步骤一中确定的各类任务，确定对应的成本、周期、负责人以及里程碑，并通过「甘特图」的形式展现。「甘特图」可以用Excel也可以用微软的Project软件来做。</li><li>最后，就是制定奖励规则，就是里程碑达成的奖励并且兑现，这样可以对自己或团队有相当的激励。</li></ol><h3 id="下一步行动的原则"><a href="#下一步行动的原则" class="headerlink" title="下一步行动的原则"></a>下一步行动的原则</h3><p>任务最终需要分解为「下一步行动」，这样我们才能真的去执行。分解的要素为：</p><ul><li>动词开头</li><li>内容清晰</li><li>描述结果</li><li>设置开始时间、周期、最后期限</li></ul><p>这样就非常清晰地知道自己下一步要做什么了。</p><h3 id="像打游戏一样做项目"><a href="#像打游戏一样做项目" class="headerlink" title="像打游戏一样做项目"></a>像打游戏一样做项目</h3><ul><li>明确的目标，这样可以进行行动；</li><li>明确的规则</li><li>即时反馈，比如里程碑奖励；</li><li>尽量做到自愿参与，来自规则的约束不如来自内在的动力</li></ul><p>以上这几点，同样适用于培养习惯。说到培养习惯，书中说：</p><blockquote><p>培养习惯的秘诀是少而慢，而不是多和快。</p><p>再微不足道的成就，都要大肆庆祝。培养习惯可以不是一个人的事，可以找到同道互相支持鼓励。</p></blockquote><h2 id="如何专注高效工作"><a href="#如何专注高效工作" class="headerlink" title="如何专注高效工作"></a>如何专注高效工作</h2><p>专注工作的目的是提高效率，因此主要手段在于：不受打扰以及精力充沛。</p><ul><li>番茄工作法</li><li>挑选时间段</li><li>拒绝别人的猴子</li></ul><h3 id="番茄工作法"><a href="#番茄工作法" class="headerlink" title="番茄工作法"></a>番茄工作法</h3><p>番茄工作法，就是专注工作一段时间并休息一段时间，专注工作的这段时间称为一个番茄。这里的关键点是：专注。</p><p>一般来说，可以采用一个番茄20分钟，然后休息5分钟；连续三个番茄，休息15分钟的方式。在番茄时间内，专注工作，不受打扰；主动休息是为了劳逸结合。</p><p>番茄时间根据实际情况可以调整，比如早上精力充沛，可以设置40分钟的番茄时间。</p><h3 id="挑选时间段"><a href="#挑选时间段" class="headerlink" title="挑选时间段"></a>挑选时间段</h3><p>我们得承认，某些时间段我们的工作效率就是高，也许是因为那时的精力充沛，也许是因为那个时间段内比较不被人打扰，比如早上刚上班以及快下班那会。</p><p>找到这样的时段，安排要事去完成。</p><h3 id="拒绝别人的猴子"><a href="#拒绝别人的猴子" class="headerlink" title="拒绝别人的猴子"></a>拒绝别人的猴子</h3><p>猴子，就是别人的事。别人的事，可能变成你的事。他解脱了，你就要背着这只猴子。</p><p>所以，要懂得用适当的、委婉的方式去处理别人可能丢给你的事，否则你需要做的事务可能会越来越多，且多半没有什么价值，最重要会浪费你自己的时间。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。&lt;/p&gt;
-&lt;p&gt;书中主要的核心内容有以下三点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;如何制作待办任务清单&lt;/li&gt;
-&lt;li&gt;如何完成复杂项目&lt;/li&gt;
-&lt;li&gt;如何专注地工作&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;如何制作待办任务清单&quot;&gt;&lt;a href=&quot;#如何制作待办任务清单&quot; class=&quot;headerlink&quot; title=&quot;如何制作待办任务清单&quot;&gt;&lt;/a&gt;如何制作待办任务清单&lt;/h2&gt;&lt;p&gt;任务清单可以让我们专注于做事，而不用时时刻刻去挂念其他任务。清单让我们清空大脑专注在某个事情上面。&lt;/p&gt;
-&lt;p&gt;制作任务清单主要有以下3个步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;用事务篮收集所有想到的被交付的或大或小的待办项目&lt;/li&gt;
-&lt;li&gt;将以上待办项目整理为三份清单加一份日程表&lt;/li&gt;
-&lt;li&gt;专注于行动清单，要事为先&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;收集任务&quot;&gt;&lt;a href=&quot;#收集任务&quot; class=&quot;headerlink&quot; title=&quot;收集任务&quot;&gt;&lt;/a&gt;收集任务&lt;/h3&gt;&lt;p&gt;我们平时会接到工作上领导派发的需求，以及自己职责内的事务。它们经常在我们正在忙于另一件事情时出现，我们不应当打断正在做的事情，而是要把这件事情加入待办事务篮。待办事务篮里面可能有打电话这样的小事，也可能有准备某项目的运营计划这样的大事。&lt;/p&gt;
-&lt;p&gt;收集的作用是为了不打断当前工作且不遗忘重要的事务，同时也是为后续正确地归类最准备。&lt;/p&gt;
-&lt;h3 id=&quot;归类清单&quot;&gt;&lt;a href=&quot;#归类清单&quot; class=&quot;headerlink&quot; title=&quot;归类清单&quot;&gt;&lt;/a&gt;归类清单&lt;/h3&gt;&lt;p&gt;将收集到任务根据「可行动」以及「时间」属性，分类添加到3个清单和1份日程表中。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;行动清单，该清单里都是直接行动的事项，有空就去做；任务是有多个行动组成的，由任务分解后的「下一步行动」也直接写进行动清单。比如：找工作，本身是不能立刻行动的，需要拆分为：写简历、投简历、准备面试等可行动事务。&lt;/li&gt;
-&lt;li&gt;项目清单，该清单类似任务清单，由多个行动组成。与任务的区别在于，任务多是靠一个人可以完成，而项目则需要与他人协作。比如：新游戏上线最终确认这个事情，就需要联合多部门进行。&lt;/li&gt;
-&lt;li&gt;将来清单，该清单上的事务是不确定某个时间要做，先记录上，待时机成熟时，会转变为行动清单或日程表或者被丢进垃圾箱。&lt;/li&gt;
-&lt;li&gt;日程表，就是在确定的未来某个时间需要做的行动，所以这里的行动要写的非常具体，免得过了一段时间忘记。需要转交给其他人完成的事务，也写在日程表里，提醒追踪和验收。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;任务和项目分解后，应该包含着多个「下一步行动」，这个拆分后的行动添加进入行动清单。&lt;/p&gt;
-&lt;p&gt;如果有2分钟内就可以解决的事，那么应该立刻去做，不用写进行动清单里，比如：填个报销单。&lt;/p&gt;
-&lt;p&gt;有了以上的3个清单，我们脑袋里就不用装着沉甸甸的包袱，专注于清单中的事务就行。&lt;/p&gt;
-&lt;h3 id=&quot;要事为先&quot;&gt;&lt;a href=&quot;#要事为先&quot; class=&quot;headerlink&quot; title=&quot;要事为先&quot;&gt;&lt;/a&gt;要事为先&lt;/h3&gt;&lt;p&gt;在行动清单里，列出了我们一天中（或某个时间段）需要做的事情。如何安排他们的优先顺序呢？要事为先！&lt;/p&gt;
-&lt;p&gt;把事务根据「重要性」和「紧急性」分类为四类：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;重要且紧急&lt;/li&gt;
-&lt;li&gt;重要但不紧急&lt;/li&gt;
-&lt;li&gt;不重要但紧急&lt;/li&gt;
-&lt;li&gt;不重要也不紧急&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;重要且紧急的事情，当然是优先完成；不重要但紧急的事情如果可以转交别人完成，或者有礼貌地拒绝别人丢过来的任务；不重要也不紧急的就不要做了。&lt;/p&gt;
-&lt;p&gt;关键是重要而不紧急的行动，这个是关键。如果这类行动做的好，那么「重要且紧急」的事情就会少很多，多数的「重要且紧急」的事情都是因为没有处理好「重要但不紧急」的事情导致的。&lt;/p&gt;
-&lt;p&gt;怎么判断「重要性」呢？书中说是依据自己的职业价值观，即某事按照你的职业价值观能最大化你的收益，就是最重要的；不过我觉得一般不牵涉价值观，而仅仅涉及到工作中实际的效用，即业务的实际情况。&lt;/p&gt;
-&lt;p&gt;怎么判断「紧急性」呢？依据事务的截止日期。比如：这个需求很简单，你看着办，明天给我。如果说这句话的是某个产品，你可能想怼他；但如果是老板，立马变成了一个「紧急性」超高的任务。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="读书" scheme="http://shenxiaobing.com/categories/reading/"/>
-    
-    
-      <category term="读书笔记" scheme="http://shenxiaobing.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="GTD" scheme="http://shenxiaobing.com/tags/GTD/"/>
-    
-      <category term="小强升职记" scheme="http://shenxiaobing.com/tags/%E5%B0%8F%E5%BC%BA%E5%8D%87%E8%81%8C%E8%AE%B0/"/>
-    
-      <category term="时间管理" scheme="http://shenxiaobing.com/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
