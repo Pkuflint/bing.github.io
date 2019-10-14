@@ -57,7 +57,7 @@
 </script>
 
   <meta name="description" content="通过苹果开发文档、搜索与挣扎摸索，我已经在App上实现了【消耗型商品】的内购。总结流程如下：  完成必须的准备工作 用有效的商品id创建SKProductRequest请求苹果服务器返回商品（SKProduct）。 用返回的有效的商品创建payment，并将payment加入苹果的支付队列。 监听队列，并根据监听到的交易状态进行适当的处理，尤其需要在交易完毕时关闭交易。  这方面的文档，我觉得苹果">
-<meta name="keywords" content="Swift,坑,IAP,In App Purchase,内购">
+<meta name="keywords" content="Swift,IAP,In App Purchase,内购,坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="苹果内购接入的坑与核心流程 - Swift">
 <meta property="og:url" content="http://shenxiaobing.com/2018/swift-iap-pitfalls/index.html">
@@ -472,13 +472,13 @@
             
               <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
             
-              <a href="/tags/坑/" rel="tag"><i class="fa fa-tag"></i> 坑</a>
-            
               <a href="/tags/IAP/" rel="tag"><i class="fa fa-tag"></i> IAP</a>
             
               <a href="/tags/In-App-Purchase/" rel="tag"><i class="fa fa-tag"></i> In App Purchase</a>
             
               <a href="/tags/内购/" rel="tag"><i class="fa fa-tag"></i> 内购</a>
+            
+              <a href="/tags/坑/" rel="tag"><i class="fa fa-tag"></i> 坑</a>
             
           </div>
         
@@ -699,7 +699,7 @@
   </div>
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script size="400" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>

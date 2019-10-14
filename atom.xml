@@ -535,13 +535,13 @@
     
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
     
-      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
-    
       <category term="IAP" scheme="http://shenxiaobing.com/tags/IAP/"/>
     
       <category term="In App Purchase" scheme="http://shenxiaobing.com/tags/In-App-Purchase/"/>
     
       <category term="内购" scheme="http://shenxiaobing.com/tags/%E5%86%85%E8%B4%AD/"/>
+    
+      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
     
   </entry>
   
