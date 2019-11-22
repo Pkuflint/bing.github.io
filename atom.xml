@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shenxiaobing.com/"/>
-  <updated>2019-10-12T20:24:32.060Z</updated>
+  <updated>2019-11-22T10:04:21.330Z</updated>
   <id>http://shenxiaobing.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初晴 - 有诗意的天气，有温度的诗句</title>
+    <link href="http://shenxiaobing.com/2019/chu-qing/"/>
+    <id>http://shenxiaobing.com/2019/chu-qing/</id>
+    <published>2019-11-22T09:46:59.000Z</published>
+    <updated>2019-11-22T10:04:21.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近完成了Flutter的入门课程，使得进行android开发成为了可能。我起初想把我原来的《爱跑》应用重写一遍，研究了几天发现没有适合的能够在后台运行的定位相关插件，所以暂时作罢。flutter在这方面确实还有一些不足，官方给的后台运行的相关指引文章，太过复杂和不切重点了。</p><p>接下来确定参考iOS端的《雨时》这款app做一个拷贝版本。一两年前最初学iOS时就想做这个，最后没有完成。现在使用Flutter用了一周时间完成了基础功能，命名为《初晴》。</p><p>这个应用就是调用了3个API来实现获取天气数据，获取随机诗词，获取随机一句话功能。界面如下。</p><img style="zoom:50%;" data-src="./chu-qing/Screenshot_2019-11-15-15-24-56-108_com.shenxiaobing.sunny_flutter.jpg"><img style="zoom:50%;" data-src="./chu-qing/Screenshot_2019-11-15-15-25-11-812_com.shenxiaobing.sunny_flutter.jpg"><p>因为调用的都是免费API，所以不太好大面积传播。所以我只想传到google play商店和iOS付费版。但iOS审核被拒，应用太过简单，仅仅是聚合了网络内容。所以，作罢。</p><p>我上传到了百度云，有喜欢的可以直接下载使用。安卓下载地址如下：</p><blockquote><p>链接:<a href="https://pan.baidu.com/s/1jESY3211-vo7X1FzhGYLww" target="_blank" rel="noopener">https://pan.baidu.com/s/1jESY3211-vo7X1FzhGYLww</a>  密码:lmfs</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近完成了Flutter的入门课程，使得进行android开发成为了可能。我起初想把我原来的《爱跑》应用重写一遍，研究了几天发现没有适合的能够在后台运行的定位相关插件，所以暂时作罢。flutter在这方面确实还有一些不足，官方给的后台运行的相关指引文章，太过复杂和不切重点了
+      
+    
+    </summary>
+    
+    
+      <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>零基础自学编程有多难</title>
@@ -206,9 +230,9 @@
     <link href="http://shenxiaobing.com/2018/app-for-13-week-run-program/"/>
     <id>http://shenxiaobing.com/2018/app-for-13-week-run-program/</id>
     <published>2018-08-04T15:05:26.000Z</published>
-    <updated>2018-08-04T15:52:54.000Z</updated>
+    <updated>2019-11-22T10:05:41.635Z</updated>
     
-    <content type="html"><![CDATA[<p>《爱上跑步的13周》提供了完整的13周跑步训练计划。该计划核心在于循序渐进地提升运动量，在避免运动受伤的前提下，用13周让几乎任何体能状况的人完成自己的10公里跑。</p><p>心动不如行动。</p><p>但实际行动起来，却发现要完全跟随计划有点困难，因为这套训练计划的核心是跑步与走路相结合。我们需要知道什么时候该跑步，什么时候该走路。</p><p>《爱跑十三周》这个工具型app就是为此而生。</p><ul><li>下载地址：<a href="https://itunes.apple.com/app/id1403686503" target="_blank" rel="noopener">https://itunes.apple.com/app/id1403686503</a> </li><li>或苹果商店搜索「爱跑十三周」下载。</li></ul><p>《爱跑十三周》的主要功能如下：</p><a id="more"></a><h3 id="一、内置完整13周训练计划"><a href="#一、内置完整13周训练计划" class="headerlink" title="一、内置完整13周训练计划"></a>一、内置完整13周训练计划</h3><p>《爱跑十三周》100%还原《爱上跑步的13周》中制定的训练计划，包括中后期的「跑步多一些」和「走路多一些」选项，也都可以在《爱跑十三周》中进行设定。</p><p><img alt="http://ok9tj9t1d.bkt.clouddn.com/WechatIMG41.jpeg" data-src="http://ok9tj9t1d.bkt.clouddn.com/WechatIMG41.jpeg"></p><h3 id="二、后台语音提示，践行计划无压力"><a href="#二、后台语音提示，践行计划无压力" class="headerlink" title="二、后台语音提示，践行计划无压力"></a>二、后台语音提示，践行计划无压力</h3><p>根据训练计划，在跑步与走路需要切换时，会有语音提示。再也不用担心跟不上计划了。</p><p>同时，每满1公里，还会有语音提示。即使熄灭手机跑步，一样可以在切换跑步走路时进行语音提示。</p><h3 id="三、实时GPS数据，一目了然"><a href="#三、实时GPS数据，一目了然" class="headerlink" title="三、实时GPS数据，一目了然"></a>三、实时GPS数据，一目了然</h3><p>基于GPS，可以实时看到自己跑步的速度、距离、卡路里。跑完，还可以看到自己跑步的路线。</p><p><img alt data-src="http://ok9tj9t1d.bkt.clouddn.com/WechatIMG40.jpeg"></p><h3 id="四、详细运动记录，方便回顾"><a href="#四、详细运动记录，方便回顾" class="headerlink" title="四、详细运动记录，方便回顾"></a>四、详细运动记录，方便回顾</h3><p>每次运动，这款专属《爱上跑步的13周》的工具软件都会记录详细的跑步数据以及跑步路线。</p><p><img alt data-src="http://ok9tj9t1d.bkt.clouddn.com/WechatIMG39.jpeg"></p><p><img alt data-src="http://ok9tj9t1d.bkt.clouddn.com/WechatIMG38.jpeg"></p><h3 id="五、跑步提醒，规律运动"><a href="#五、跑步提醒，规律运动" class="headerlink" title="五、跑步提醒，规律运动"></a>五、跑步提醒，规律运动</h3><p>每隔2天，系统会提醒你该进行下一次训练了。就是这样。</p><blockquote><p>如果你想践行《爱上跑步的13周》跑步计划，这就是你最佳的工具软件App。</p></blockquote><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>最后，再发一次下载地址，仅支持苹果手机哦！</p><ul><li>下载地址：<a href="https://itunes.apple.com/app/id1403686503" target="_blank" rel="noopener">https://itunes.apple.com/app/id1403686503</a> </li><li>或苹果商店搜索「爱跑十三周」下载。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>《爱上跑步的13周》提供了完整的13周跑步训练计划。该计划核心在于循序渐进地提升运动量，在避免运动受伤的前提下，用13周让几乎任何体能状况的人完成自己的10公里跑。</p><p>心动不如行动。</p><p>但实际行动起来，却发现要完全跟随计划有点困难，因为这套训练计划的核心是跑步与走路相结合。我们需要知道什么时候该跑步，什么时候该走路。</p><p>《爱跑十三周》这个工具型app就是为此而生。</p><ul><li>下载地址：<a href="https://itunes.apple.com/cn/app/id1403686503" target="_blank" rel="noopener">https://itunes.apple.com/cn/app/id1403686503</a> </li><li>或苹果商店搜索「爱跑十三周」下载。</li></ul><p>《爱跑十三周》的主要功能如下：</p><a id="more"></a><h3 id="一、内置完整13周训练计划"><a href="#一、内置完整13周训练计划" class="headerlink" title="一、内置完整13周训练计划"></a>一、内置完整13周训练计划</h3><p>《爱跑十三周》100%还原《爱上跑步的13周》中制定的训练计划，包括中后期的「跑步多一些」和「走路多一些」选项，也都可以在《爱跑十三周》中进行设定。除了基础计划，还包括进阶的13周维持计划和13周快跑计划，完全还原原书计划。</p><p><img alt="program" data-src="./app-for-13-week-run-program/program.png"></p><h3 id="二、后台语音提示，践行计划无压力"><a href="#二、后台语音提示，践行计划无压力" class="headerlink" title="二、后台语音提示，践行计划无压力"></a>二、后台语音提示，践行计划无压力</h3><h3 id="二、后台语音提示，践行计划无压力-1"><a href="#二、后台语音提示，践行计划无压力-1" class="headerlink" title="二、后台语音提示，践行计划无压力"></a>二、后台语音提示，践行计划无压力</h3><p>根据训练计划，在跑步与走路需要切换时，会有语音提示。再也不用担心跟不上计划了。</p><p>同时，每满1公里，还会有语音提示。即使熄灭手机跑步，一样可以在切换跑步走路时进行语音提示。</p><h3 id="三、实时GPS数据，一目了然"><a href="#三、实时GPS数据，一目了然" class="headerlink" title="三、实时GPS数据，一目了然"></a>三、实时GPS数据，一目了然</h3><p>基于GPS，可以实时看到自己跑步的速度、距离、卡路里。跑完，还可以看到自己跑步的路线。</p><img alt="IMG_0008" style="zoom:50%;" data-src="./app-for-13-week-run-program/IMG_0008.PNG"><h3 id="四、详细运动记录，方便回顾"><a href="#四、详细运动记录，方便回顾" class="headerlink" title="四、详细运动记录，方便回顾"></a>四、详细运动记录，方便回顾</h3><p>每次运动，这款专属《爱上跑步的13周》的工具软件都会记录详细的跑步数据以及跑步路线。</p><img alt="record" style="zoom:50%;" data-src="/Users/bing/Documents/blog/source/_posts/2018/08/app-for-13-week-run-program/record.png"><h3 id="五、跑步提醒，规律运动"><a href="#五、跑步提醒，规律运动" class="headerlink" title="五、跑步提醒，规律运动"></a>五、跑步提醒，规律运动</h3><p>每隔2天，系统会提醒你该进行下一次训练了。就是这样。</p><blockquote><p>如果你想践行《爱上跑步的13周》跑步计划，这就是你最佳的工具软件App。</p></blockquote><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>最后，再发一次下载地址，仅支持苹果手机哦！</p><ul><li>下载地址：<a href="https://itunes.apple.com/cn/app/id1403686503" target="_blank" rel="noopener">https://itunes.apple.com/cn/app/id1403686503</a> </li><li>或苹果商店搜索「爱跑十三周」下载。</li></ul>]]></content>
     
     <summary type="html">
     
@@ -217,7 +241,7 @@
 &lt;p&gt;但实际行动起来，却发现要完全跟随计划有点困难，因为这套训练计划的核心是跑步与走路相结合。我们需要知道什么时候该跑步，什么时候该走路。&lt;/p&gt;
 &lt;p&gt;《爱跑十三周》这个工具型app就是为此而生。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;下载地址：&lt;a href=&quot;https://itunes.apple.com/app/id1403686503&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://itunes.apple.com/app/id1403686503&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;下载地址：&lt;a href=&quot;https://itunes.apple.com/cn/app/id1403686503&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://itunes.apple.com/cn/app/id1403686503&lt;/a&gt; &lt;/li&gt;
 &lt;li&gt;或苹果商店搜索「爱跑十三周」下载。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;《爱跑十三周》的主要功能如下：&lt;/p&gt;
@@ -323,9 +347,9 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
       <category term="引用类型" scheme="http://shenxiaobing.com/tags/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/"/>
     
@@ -362,9 +386,9 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
       <category term="Loalization" scheme="http://shenxiaobing.com/tags/Loalization/"/>
     
@@ -396,9 +420,9 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
       <category term="App" scheme="http://shenxiaobing.com/tags/App/"/>
     
@@ -535,13 +559,13 @@
     
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
     
+      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
+    
       <category term="IAP" scheme="http://shenxiaobing.com/tags/IAP/"/>
     
       <category term="In App Purchase" scheme="http://shenxiaobing.com/tags/In-App-Purchase/"/>
     
       <category term="内购" scheme="http://shenxiaobing.com/tags/%E5%86%85%E8%B4%AD/"/>
-    
-      <category term="坑" scheme="http://shenxiaobing.com/tags/%E5%9D%91/"/>
     
   </entry>
   
@@ -569,9 +593,9 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
+    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
       <category term="自学" scheme="http://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/"/>
     
@@ -661,38 +685,11 @@
       <category term="编程" scheme="http://shenxiaobing.com/categories/programming/"/>
     
     
-      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
-    
       <category term="Swift" scheme="http://shenxiaobing.com/tags/Swift/"/>
     
       <category term="Core Data" scheme="http://shenxiaobing.com/tags/Core-Data/"/>
     
-  </entry>
-  
-  <entry>
-    <title>我现在相信的</title>
-    <link href="http://shenxiaobing.com/2018/things-i-believe/"/>
-    <id>http://shenxiaobing.com/2018/things-i-believe/</id>
-    <published>2018-03-26T08:15:11.000Z</published>
-    <updated>2018-03-27T07:46:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>尽管对立的理论都能找到足够多的论据和拥趸，每个人，包括我，还是会对某一方的理论更为认同。尽管这种认同并不能增加理论的正确性，理清自己认同的东西还是很有必要。</p><ol><li><p>有钱很好。</p><p> 有了钱，可以为父母实现愿望，让他们高兴；有了钱，可以购买更多的选项；有了钱，甚至可以为父母或自己买来更长的寿命；有了钱，可以免除相当一部分的忧虑和恐惧。</p></li><li><p>幸福不是终点，也不是绝对的。</p><p> 幸福只可能是短暂的。一开始你觉得幸福，适应后，你不再有幸福感。面对相同的一种情形，有人会觉得幸福，有人会觉得难以忍受。追求幸福，其实就像是追求一个泡影，一个注定会迅速消逝的东西。</p><p> 追求幸福，不如平静。</p></li><li><p>追寻意义有意义。</p><p> 对于个体的人，意义不是天赋的，不是不证自明的。换成有一部分人的话来说，人生本来没有意义。但对于个体，至少是对于部分个体，追寻意义是植入底层的，是从小到大受到的教育的结果。即使不断地对自己说，意义都是假的，人还是不愿意接受一个毫无意义的世界。</p><p> 如果世界上没有意义，我的存在还有什么意义？所以，尽管我们可以说，很多人所谓的意义不过是自我欺骗或者大众合谋，但我们还是无法否认意义感的意义。「我相信」跟「这是真的」，哪个更有意义呢？</p></li><li><p>爱情也许存在，但本质上是短暂的。</p><p> 爱情，必须转化为其他形态的关系，才能长久。我不相信天长地久的爱情，我相信某种长久的关系，但你很难称之为爱情。</p></li></ol><p>未完待续… … </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;尽管对立的理论都能找到足够多的论据和拥趸，每个人，包括我，还是会对某一方的理论更为认同。尽管这种认同并不能增加理论的正确性，理清自己认同的东西还是很有必要。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;有钱很好。&lt;/p&gt;
-&lt;p&gt; 有了钱，可以为父母实现愿望，让他们高兴；有了钱，可以购买
-      
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="http://shenxiaobing.com/categories/essay/"/>
-    
+      <category term="iOS" scheme="http://shenxiaobing.com/tags/iOS/"/>
     
   </entry>
   
