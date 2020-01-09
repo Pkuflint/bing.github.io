@@ -6,18 +6,18 @@
     <description>Recent content in 有感 on Shen Xiaobing blogs here.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 14 Nov 2016 23:10:42 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Dec 2016 15:41:30 +0000</lastBuildDate>
     
 	<atom:link href="http://shenxiaobing.com/tags/%E6%9C%89%E6%84%9F/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>蜿蜒前行</title>
-      <link>http://shenxiaobing.com/2016/no-straight-forward/</link>
-      <pubDate>Mon, 14 Nov 2016 23:10:42 +0800</pubDate>
+      <title>你的智商不怎么高呀——Gitbook踩坑记</title>
+      <link>http://shenxiaobing.com/2016/your-iq-not-so-high/</link>
+      <pubDate>Sun, 04 Dec 2016 15:41:30 +0000</pubDate>
       
-      <guid>http://shenxiaobing.com/2016/no-straight-forward/</guid>
-      <description>我一直都很羡慕那些走直线的人，那些知道自己想要什么并能够付诸行动去争取的人。 大学本科的专业在现实中没什么市场，有人就利用本科和研究生的时间备</description>
+      <guid>http://shenxiaobing.com/2016/your-iq-not-so-high/</guid>
+      <description>&lt;p&gt;最近在用Gitbook整理工作中的FAQ。这两天遇到了一点Gitbook上的问题，纠结了很久，前后得有整整10个小时吧。Google并没有帮到我，而最后的结果，让我有了这篇文字标题的感受。&lt;/p&gt;</description>
     </item>
     
   </channel>

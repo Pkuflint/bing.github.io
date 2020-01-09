@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>编程 on Shen Xiaobing blogs here.</title>
+    <link>http://shenxiaobing.com/tags/%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in 编程 on Shen Xiaobing blogs here.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 13 Oct 2019 04:16:59 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/tags/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>零基础自学编程有多难</title>
+      <link>http://shenxiaobing.com/2019/how-hard-is-self-taught-programming/</link>
+      <pubDate>Sun, 13 Oct 2019 04:16:59 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2019/how-hard-is-self-taught-programming/</guid>
+      <description>&lt;p&gt;一个零基础的文科生学编程有多难？为什么单把文科生拎出来，这里不是歧视文科生，只是想强调过往没有任何的编程和计算机基础这一点，而大多数理工科的毕业生多少都有一点基础。&lt;/p&gt;
+&lt;p&gt;我到现在都不能说自己是个程序员，但我自认为有足够曲折的编程自学经历来现身说法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>自学编程6年，从入门到放弃</title>
+      <link>http://shenxiaobing.com/2018/from-zero-to-quit/</link>
+      <pubDate>Wed, 20 Jun 2018 02:49:00 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/from-zero-to-quit/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;我会用4种编程语言写出Hello World！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;2013年-c语言&#34;&gt;2013年 C语言&lt;/h2&gt;
+&lt;p&gt;自学编程的想法，最早应该可以追溯到2013年，证据就是我于当时写下的博客，以及博客中提到的新买的、后来被村长带走的《C语言编程》。我已经记不得当时为何要学编程，为何要从C语言开始，以及那本书我看了多少。&lt;/p&gt;
+&lt;p&gt;不过，打出上面最后一句话后，我还是想起来了：当时我没能用C语言打出&lt;code&gt;Hello World!&lt;/code&gt;就放弃了，因为没弄好编译器。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iOS on Shen Xiaobing blogs here.</title>
+    <link>http://shenxiaobing.com/tags/ios/</link>
+    <description>Recent content in iOS on Shen Xiaobing blogs here.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Jul 2018 12:33:33 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>我的App审核简史</title>
+      <link>http://shenxiaobing.com/2018/a-brief-history-of-app-review/</link>
+      <pubDate>Fri, 27 Jul 2018 12:33:33 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/a-brief-history-of-app-review/</guid>
+      <description>&lt;p&gt;两款应用终于过审了。记录下过程，以备参考。&lt;/p&gt;
+&lt;p&gt;先交代下两款应用的背景：&lt;/p&gt;
+&lt;p&gt;应用一：爱跑十三周，跑步应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题；&lt;/p&gt;
+&lt;p&gt;应用二：魔板拼图，解谜游戏应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>I made an app</title>
+      <link>http://shenxiaobing.com/2018/i-made-an-app/</link>
+      <pubDate>Fri, 29 Jun 2018 11:03:50 +0000</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/i-made-an-app/</guid>
+      <description>&lt;p&gt;我的第一个App终于提审了。&lt;/p&gt;
+&lt;p&gt;从2015年开始，我就念叨着要做一个App；而2016和2017年的年度目标之一就是上架一个App。但直到现在，2018年，我才真正完成我的第一款App。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iOS工程的本地化-Swift</title>
+      <link>http://shenxiaobing.com/2018/localization-of-ios-project/</link>
+      <pubDate>Fri, 29 Jun 2018 14:20:39 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/localization-of-ios-project/</guid>
+      <description>&lt;p&gt;应用如果需要根据设备语言显示不同的语言，就需要进行本地化的工作。就iOS工程而言，需要本地化的内容主要有：文字、图片、语音。一般而言，图片和语言的本地化，都可以转化为实质上的字符串的本地化。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;info.plist本地化&lt;/li&gt;
+&lt;li&gt;代码字符串本地化&lt;/li&gt;
+&lt;li&gt;storyboard, xib文件本地化&lt;/li&gt;
+&lt;li&gt;launchScreen.storyboard本地化&lt;/li&gt;
+&lt;li&gt;图片本地化&lt;/li&gt;
+&lt;li&gt;一次性导出本地化文件&lt;/li&gt;
+&lt;li&gt;新增内容的本地化&lt;/li&gt;
+&lt;li&gt;多人协作下使用自定义Localizable.strings文件&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>自学路上的坑01 - Scheme勾选项带来的一些列问题</title>
+      <link>http://shenxiaobing.com/2018/self-taught-swift-lesson-01/</link>
+      <pubDate>Wed, 20 Jun 2018 07:43:51 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/self-taught-swift-lesson-01/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中勾选&lt;code&gt;Malloc Stack&lt;/code&gt;会导致每次Xcode覆盖安装App都预先占用一定量的数据存储空间，且由于某种原因，本来每次存储几十KB的数据结果占用了几十MB；同时，这个勾选项还会导致&lt;code&gt;Instrument - Leak&lt;/code&gt;界面出现名为&lt;code&gt;&amp;lt;Allocated Prior To Attach&amp;gt;&lt;/code&gt;的Leak。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中&lt;code&gt;Zombie Object&lt;/code&gt;调试结束要记得关掉，否则会在&lt;code&gt;Instrument - Leak&lt;/code&gt;界面产生大量的名为&lt;code&gt;Zombie Object&lt;/code&gt;的Leak。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Core Data入门</title>
+      <link>http://shenxiaobing.com/2018/beginning-core-data/</link>
+      <pubDate>Thu, 26 Apr 2018 13:49:23 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/beginning-core-data/</guid>
+      <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

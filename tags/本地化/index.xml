@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>本地化 on Shen Xiaobing blogs here.</title>
+    <link>http://shenxiaobing.com/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/</link>
+    <description>Recent content in 本地化 on Shen Xiaobing blogs here.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 29 Jun 2018 14:20:39 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iOS工程的本地化-Swift</title>
+      <link>http://shenxiaobing.com/2018/localization-of-ios-project/</link>
+      <pubDate>Fri, 29 Jun 2018 14:20:39 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/localization-of-ios-project/</guid>
+      <description>&lt;p&gt;应用如果需要根据设备语言显示不同的语言，就需要进行本地化的工作。就iOS工程而言，需要本地化的内容主要有：文字、图片、语音。一般而言，图片和语言的本地化，都可以转化为实质上的字符串的本地化。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;info.plist本地化&lt;/li&gt;
+&lt;li&gt;代码字符串本地化&lt;/li&gt;
+&lt;li&gt;storyboard, xib文件本地化&lt;/li&gt;
+&lt;li&gt;launchScreen.storyboard本地化&lt;/li&gt;
+&lt;li&gt;图片本地化&lt;/li&gt;
+&lt;li&gt;一次性导出本地化文件&lt;/li&gt;
+&lt;li&gt;新增内容的本地化&lt;/li&gt;
+&lt;li&gt;多人协作下使用自定义Localizable.strings文件&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GTD on Shen Xiaobing blogs here.</title>
+    <link>http://shenxiaobing.com/tags/gtd/</link>
+    <description>Recent content in GTD on Shen Xiaobing blogs here.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 07 Mar 2018 17:15:20 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/tags/gtd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>做事靠系统——读《小强升职记》</title>
+      <link>http://shenxiaobing.com/2018/getting-things-done/</link>
+      <pubDate>Wed, 07 Mar 2018 17:15:20 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/getting-things-done/</guid>
+      <description>&lt;p&gt;《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。&lt;/p&gt;
+&lt;p&gt;书中主要的核心内容有以下三点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何制作待办任务清单&lt;/li&gt;
+&lt;li&gt;如何完成复杂项目&lt;/li&gt;
+&lt;li&gt;如何专注地工作&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客 on Shen Xiaobing blogs here.</title>
+    <link>http://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/</link>
+    <description>Recent content in 博客 on Shen Xiaobing blogs here.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 24 Nov 2016 00:45:29 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>博客是什么</title>
+      <link>http://shenxiaobing.com/2016/what-is-blog-for/</link>
+      <pubDate>Thu, 24 Nov 2016 00:45:29 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2016/what-is-blog-for/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;The powerful play goes on, and we may contribute a verse.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是我的博客的副标题，一句来自电影《死亡诗社》中的台词：人生的大幕拉开，我可以贡献一诗篇。&lt;/p&gt;
+&lt;p&gt;这本是我对这个博客站点的期许：一个提供价值的地方。&lt;/p&gt;
+&lt;p&gt;但实事求是地说，他最大的可能性也仅仅是，对一部分人在特定的时刻有价值。大多数的时候，包括现在，以及近期的将来，博客的文章数量和质量应该都不尽如人意。那么继续写的意义何在？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

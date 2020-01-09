@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Core Data on Shen Xiaobing blogs here.</title>
+    <link>http://shenxiaobing.com/tags/core-data/</link>
+    <description>Recent content in Core Data on Shen Xiaobing blogs here.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 26 Apr 2018 13:49:23 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/tags/core-data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Core Data入门</title>
+      <link>http://shenxiaobing.com/2018/beginning-core-data/</link>
+      <pubDate>Thu, 26 Apr 2018 13:49:23 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/2018/beginning-core-data/</guid>
+      <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
