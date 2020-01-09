@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Shen Xiaobing blogs here.</title>
+    <link>http://shenxiaobing.com/categories/</link>
+    <description>Recent content in Categories on Shen Xiaobing blogs here.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 14 Nov 2016 23:10:42 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>生活</title>
+      <link>http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Mon, 14 Nov 2016 23:10:42 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
