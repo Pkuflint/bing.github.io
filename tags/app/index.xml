@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>App on Shen Xiaobing独立博客：慎思笃行</title>
-    <link>http://shenxiaobing.com/tags/app/</link>
-    <description>Recent content in App on Shen Xiaobing独立博客：慎思笃行</description>
+    <title>App on A Possible Verse</title>
+    <link>https://shenxiaobing.com/tags/app/</link>
+    <description>Recent content in App on A Possible Verse</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 29 Jun 2018 11:03:50 +0000</lastBuildDate>
     
-	<atom:link href="http://shenxiaobing.com/tags/app/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shenxiaobing.com/tags/app/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>I made an app</title>
-      <link>http://shenxiaobing.com/2018/i-made-an-app/</link>
+      <link>https://shenxiaobing.com/posts/2019/i-made-an-app/</link>
       <pubDate>Fri, 29 Jun 2018 11:03:50 +0000</pubDate>
       
-      <guid>http://shenxiaobing.com/2018/i-made-an-app/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/i-made-an-app/</guid>
       <description>&lt;p&gt;我的第一个App终于提审了。&lt;/p&gt;
 &lt;p&gt;从2015年开始，我就念叨着要做一个App；而2016和2017年的年度目标之一就是上架一个App。但直到现在，2018年，我才真正完成我的第一款App。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>App百万富翁的共同点 ——读《APP创富传奇》</title>
-      <link>http://shenxiaobing.com/2014/app-millionaire/</link>
+      <link>https://shenxiaobing.com/posts/2019/app-millionaire/</link>
       <pubDate>Thu, 02 Oct 2014 18:54:57 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2014/app-millionaire/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/app-millionaire/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;他们只有一台iPhone、一台从eBay上淘来的MacBook和几本编程手册。简单的电子设备加上一些想象力，就是那些最终成为超级明星和App百万富翁的人们的全部工具。&lt;/p&gt;
 &lt;/blockquote&gt;

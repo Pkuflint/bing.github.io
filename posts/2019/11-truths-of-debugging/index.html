@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#222ddd">
+	<meta name="msapplication-TileColor" content="#222ddd">
+<meta itemprop="name" content="关于调试的11个真相">
+<meta itemprop="description" content="原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。
+
+直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！
+">
+<meta itemprop="datePublished" content="2018-01-26T15:31:59&#43;08:00" />
+<meta itemprop="dateModified" content="2018-01-26T15:31:59&#43;08:00" />
+<meta itemprop="wordCount" content="1803">
+
+
+
+<meta itemprop="keywords" content="调试,debug,翻译," /><meta property="og:title" content="关于调试的11个真相" />
+<meta property="og:description" content="原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。
+
+直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shenxiaobing.com/posts/2019/11-truths-of-debugging/" />
+<meta property="article:published_time" content="2018-01-26T15:31:59+08:00" />
+<meta property="article:modified_time" content="2018-01-26T15:31:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于调试的11个真相"/>
+<meta name="twitter:description" content="原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。
+
+直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！
+"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>关于调试的11个真相</title>
+	<link rel="stylesheet" href="https://shenxiaobing.com/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://shenxiaobing.com">A Possible Verse</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://shenxiaobing.com/posts/">文章</a>
+				<a href="https://shenxiaobing.com/categories/">分类</a>
+				<a href="https://shenxiaobing.com/tags/">标签</a>
+				<a href="https://shenxiaobing.com/about/">关于</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="mailto:xiaobingshen@foxmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=208221147&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener me" title="Qq"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path transform="scale(0.04) translate(75 40)" stroke-width="50" d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://shenxiaobing.com/posts/">文章</a></li>
+			<li><a href="https://shenxiaobing.com/categories/">分类</a></li>
+			<li><a href="https://shenxiaobing.com/tags/">标签</a></li>
+			<li><a href="https://shenxiaobing.com/about/">关于</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>2018-01-26</span></div>
+				<h1>关于调试的11个真相</h1>
+			</header>
+			<div class="content">
+				<p>原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。</p>
+<ol>
+<li>直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！</li>
+</ol>
+<ol start="2">
+<li>
+<p>不要寻找复杂的解释。即使是最简单的疏忽或错别字都会造成非常诡异的行为。认真地看代码，不要想着代码太简单不可能出错，就对简单语句一扫而过。</p>
+</li>
+<li>
+<p>代码出问题的线索在你变量的值以及条件语句的流程中。尽力去看事实是怎样的。电脑不会误导你。从事实出发。</p>
+</li>
+<li>
+<p>要有系统性，要坚持不懈。别慌张！Bug 又不会在你的代码里乱动，也不会去欺骗或者躲避你。它只是呆在那个地方，每次都以相同的方式做着错误的事情。</p>
+</li>
+<li>
+<p>如果你的代码一分钟前还好好的，现在却出问题了，那么你最后一次改动了什么？这是条超级可靠的经验法则，也就是为什么你的小组长告诉你代码要边写边测试，而不是到最后一起测试。</p>
+</li>
+<li>
+<p>不要为了追踪 bug 去随意地改动代码。这就好像科学家在做实验时一次性更改了不止一个变量。这会让我们更难解释观察到的行为，而且你可能会引入新的 bug。</p>
+</li>
+<li>
+<p>如果你发现有些代码错误，但是看起来跟你要追踪的 bug 并不相关，也要顺手修复这些代码错误。许多时候错误的代码与 bug 是相关联的或者是以你没有想象到的方式掩盖了bug。</p>
+</li>
+<li>
+<p>你应当能够像福尔摩斯一样解释一系列的事实，测试和最终引导你找到 bug 的推论。而如果有一个 bug 而你又无法定位它，你应当尝试去跟一个认真的第三方论证为什么你的每一个函数不可能有 bug。其中一份论证会有漏洞，因为你的某个函数事实上有 bug。尝试构建论证可能会帮助你发现这个漏洞。</p>
+</li>
+<li>
+<p>对自己代码的信心要有批判心态。当你直觉某个函数是无辜的，那几乎不可能发现这个函数中的 bug。只有当事实证明毫无疑问某个函数不是问题的源头，你才可以假定它是正确的。</p>
+</li>
+<li>
+<p>尽管你需要系统地 debug，但还是会需要信心、预感和猜测等。在你系统性地搜寻 bug 时，用你的直觉去指导搜寻的顺序。先去检查你最怀疑的函数。好的直觉从经验中获得。</p>
+</li>
+<li>
+<p>debug 依靠客观和理性的路径。它依赖对你的代码作用的理解以及全局的合理判断。debug 比写代码还要耗费心智。当你尝试追踪 bug 而无果的时间越长，你会越不能理智判断。当你意识到无法对你的代码 debug 进行理智判断时，休息一下，睡个觉。当你思路不清时你没法 debug。很多时候一个程序员在深夜花费数个小时去定位 bug 却最终在凌晨4点放弃。第二天他们10分钟内就找到了 bug。什么让他们能够在第二天这么快地找到 bug？也许他们只是需要睡眠以及合理判断恢复的时间。或者可能他们的潜意识在他们睡觉的时候想出来了。不管怎样，「去干会别的事情，回来，然后立即找到 bug 」这样的场景太常见，不可能只是意外。</p>
+</li>
+</ol>
+<p>以下是原文：</p>
+<ol>
+<li>
+<p>Intuition and hunches are great—you just have to test them out. When a hunch and a fact collide, the fact wins. That's life in the city.</p>
+</li>
+<li>
+<p>Don’t look for complex explanations. Even the simplest omission or typo can lead to very weird behavior. Everyone is capable producing extremely simple and obvious errors from
+time to time. Look at code critically—don’t just sweep your eye over that series of simple statements assuming that they are too simple to be wrong.</p>
+</li>
+<li>
+<p>The clue to what is wrong in your code is in the values of your variables and the flow of
+control. Try to see what the facts are pointing to. The computer is not trying to mislead
+you. Work from the facts.</p>
+</li>
+<li>
+<p>Be systematic and persistent. Don’t panic. The bug is not moving around in your code,
+trying to trick or evade you. It is just sitting in one place, doing the wrong thing in the same
+way every time.</p>
+</li>
+<li>
+<p>If you code was working a minute ago, but now it doesn’t—what was the last thing you
+changed? This incredibly reliable rule of thumb is the reason your section leader told you
+to test your code as you go rather than all at once.</p>
+</li>
+<li>
+<p>Do not change your code haphazardly trying to track down a bug. This is sort of like a
+scientist who changes more than one variable in an experiment at a time. It makes the
+observed behavior much more difficult to interpret, and you tend to introduce new bugs.</p>
+</li>
+<li>
+<p>If you find some wrong code that does not seem to be related to the bug you were tracking,
+fix the wrong code anyway. Many times the wrong code was related to or obscured the bug
+in a way you had not imagined.</p>
+</li>
+<li>
+<p>You should be able to explain in Sherlock Holmes style the series of facts, tests, and
+deductions that led you to find a bug. Alternately, if you have a bug but can’t pinpoint it,
+then you should be able to give an argument to a critical third party detailing why each one
+of your functions cannot contain the bug. One of these arguments will contain a flaw since
+one of your functions does in fact contain a bug. Trying to construct the arguments may
+help you to see the flaw.</p>
+</li>
+<li>
+<p>Be critical of your beliefs about your code. It’s almost impossible to see a bug in a function
+when your instinct is that the function is innocent. Only when the facts have proven
+without question that the function is not the source of the problem should you assume it to
+be correct.</p>
+</li>
+<li>
+<p>Although you need to be systematic, there is still an enormous amount of room for beliefs,
+hunches, guesses, etc. Use your intuition about where the bug probably is to direct the
+order that you check things in your systematic search. Check the functions you suspect the
+most first. Good instincts will come with experience.</p>
+</li>
+<li>
+<p>Debugging depends on an objective and reasoned approach. It depends on overall
+perspective and understanding of the workings of your code. Debugging code is more
+mentally demanding than writing code. The longer you try to track down a bug without
+success, the less perspective you tend to have. Realize when you have lost the perspective
+on your code to debug. Take a break. Get some sleep. You cannot debug when you are not
+seeing things clearly. Many times a programmer can spend hours late at night hunting for a
+bug only to finally give up at 4:00A.M. The next day, they find the bug in 10 minutes. What
+allowed them to find the bug the next day so quickly? Maybe they just needed some sleep
+and time for perspective. Or maybe their subconscious figured it out while they were asleep.
+In any case, the ―go do something else for a while, come back, and find the bug
+immediately‖ scenario happens too often to be an accident.</p>
+<p>— Nick Parlante, Stanford University</p>
+</li>
+</ol>
+			</div>
+
+<div class="related-posts thin">
+	<h2></h2>
+	<ul>
+	
+	<li><a href="/posts/2019/how-to-raise-kids-to-be-billionaire/">「Quora」如何培养孩子成为亿万富翁？</a></li>
+	
+	</ul>
+</div>
+
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://shenxiaobing.com/tags/%E8%B0%83%E8%AF%95">调试</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/debug">debug</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/%E7%BF%BB%E8%AF%91">翻译</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2018-01-26 15:31</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://shenxiaobing.com/posts/2019/hello-brad/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>那一刻，我感觉到一种疼痛 —— 观《你好，波拉德》</span>
+			</a>
+			<a class="prev-post" href="https://shenxiaobing.com/posts/2019/an-overview-of-local-board-game/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>我所知的地方棋牌</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://shenxiaobing.com">Shen Xiaobing</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://shenxiaobing.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://shenxiaobing.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

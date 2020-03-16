@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#222ddd">
+	<meta name="msapplication-TileColor" content="#222ddd">
+<meta itemprop="name" content="《CDN技术详解》笔记——CDN是什么">
+<meta itemprop="description" content="最近粗略地读完了《CDN技术详解》这本书。书中有一部分几乎完全是只看得懂文字而看不懂意思，附录的技术实操部分也直接跳过。尽管如此，读完了还是很有收获，不仅仅对CDN的理解更深了一些，对网络相关的内容如DNS协议、SSL协议等也顺带地了解了一些。
+本文根据该书的阅读笔记整理而成，简要地介绍了CDN的作用、原理和类型等。">
+<meta itemprop="datePublished" content="2017-02-08T15:52:25&#43;08:00" />
+<meta itemprop="dateModified" content="2017-02-08T15:52:25&#43;08:00" />
+<meta itemprop="wordCount" content="2795">
+
+
+
+<meta itemprop="keywords" content="读书笔记,工作,CDN," /><meta property="og:title" content="《CDN技术详解》笔记——CDN是什么" />
+<meta property="og:description" content="最近粗略地读完了《CDN技术详解》这本书。书中有一部分几乎完全是只看得懂文字而看不懂意思，附录的技术实操部分也直接跳过。尽管如此，读完了还是很有收获，不仅仅对CDN的理解更深了一些，对网络相关的内容如DNS协议、SSL协议等也顺带地了解了一些。
+本文根据该书的阅读笔记整理而成，简要地介绍了CDN的作用、原理和类型等。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shenxiaobing.com/posts/2019/reading-notes-what-is-cdn/" />
+<meta property="article:published_time" content="2017-02-08T15:52:25+08:00" />
+<meta property="article:modified_time" content="2017-02-08T15:52:25+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《CDN技术详解》笔记——CDN是什么"/>
+<meta name="twitter:description" content="最近粗略地读完了《CDN技术详解》这本书。书中有一部分几乎完全是只看得懂文字而看不懂意思，附录的技术实操部分也直接跳过。尽管如此，读完了还是很有收获，不仅仅对CDN的理解更深了一些，对网络相关的内容如DNS协议、SSL协议等也顺带地了解了一些。
+本文根据该书的阅读笔记整理而成，简要地介绍了CDN的作用、原理和类型等。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>《CDN技术详解》笔记——CDN是什么</title>
+	<link rel="stylesheet" href="https://shenxiaobing.com/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://shenxiaobing.com">A Possible Verse</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://shenxiaobing.com/posts/">文章</a>
+				<a href="https://shenxiaobing.com/categories/">分类</a>
+				<a href="https://shenxiaobing.com/tags/">标签</a>
+				<a href="https://shenxiaobing.com/about/">关于</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="mailto:xiaobingshen@foxmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=208221147&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener me" title="Qq"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path transform="scale(0.04) translate(75 40)" stroke-width="50" d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://shenxiaobing.com/posts/">文章</a></li>
+			<li><a href="https://shenxiaobing.com/categories/">分类</a></li>
+			<li><a href="https://shenxiaobing.com/tags/">标签</a></li>
+			<li><a href="https://shenxiaobing.com/about/">关于</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>2017-02-08</span></div>
+				<h1>《CDN技术详解》笔记——CDN是什么</h1>
+			</header>
+			<div class="content">
+				<p>最近粗略地读完了《CDN技术详解》这本书。书中有一部分几乎完全是只看得懂文字而看不懂意思，附录的技术实操部分也直接跳过。尽管如此，读完了还是很有收获，不仅仅对CDN的理解更深了一些，对网络相关的内容如DNS协议、SSL协议等也顺带地了解了一些。</p>
+<p>本文根据该书的阅读笔记整理而成，简要地介绍了CDN的作用、原理和类型等。</p>
+<h2 id="cdn是什么">CDN是什么<a href="#cdn是什么" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>CDN，英文名Content Distribute Network或者Content Delivery Network，中文名内容分发网络。顾名思义，就是协助网络内容的分发。CDN本质上是服务器集群和一套调度系统。通过服务器集群，覆盖更广的用户；通过调度系统分配最合适的服务器给用户访问，从而能够让最广大的用户群体更快地访问到网络内容。</p>
+<h2 id="为什么需要cdn">为什么需要CDN<a href="#为什么需要cdn" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>网站A的服务器架在广州电信机房，如果没有CDN，全国各地的用户都会直接向这台服务器请求内容，就有可能出现以下几个问题：</p>
+<ol>
+<li>同时访问量大了，网站的服务器性能不足或者带宽不足。</li>
+<li>从较远的物理位置（比如哈尔滨电信）来请求，经过大量中间节点造成延时。</li>
+<li>如果用户不是电信网络，那么可能又会有延迟发生，因为不同宽带运营商互联互通的带宽有限，是经常发生拥堵的地方。</li>
+<li>这种直接访问会占用中心节点带宽，造成拥堵，同样可能会影响体验。</li>
+</ol>
+<p>这些都是体验上的问题，同样还有成本上的考量。假如网站A想要自己动手搭建更多遍布全国的服务器来解决问题的话，成本非常高。除非网站A是流量巨大的网站，否则自建都不划算。</p>
+<p>在CDN出现之前，解决这些问题的办法有：自建服务器集群、镜像技术和缓存技术。而CDN就是缓存技术的发展，可以认为是缓存技术的分布式集群实现。</p>
+<h2 id="cdn的加速原理">CDN的加速原理<a href="#cdn的加速原理" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>CDN将网站的内容分发到（缓存到）遍布全部各个城市和地区的边缘节点上，同时通过调度系统（负载均衡系统）将不同地区不同运营商的用户合理调度到最适合的边缘节点以及节点内的服务器。</p>
+<p>这样，CDN承载了网站的大部分流量，降低了网站压力；同时利用边缘节点，不走骨干网络减少骨干网络拥堵；而CDN的调度又避开了不同运营商互联互通；大量的分布全国的边缘节点实现了就近访问；同时，网站不需要承载巨量的CDN建设成本，只需要按照带宽付费即可。</p>
+<h3 id="网站接入cdn">网站接入CDN<a href="#网站接入cdn" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>以下是网站接入CDN的典型步骤：</p>
+<ol>
+<li>将需要加速的域名，添加一个由CDN提供的CNAME。这样用户在访问加速域名时，实际上会访问到这个CNAME。</li>
+<li>CNAME在解析时会使用CDN的权威域名服务器。在那里根据DNS，去判断用户的物理位置和运营商情况等，然后返回边缘节点服务器ip客户端。</li>
+<li>客户端再次请求返回的ip，边缘节点服务器由本地负载均衡服务器根据用户请求内容、节点服务器状态等动态因素去判断哪台服务器可以提供服务，通过302重定向到那台服务器。</li>
+</ol>
+<h2 id="cdn的架构">CDN的架构<a href="#cdn的架构" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>CDN从组成架构上主要由四个部分组成：分发系统、负载均衡系统、网络管理系统和运营系统。分发系统，就是由各级节点组成；负载均衡系统，就是根据节点情况和用户请求情况按照既定负载均衡策略进行合理调度的系统；网络管理系统，是给运维进行操作，同时也会收集各个节点的信息，为负载均衡系统的运行提供依据；运营系统，则是CDN商业化所需，提供各类查询服务。</p>
+<p>CDN在以上组成部分中，又有多级架构，即：中心层-区域层-边缘层。每层的每个节点都有对应的分发系统、负载均衡系统和网络管理系统。设置多级架构的初衷是，减少向源站请求的次数。</p>
+<p>CDN的一大作用就是降低源站的压力，尤其是视频网站，因为流量巨大。采用多级架构，则在每个层级都有所请求内容的缓存，如果边缘没有，就去查询区域层，如果有，就取回来；如果区域层也没有，就去中心层；如果中心层也没，就去源站请求，然后缓存在中心层。这种架构可以有效地降低需要去源站请求（回源）的频次。当然了，缓存本身也是有存储成本的，实际也不会把全部内容都缓存，即使缓存也不会每个边缘节点都缓存。这方面会综合性能和成本做平衡的考量。</p>
+<h3 id="负载均衡策略">负载均衡策略<a href="#负载均衡策略" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>负载均衡分为基于四层和基于七层的，基于四层的不了解请求内容，基于七层的可以根据请求内容解析结果更为精准地完成调度。</p>
+<p>负载均衡需要考虑的因素有：</p>
+<ul>
+<li>物理距离（基于本地DNS判断，如果DNS配置错误，则会调度不合理）</li>
+<li>ip地址</li>
+<li>服务器健康状况</li>
+<li>会话保持：相同客户的连贯业务解析到相同服务器</li>
+<li>响应时间</li>
+<li>会话能力阈值</li>
+<li>服务器本身权重：比如费用</li>
+<li>往返时间</li>
+<li>其他信息：比如服务器当前可用会话数，最少选择次数</li>
+</ul>
+<p>基于以上因素，可以有静态策略和动态策略。静态策略是实现就固定的策略，动态策略则会考虑用户请求内容以及服务器状态等因素。一般情况下，会是两类策略的结合。</p>
+<h2 id="cdn加速类型">CDN加速类型<a href="#cdn加速类型" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>CDN加速类型，基本上分为静态内容加速和动态内容加速。静态内容，就是大家访问时看到的都一样，比如视频、图片、网页等；而动态内容，就是不一样的，比如社交网站的时间线、购物网站的搜索结果等动态网页。</p>
+<p>静态内容加速，又分为了：网页加速、流媒体加速、文件传输加速和应用协议加速。应用协议加速，指的是企业应用在局域网和广域网传输的加速，也包括HTTPS的SSL加速。</p>
+<p>不同加速类型的特点不同，所使用的服务器配置也不同，因此一般针对不同加速类型都是配置独立的系统，一般不共用。</p>
+<h3 id="不同加速类型的实现原理">不同加速类型的实现原理<a href="#不同加速类型的实现原理" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>这里特别要说的是SSL加速和动态加速。</p>
+<p>HTTPS的实现方式要求在请求期间有较大量的计算，因此实现SSL加速一般是通过硬件来实现的。通过在服务器上添加SSL加速版或者将SSL加速板加在专用的SSL加速设备上来实现。</p>
+<p>动态网页，一般包括4个部分：网页表现层（静态）、业务逻辑层、业务数据层、用户数据层。要想实现部分或者全部的动态网页加速的话，就要在边缘节点服务器中复制业务逻辑层来实现“边缘计算”，以及业务数据层和用户数据层。这样，用户在边缘节点就可以完成动态页面的访问。不过，这个方式要注意边缘节点数据库与中心节点的同步与一致。</p>
+<h3 id="流媒体加速原理">流媒体加速原理<a href="#流媒体加速原理" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<p>流媒体，分为直播和点播加速。点播的话，基本上是将点播文件切成小块，然后根据实际情况分散缓存到边缘节点。</p>
+<p>直播的话，内容无法提前缓存，在实际请求中，边缘节点会向上级节点去请求然后分发。虽然这个过程中没有了提前缓存带来的效率，但同样可以降低源站的压力，同样可以将用户调度到最合适的节点来提升效率。</p>
+<h2 id="cdn未来的发展">CDN未来的发展<a href="#cdn未来的发展" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>CDN与云计算在混搭产生新的业务，比如云主机直接搭载CDN服务，比如未云主机服务的CDN等。
+CDN与P2P技术也可以进行融合，来实现降低成本与提高效率。</p>
+<p>相对于外国的顶尖CDN公司，国内CDN公司的增值较低，基本上就是转卖IDC资源。在CDN行业已成蓝海的情况下，为长尾用户推出特色服务，增加更多服务特色才有服务增值的可能。</p>
+<p>这本书读起来挺难的，里面有很多偏技术的内容，无法理解；还有一些，只能熟悉下相关的名词；好一点的，就是能够理解其表达的逻辑。</p>
+<p>即使是如此，这个依然是CDN行业的必读书，其他介绍CDN的一般性书籍基本上就不用读了。</p>
+			</div>
+
+<div class="related-posts thin">
+	<h2></h2>
+	<ul>
+	
+	<li><a href="/posts/2019/reading-notes-rich-dad-poor-dad/">《富爸爸穷爸爸》——从转变观念开始</a></li>
+	
+	<li><a href="/posts/2019/reading-notes-yuzui1/">《余罪1》——连前传都撑不起来的系列第一部</a></li>
+	
+	<li><a href="/posts/2019/reading-notes-dao-shang-shu-dian/">《岛上书店》——像看电影一样读小说</a></li>
+	
+	<li><a href="/posts/2019/read-bei-ye-wu/">读《北野武自述》——一本由他人代笔的评论集</a></li>
+	
+	<li><a href="/posts/2019/read-wan-wan-mei-xiang-dao/">本故事纯属虚构——读《万万没想到：生活就是喜剧》</a></li>
+	
+	</ul>
+</div>
+
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://shenxiaobing.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0">读书笔记</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/%E5%B7%A5%E4%BD%9C">工作</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/cdn">CDN</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2017-02-08 15:52</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://shenxiaobing.com/posts/2019/about-real-estate/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>在中国买房子——读《欧成效文集》</span>
+			</a>
+			<a class="prev-post" href="https://shenxiaobing.com/posts/2019/reading-notes-rich-dad-poor-dad/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>《富爸爸穷爸爸》——从转变观念开始</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://shenxiaobing.com">Shen Xiaobing</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://shenxiaobing.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://shenxiaobing.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

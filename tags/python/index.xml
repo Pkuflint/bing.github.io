@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Shen Xiaobing独立博客：慎思笃行</title>
-    <link>http://shenxiaobing.com/tags/python/</link>
-    <description>Recent content in python on Shen Xiaobing独立博客：慎思笃行</description>
+    <title>python on A Possible Verse</title>
+    <link>https://shenxiaobing.com/tags/python/</link>
+    <description>Recent content in python on A Possible Verse</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Thu, 05 Sep 2019 10:14:44 +0800</lastBuildDate>
     
-	<atom:link href="http://shenxiaobing.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shenxiaobing.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python正则表达式CheatSheet</title>
-      <link>http://shenxiaobing.com/2019/python-regular-expression-cheatsheet/</link>
+      <link>https://shenxiaobing.com/posts/2019/python-regular-expression-cheatsheet/</link>
       <pubDate>Thu, 05 Sep 2019 10:14:44 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2019/python-regular-expression-cheatsheet/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/python-regular-expression-cheatsheet/</guid>
       <description>&lt;p&gt;这里是正则表达式常用表示法与函数，以备查询。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>如何用 Python 生成带 Logo 二维码</title>
-      <link>http://shenxiaobing.com/2018/make-qr-with-logo-in-python/</link>
+      <link>https://shenxiaobing.com/posts/2019/make-qr-with-logo-in-python/</link>
       <pubDate>Fri, 09 Nov 2018 15:21:41 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2018/make-qr-with-logo-in-python/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/make-qr-with-logo-in-python/</guid>
       <description>&lt;p&gt;如何用 Python 生成像微信名片那样的中间带有 Logo 的二维码？使用 Python 的qrcode模块可以很容易做到。&lt;/p&gt;</description>
     </item>
     

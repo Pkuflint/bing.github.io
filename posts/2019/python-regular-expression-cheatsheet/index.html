@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#222ddd">
+	<meta name="msapplication-TileColor" content="#222ddd">
+<meta itemprop="name" content="Python正则表达式CheatSheet">
+<meta itemprop="description" content="这里是正则表达式常用表示法与函数，以备查询。">
+<meta itemprop="datePublished" content="2019-09-05T10:14:44&#43;08:00" />
+<meta itemprop="dateModified" content="2019-09-05T10:14:44&#43;08:00" />
+<meta itemprop="wordCount" content="1230">
+
+
+
+<meta itemprop="keywords" content="python,正则表达式,cheatsheet,regular expression," /><meta property="og:title" content="Python正则表达式CheatSheet" />
+<meta property="og:description" content="这里是正则表达式常用表示法与函数，以备查询。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shenxiaobing.com/posts/2019/python-regular-expression-cheatsheet/" />
+<meta property="article:published_time" content="2019-09-05T10:14:44+08:00" />
+<meta property="article:modified_time" content="2019-09-05T10:14:44+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python正则表达式CheatSheet"/>
+<meta name="twitter:description" content="这里是正则表达式常用表示法与函数，以备查询。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Python正则表达式CheatSheet</title>
+	<link rel="stylesheet" href="https://shenxiaobing.com/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://shenxiaobing.com">A Possible Verse</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://shenxiaobing.com/posts/">文章</a>
+				<a href="https://shenxiaobing.com/categories/">分类</a>
+				<a href="https://shenxiaobing.com/tags/">标签</a>
+				<a href="https://shenxiaobing.com/about/">关于</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="mailto:xiaobingshen@foxmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=208221147&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener me" title="Qq"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path transform="scale(0.04) translate(75 40)" stroke-width="50" d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://shenxiaobing.com/posts/">文章</a></li>
+			<li><a href="https://shenxiaobing.com/categories/">分类</a></li>
+			<li><a href="https://shenxiaobing.com/tags/">标签</a></li>
+			<li><a href="https://shenxiaobing.com/about/">关于</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>2019-09-05</span></div>
+				<h1>Python正则表达式CheatSheet</h1>
+			</header>
+			<div class="content">
+				<p>这里是正则表达式常用表示法与函数，以备查询。</p>
+<h2 id="符号">符号<a href="#符号" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="普通符号">普通符号<a href="#普通符号" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>表示法</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配任意字符，\n除外</td>
+<td>b.b，表示以b开头以b结尾的任意字符串</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配0-9的数字字符</td>
+<td>\d{3}，表示3个数字</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配任意字母数字下划线字符</td>
+<td>\w+，至少一个字母数字下划线组合</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任何空格，与[\n\t\r\v\f]相同</td>
+<td>\s\s+，至少2个空格</td>
+</tr>
+<tr>
+<td>[&hellip;]</td>
+<td>匹配括号内字符集的任意单一字符</td>
+<td>[aeiou]，匹配aeiou这5个字符中的一个</td>
+</tr>
+<tr>
+<td>[x-y]</td>
+<td>匹配x~y之间任意字符</td>
+<td>[0-9]，匹配0-9这10个数字，同\d</td>
+</tr>
+<tr>
+<td>\N</td>
+<td>匹配已保存的子组，N是子组的序号</td>
+<td>\2，表示已匹配的第2个子组</td>
+</tr>
+<tr>
+<td>\c</td>
+<td>c是一个特殊字符，匹配非转义的字符</td>
+<td>\, \*</td>
+</tr>
+<tr>
+<td>literal</td>
+<td>表示字面值</td>
+<td>输入什么，就匹配什么</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>与\d相反，匹配非数字</td>
+<td></td>
+</tr>
+<tr>
+<td>\W</td>
+<td>与\w相反，匹配非字母数字下划线</td>
+<td></td>
+</tr>
+<tr>
+<td>\S</td>
+<td>与\s相反，匹配非空格</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="辅助符号">辅助符号<a href="#辅助符号" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>表示法</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>匹配0次或多次，默认贪婪</td>
+<td></td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配1次或多次，默认贪婪</td>
+<td></td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配0次或1次，默认贪婪</td>
+<td></td>
+</tr>
+<tr>
+<td>{N}</td>
+<td>匹配N次</td>
+<td></td>
+</tr>
+<tr>
+<td>{M, N}</td>
+<td>匹配M~N次，默认贪婪</td>
+<td></td>
+</tr>
+<tr>
+<td>?</td>
+<td>在上述符号后面，加上?，转为非贪婪</td>
+<td></td>
+</tr>
+<tr>
+<td>|</td>
+<td>表示或，用在两个表达式之间</td>
+<td></td>
+</tr>
+<tr>
+<td>^（或者\A）</td>
+<td>匹配字符串起始部分</td>
+<td></td>
+</tr>
+<tr>
+<td>$（或者\Z）</td>
+<td>匹配字符串结束部分</td>
+<td></td>
+</tr>
+<tr>
+<td>[^&hellip;]</td>
+<td>不匹配字符集内的字符</td>
+<td></td>
+</tr>
+<tr>
+<td>\b</td>
+<td>表示在字符串边界，即开始或结尾</td>
+<td>\bthe，表示以the开头字符串；\bthe\b，表示the</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>与\b相反，表示不在边界</td>
+<td>\Bthe，表示字符串不以the开头</td>
+</tr>
+</tbody>
+</table>
+<h3 id="扩展符号">扩展符号<a href="#扩展符号" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>表示法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?iLmsux</td>
+<td>加入特殊标记</td>
+</tr>
+<tr>
+<td>(?:&hellip;)</td>
+<td>括号内的匹配不分组</td>
+</tr>
+<tr>
+<td>(?=&hellip;)</td>
+<td>匹配…出现在之后的位置</td>
+</tr>
+<tr>
+<td>(?!&hellip;)</td>
+<td>匹配…不出现在之后的位置</td>
+</tr>
+<tr>
+<td>(?&lt;=&hellip;)</td>
+<td>匹配…出现在之前的位置</td>
+</tr>
+<tr>
+<td>(?&lt;!&hellip;)</td>
+<td>匹配…不出现在之前的位置</td>
+</tr>
+<tr>
+<td>(?(id/name)Y/N)</td>
+<td>如果id或name对应的分组存在，则返回Y，否则返回N</td>
+</tr>
+<tr>
+<td>(?P<!-- raw HTML omitted -->&hellip;)</td>
+<td>由name标识而不是数字id标识的分组匹配</td>
+</tr>
+<tr>
+<td>(?P=name)</td>
+<td>在同一个字符串中匹配由(?P<!-- raw HTML omitted -->)分组的文本</td>
+</tr>
+</tbody>
+</table>
+<h2 id="函数">函数<a href="#函数" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<h3 id="常用函数">常用函数<a href="#常用函数" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>match(pattern, string, flags=0)</td>
+<td>从字符串起始位置，匹配1次，起始必须匹配</td>
+</tr>
+<tr>
+<td>search</td>
+<td>从字符串左侧开始，匹配1次，起始不必匹配</td>
+</tr>
+<tr>
+<td>findall</td>
+<td>查找所有匹配，返回列表</td>
+</tr>
+<tr>
+<td>finditer</td>
+<td>查找所有匹配，返回迭代器</td>
+</tr>
+<tr>
+<td>split(pattern, string, max=0)</td>
+<td>返回根据pattern分割后字符串列表，默认分割max次</td>
+</tr>
+<tr>
+<td>sub(pattern, repl, string, count=0)</td>
+<td>替换所有匹配pattern并返回新字符串，默认替换无数次</td>
+</tr>
+<tr>
+<td>groups</td>
+<td>返回包括所有匹配子组的元组，若无匹配，则为空元组</td>
+</tr>
+<tr>
+<td>group(num=0)</td>
+<td>返回指定序号的子组，若编号为0，则返回整个匹配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用模块属性">常用模块属性<a href="#常用模块属性" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>模块属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.I, re.IGNORECASE</td>
+<td>不区分大小写</td>
+</tr>
+<tr>
+<td>re.L, re.LOCALE</td>
+<td>根据使用的本地语言环境通过\w \W \b \B \s \S实现匹配</td>
+</tr>
+<tr>
+<td>re.M, re.MULTILINE</td>
+<td>^ $ 分别匹配目标字符串每行的起始和结尾</td>
+</tr>
+<tr>
+<td>re.S, re.DOTALL</td>
+<td>.点号可以匹配\n</td>
+</tr>
+<tr>
+<td>re.X, re.VERBOSE</td>
+<td>允许忽略字符串中换行符和注释段落，增强可读性</td>
+</tr>
+</tbody>
+</table>
+<h3 id="函数调用示例">函数调用示例<a href="#函数调用示例" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 增加(?i)使匹配忽略大小写</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="s1">(?i)yes</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">yes? Yes. YES!</span><span class="s1">&#39;</span><span class="p">)</span>  
+<span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">yes</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">Yes</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">YES</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="c1"># 增加(?im)表示匹配忽略大小写，^$从每行开始和结束匹配。</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="s1">(?im)(^th[</span><span class="s1">\</span><span class="s1">w ]+)</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;&#34;&#34;</span><span class="s2"> </span><span class="s2">
+</span><span class="s2"></span><span class="s2">... This line is the first,</span><span class="s2">
+</span><span class="s2"></span><span class="s2">... another line,</span><span class="s2">
+</span><span class="s2"></span><span class="s2">... that line, it</span><span class="s2">&#39;</span><span class="s2">s the best.</span><span class="s2">
+</span><span class="s2"></span><span class="s2">... </span><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span>
+<span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">This line is the first</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">that line</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="c1"># ?:使用表示不分组，?(1)表示判断分组1是否存在</span>
+<span class="c1"># (?:(x)|y)，表示x或者y，但x是一个子组，整体却不是。即如果匹配到x，x是一个子组；匹配到y，y不是子组。</span>
+<span class="c1"># (?(1)y|x)，表示匹配到的第一个子组如果存在，即x存在，那么下一个应该是y；若不存在，下一个则是x。</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="s1">(?:(x)|y)(?(1)y|x)</span><span class="s1">&#39;</span>
+<span class="o">&gt;&gt;</span><span class="o">&gt;</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">xy</span><span class="s1">&#39;</span><span class="p">)</span><span class="p">)</span>
+<span class="o">.</span><span class="o">.</span><span class="o">.</span> <span class="bp">True</span>
+</code></pre></div>
+			</div>
+
+<div class="related-posts thin">
+	<h2></h2>
+	<ul>
+	
+	<li><a href="/posts/2019/make-qr-with-logo-in-python/">如何用 Python 生成带 Logo 二维码</a></li>
+	
+	</ul>
+</div>
+
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://shenxiaobing.com/tags/python">python</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/cheatsheet">cheatsheet</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/regular-expression">regular expression</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-09-05 10:14</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://shenxiaobing.com/posts/2019/how-hard-is-self-taught-programming/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>零基础自学编程有多难</span>
+			</a>
+			<a class="prev-post" href="https://shenxiaobing.com/posts/2019/say-no-to-wow-nostalgia-server/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>我为什么不玩魔兽世界怀旧服</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://shenxiaobing.com">Shen Xiaobing</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://shenxiaobing.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://shenxiaobing.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

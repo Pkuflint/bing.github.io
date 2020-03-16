@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>博客 on Shen Xiaobing独立博客：慎思笃行</title>
-    <link>http://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/</link>
-    <description>Recent content in 博客 on Shen Xiaobing独立博客：慎思笃行</description>
+    <title>博客 on A Possible Verse</title>
+    <link>https://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/</link>
+    <description>Recent content in 博客 on A Possible Verse</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Thu, 24 Nov 2016 00:45:29 +0800</lastBuildDate>
     
-	<atom:link href="http://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shenxiaobing.com/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>博客是什么</title>
-      <link>http://shenxiaobing.com/2016/what-is-blog-for/</link>
+      <link>https://shenxiaobing.com/posts/2019/what-is-blog-for/</link>
       <pubDate>Thu, 24 Nov 2016 00:45:29 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2016/what-is-blog-for/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/what-is-blog-for/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;The powerful play goes on, and we may contribute a verse.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -27,10 +28,10 @@
     
     <item>
       <title>我的独立博客正式上线了！</title>
-      <link>http://shenxiaobing.com/2014/first-blog/</link>
+      <link>https://shenxiaobing.com/posts/2019/first-blog/</link>
       <pubDate>Fri, 20 Jun 2014 18:12:04 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2014/first-blog/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/first-blog/</guid>
       <description>&lt;p&gt;前天晚上注册域名，今天晚上购买了香港的共享主机空间，现在，第一篇原创的博客即将诞生！&lt;/p&gt;
 &lt;p&gt;从大二时开始，我维护并放弃了至少5个博客，包括博客中国，天涯，新浪和网易博客。这里面写的久的也就半年20多篇文章。我是想说，我过去做的不好，没能坚持。而这次是一次新的开始。&lt;/p&gt;
 &lt;p&gt;为什么又要建一个自己的博客呢，而且还是花钱建的？&lt;/p&gt;</description>

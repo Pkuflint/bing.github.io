@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>WKWebView on Shen Xiaobing独立博客：慎思笃行</title>
-    <link>http://shenxiaobing.com/tags/wkwebview/</link>
-    <description>Recent content in WKWebView on Shen Xiaobing独立博客：慎思笃行</description>
+    <title>WKWebView on A Possible Verse</title>
+    <link>https://shenxiaobing.com/tags/wkwebview/</link>
+    <description>Recent content in WKWebView on A Possible Verse</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Thu, 28 Jun 2018 10:03:47 +0800</lastBuildDate>
     
-	<atom:link href="http://shenxiaobing.com/tags/wkwebview/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shenxiaobing.com/tags/wkwebview/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>仿照微信WebView实现ProgressBar</title>
-      <link>http://shenxiaobing.com/2018/progress-bar-like-wechat-webview/</link>
+      <link>https://shenxiaobing.com/posts/2019/progress-bar-like-wechat-webview/</link>
       <pubDate>Thu, 28 Jun 2018 10:03:47 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2018/progress-bar-like-wechat-webview/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/progress-bar-like-wechat-webview/</guid>
       <description>&lt;h2 id=&#34;两种进度条逻辑&#34;&gt;两种进度条逻辑&lt;/h2&gt;
 &lt;p&gt;在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。&lt;/p&gt;
 &lt;p&gt;还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：&lt;/p&gt;</description>

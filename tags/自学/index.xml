@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>自学 on Shen Xiaobing独立博客：慎思笃行</title>
-    <link>http://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/</link>
-    <description>Recent content in 自学 on Shen Xiaobing独立博客：慎思笃行</description>
+    <title>自学 on A Possible Verse</title>
+    <link>https://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/</link>
+    <description>Recent content in 自学 on A Possible Verse</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sun, 13 Oct 2019 04:16:59 +0800</lastBuildDate>
     
-	<atom:link href="http://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shenxiaobing.com/tags/%E8%87%AA%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>零基础自学编程有多难</title>
-      <link>http://shenxiaobing.com/2019/how-hard-is-self-taught-programming/</link>
+      <link>https://shenxiaobing.com/posts/2019/how-hard-is-self-taught-programming/</link>
       <pubDate>Sun, 13 Oct 2019 04:16:59 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2019/how-hard-is-self-taught-programming/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/how-hard-is-self-taught-programming/</guid>
       <description>&lt;p&gt;一个零基础的文科生学编程有多难？为什么单把文科生拎出来，这里不是歧视文科生，只是想强调过往没有任何的编程和计算机基础这一点，而大多数理工科的毕业生多少都有一点基础。&lt;/p&gt;
 &lt;p&gt;我到现在都不能说自己是个程序员，但我自认为有足够曲折的编程自学经历来现身说法。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>自学路上的坑01 - Scheme勾选项带来的一些列问题</title>
-      <link>http://shenxiaobing.com/2018/self-taught-swift-lesson-01/</link>
+      <link>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</link>
       <pubDate>Wed, 20 Jun 2018 07:43:51 +0800</pubDate>
       
-      <guid>http://shenxiaobing.com/2018/self-taught-swift-lesson-01/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;
 &lt;/blockquote&gt;

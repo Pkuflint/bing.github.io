@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#222ddd">
+	<meta name="msapplication-TileColor" content="#222ddd">
+<meta itemprop="name" content="仿照微信WebView实现ProgressBar">
+<meta itemprop="description" content="两种进度条逻辑
+在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。
+还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：">
+<meta itemprop="datePublished" content="2018-06-28T10:03:47&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-28T10:03:47&#43;08:00" />
+<meta itemprop="wordCount" content="2012">
+
+
+
+<meta itemprop="keywords" content="Swift,进度条,WKWebView," /><meta property="og:title" content="仿照微信WebView实现ProgressBar" />
+<meta property="og:description" content="两种进度条逻辑
+在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。
+还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://shenxiaobing.com/posts/2019/progress-bar-like-wechat-webview/" />
+<meta property="article:published_time" content="2018-06-28T10:03:47+08:00" />
+<meta property="article:modified_time" content="2018-06-28T10:03:47+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="仿照微信WebView实现ProgressBar"/>
+<meta name="twitter:description" content="两种进度条逻辑
+在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。
+还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑："/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>仿照微信WebView实现ProgressBar</title>
+	<link rel="stylesheet" href="https://shenxiaobing.com/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://shenxiaobing.com">A Possible Verse</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://shenxiaobing.com/posts/">文章</a>
+				<a href="https://shenxiaobing.com/categories/">分类</a>
+				<a href="https://shenxiaobing.com/tags/">标签</a>
+				<a href="https://shenxiaobing.com/about/">关于</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="mailto:xiaobingshen@foxmail.com" target="_blank" rel="noopener me" title="Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=208221147&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener me" title="Qq"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path transform="scale(0.04) translate(75 40)" stroke-width="50" d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://shenxiaobing.com/posts/">文章</a></li>
+			<li><a href="https://shenxiaobing.com/categories/">分类</a></li>
+			<li><a href="https://shenxiaobing.com/tags/">标签</a></li>
+			<li><a href="https://shenxiaobing.com/about/">关于</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>2018-06-28</span></div>
+				<h1>仿照微信WebView实现ProgressBar</h1>
+			</header>
+			<div class="content">
+				<h2 id="两种进度条逻辑">两种进度条逻辑<a href="#两种进度条逻辑" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。</p>
+<p>还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：</p>
+<blockquote>
+<p>打开网页，进度条就进到10%；</p>
+<p>再用3秒钟，进度条从10%走到60%；</p>
+<p>再用4秒钟，进度条从60%走到80%；</p>
+<p>再用8秒钟，进度条从80%走到90%；</p>
+<p>从90%位置开始，进度条开始反应真实的加载进度。若此时网络连接极差，那么将会在90%卡住很久。</p>
+<p>在以上的15秒内，若真实进度超过90%，则直接切换到真实进度，所以2秒打开的网页，也只会用2秒，不会固定加载15秒。</p>
+</blockquote>
+<p>从用户提交角度，可以对比不同网速下打开网页时进度条的表现：</p>
+<ul>
+<li>网速快，那么微信用3秒就进到60%，然后第4秒刷一下到100%；而Safari则是慢慢地移动到30%左右，然后刷的进到100%。</li>
+<li>网速慢，那么微信用15秒加载了90%，只差最后10%加载不出；而Safari则一直处于不足10%的加载状态。</li>
+</ul>
+<p>对于小白用户而言，微信的加载条让人『感觉』更快。</p>
+<p>除了这一点，<code>WKWebView</code>的<code>estimatedProgress</code>并不会均匀地返回结果。很可能第一次返回结果就是0.5，然后就是0.1。这样Safari加载时，会看到进度条忽快忽慢。</p>
+<p>总结起来：</p>
+<ul>
+<li><code>estimatedProgress</code>返回值不均匀，这样进度条进度并不平滑；</li>
+<li>虚假进度给人『更好』的用户体验。</li>
+</ul>
+<h2 id="仿微信网页进度条实现方式swift4">仿微信网页进度条实现方式Swift4<a href="#仿微信网页进度条实现方式swift4" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>该实现依赖于对KVO有一定的了解，若不了解，可以参考另一篇：<a href="http://pkuflint.me/2018/understanding-kvo-in-swift/">理解KVO - 用Swift在WKWebView中添加进度条</a></p>
+<p>首先，声明必要的变量。</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">我</span><span class="c1">们</span><span class="c1">的</span><span class="c1">网</span><span class="c1">页</span><span class="c1">，</span><span class="c1">因</span><span class="c1">为</span><span class="c1">要</span><span class="c1">使</span><span class="c1">用</span><span class="c1">K</span><span class="c1">V</span><span class="c1">O</span><span class="c1">，</span><span class="c1">所</span><span class="c1">以</span><span class="c1">对</span><span class="c1">象</span><span class="c1">必</span><span class="c1">须</span><span class="c1">添</span><span class="c1">加</span><span class="c1">@</span><span class="c1">o</span><span class="c1">b</span><span class="c1">j</span><span class="c1">c</span>
+<span class="kr">@objc</span> <span class="kd">var</span> <span class="nv">webView</span> <span class="p">=</span> <span class="n">WKWebView</span><span class="p">(</span><span class="p">)</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">我</span><span class="c1">们</span><span class="c1">要</span><span class="c1">监</span><span class="c1">听</span><span class="c1">的</span><span class="c1">另</span><span class="c1">一</span><span class="c1">个</span><span class="c1">对</span><span class="c1">象</span><span class="c1">，</span><span class="c1">即</span><span class="c1">网</span><span class="c1">页</span><span class="c1">加</span><span class="c1">载</span><span class="c1">时</span><span class="c1">间</span><span class="c1">，</span><span class="c1">同</span><span class="c1">样</span><span class="c1">因</span><span class="c1">为</span><span class="c1">要</span><span class="c1">使</span><span class="c1">用</span><span class="c1">K</span><span class="c1">V</span><span class="c1">O</span><span class="c1">，</span><span class="c1">属</span><span class="c1">性</span><span class="c1">要</span><span class="c1">添</span><span class="c1">加</span><span class="c1">@</span><span class="c1">o</span><span class="c1">b</span><span class="c1">j</span><span class="c1">c</span><span class="c1">和</span><span class="c1">d</span><span class="c1">y</span><span class="c1">n</span><span class="c1">a</span><span class="c1">m</span><span class="c1">i</span><span class="c1">c</span>
+<span class="kr">@objc</span> <span class="kr">dynamic</span> <span class="kd">var</span> <span class="nv">loadTime</span><span class="p">:</span> <span class="nb">Double</span> <span class="p">=</span> <span class="mf">0.0</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">这</span><span class="c1">个</span><span class="c1">是</span><span class="c1">我</span><span class="c1">们</span><span class="c1">的</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span>
+<span class="kd">var</span> <span class="nv">progressLayer</span><span class="p">:</span> <span class="n">CALayer</span><span class="p">!</span>
+<span class="c1">//</span><span class="c1"> </span><span class="c1">统</span><span class="c1">计</span><span class="c1">页</span><span class="c1">面</span><span class="c1">加</span><span class="c1">载</span><span class="c1">时</span><span class="c1">间</span><span class="c1">的</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">r</span>
+<span class="kd">var</span> <span class="nv">timer</span><span class="p">:</span> <span class="n">Timer</span><span class="p">?</span>
+
+<span class="c1">//</span><span class="c1"> </span><span class="c1">这</span><span class="c1">是</span><span class="c1">用</span><span class="c1">于</span><span class="c1">监</span><span class="c1">听</span><span class="c1">w</span><span class="c1">e</span><span class="c1">b</span><span class="c1">V</span><span class="c1">i</span><span class="c1">e</span><span class="c1">w</span><span class="c1">.</span><span class="c1">e</span><span class="c1">s</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">a</span><span class="c1">t</span><span class="c1">e</span><span class="c1">d</span><span class="c1">P</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1">和</span><span class="c1">l</span><span class="c1">o</span><span class="c1">a</span><span class="c1">d</span><span class="c1">T</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">的</span><span class="c1">两</span><span class="c1">个</span><span class="c1">监</span><span class="c1">听</span><span class="c1">对</span><span class="c1">象</span>
+<span class="kd">var</span> <span class="nv">progressObservation</span><span class="p">:</span> <span class="n">NSKeyValueObservation</span><span class="p">?</span>
+<span class="kd">var</span> <span class="nv">loadTimeObservation</span><span class="p">:</span> <span class="n">NSKeyValueObservation</span><span class="p">?</span>
+</code></pre></div><p>接着，创建进度条。</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">setUpWebView</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">webView</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">view</span><span class="p">.</span><span class="n">bounds</span>
+    <span class="n">webView</span><span class="p">.</span><span class="n">navigationDelegate</span> <span class="p">=</span> <span class="kc">self</span>
+    <span class="n">webView</span><span class="p">.</span><span class="n">autoresizingMask</span> <span class="p">=</span> <span class="p">[</span><span class="p">.</span><span class="n">flexibleWidth</span><span class="p">,</span> <span class="p">.</span><span class="n">flexibleHeight</span><span class="p">]</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="n">urlString</span><span class="p">!</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">url is nil</span><span class="s">&#34;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="n">webView</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">URLRequest</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span><span class="p">)</span>
+
+    <span class="kd">let</span> <span class="nv">progress</span> <span class="p">=</span> <span class="n">UIView</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span><span class="p">)</span>
+    <span class="n">webView</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+    <span class="n">progressLayer</span> <span class="p">=</span> <span class="n">CALayer</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">progressLayer</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="n">APPColor</span><span class="p">.</span><span class="n">orange</span><span class="p">.</span><span class="n">cgColor</span>
+    <span class="n">progress</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">addSublayer</span><span class="p">(</span><span class="n">progressLayer</span><span class="p">!</span><span class="p">)</span>
+
+    <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">webView</span><span class="p">)</span>
+    <span class="c1">//</span><span class="c1"> </span><span class="c1">设</span><span class="c1">置</span><span class="c1">初</span><span class="c1">始</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">位</span><span class="c1">置</span><span class="c1">为</span><span class="c1">1</span><span class="c1">0</span><span class="c1">%</span>
+    <span class="n">progressLayer</span><span class="p">!</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>声明遵循<code>WKNavigationDelegate </code>协议后，在协议方法中添加设置监听对象和包含对应处理方法的闭包。</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">webView</span><span class="p">(</span><span class="kc">_</span> <span class="n">webView</span><span class="p">:</span> <span class="n">WKWebView</span><span class="p">,</span> <span class="n">decidePolicyFor</span> <span class="n">navigationAction</span><span class="p">:</span> <span class="n">WKNavigationAction</span><span class="p">,</span> <span class="n">decisionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">WKNavigationActionPolicy</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="n">navigationAction</span><span class="p">.</span><span class="n">navigationType</span> <span class="p">{</span>
+    <span class="c1">//</span><span class="c1"> </span><span class="c1">o</span><span class="c1">t</span><span class="c1">h</span><span class="c1">e</span><span class="c1">r</span><span class="c1">类</span><span class="c1">型</span><span class="c1">，</span><span class="c1">直</span><span class="c1">接</span><span class="c1">从</span><span class="c1">外</span><span class="c1">部</span><span class="c1">赋</span><span class="c1">值</span><span class="c1">u</span><span class="c1">r</span><span class="c1">l</span><span class="c1">打</span><span class="c1">开</span><span class="c1">页</span><span class="c1">面</span><span class="c1">时</span><span class="c1">，</span><span class="c1">就</span><span class="c1">属</span><span class="c1">于</span><span class="c1">o</span><span class="c1">t</span><span class="c1">h</span><span class="c1">e</span><span class="c1">r</span>
+    <span class="k">case</span> <span class="p">.</span><span class="n">other</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">its an other situation</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">.</span><span class="n">reload</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">it&#39;s a reload situation</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">.</span><span class="n">backForward</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">its going back</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">.</span><span class="n">formResubmitted</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">resubmited</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">.</span><span class="n">formSubmitted</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">from submitted</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="c1">//</span><span class="c1"> </span><span class="c1">点</span><span class="c1">击</span><span class="c1">当</span><span class="c1">前</span><span class="c1">页</span><span class="c1">面</span><span class="c1">连</span><span class="c1">接</span><span class="c1">打</span><span class="c1">开</span><span class="c1">新</span><span class="c1">连</span><span class="c1">接</span>
+    <span class="k">case</span> <span class="p">.</span><span class="n">linkActivated</span><span class="p">:</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">link activited</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">startProgress</span><span class="p">(</span><span class="p">)</span>	<span class="c1">//</span><span class="c1"> </span><span class="c1">设</span><span class="c1">置</span><span class="c1">p</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1">B</span><span class="c1">a</span><span class="c1">r</span><span class="c1">初</span><span class="c1">始</span><span class="c1">状</span><span class="c1">态</span><span class="c1">，</span><span class="c1">并</span><span class="c1">添</span><span class="c1">加</span><span class="c1">观</span><span class="c1">察</span><span class="c1">，</span><span class="c1">参</span><span class="c1">考</span><span class="c1">下</span><span class="c1">文</span>
+    <span class="n">destroyTimer</span><span class="p">(</span><span class="p">)</span>	<span class="c1">//</span><span class="c1"> </span><span class="c1">保</span><span class="c1">险</span><span class="c1">起</span><span class="c1">见</span><span class="c1">，</span><span class="c1">再</span><span class="c1">摧</span><span class="c1">毁</span><span class="c1">一</span><span class="c1">次</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">r</span>
+    <span class="n">startTimer</span><span class="p">(</span><span class="p">)</span>	<span class="c1">//</span><span class="c1"> </span><span class="c1">启</span><span class="c1">动</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">r</span><span class="c1">开</span><span class="c1">始</span><span class="c1">计</span><span class="c1">时</span>
+	
+    <span class="c1">//</span><span class="c1"> </span><span class="c1">是</span><span class="c1">否</span><span class="c1">允</span><span class="c1">许</span><span class="c1">访</span><span class="c1">问</span>
+    <span class="n">decisionHandler</span><span class="p">(</span><span class="p">.</span><span class="n">allow</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">startTimer</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//</span><span class="c1"> </span><span class="c1">设</span><span class="c1">置</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">r</span><span class="c1">为</span><span class="c1">每</span><span class="c1">0</span><span class="c1">.</span><span class="c1">1</span><span class="c1">秒</span><span class="c1">为</span><span class="c1">l</span><span class="c1">o</span><span class="c1">a</span><span class="c1">d</span><span class="c1">T</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">赋</span><span class="c1">值</span><span class="c1">，</span><span class="c1">这</span><span class="c1">样</span><span class="c1">可</span><span class="c1">以</span><span class="c1">大</span><span class="c1">约</span><span class="c1">0</span><span class="c1">.</span><span class="c1">1</span><span class="c1">秒</span><span class="c1">就</span><span class="c1">修</span><span class="c1">改</span><span class="c1">一</span><span class="c1">次</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">，</span><span class="c1">看</span><span class="c1">起</span><span class="c1">来</span><span class="c1">更</span><span class="c1">平</span><span class="c1">滑</span>
+    <span class="n">timer</span> <span class="p">=</span> <span class="n">Timer</span><span class="p">.</span><span class="n">scheduledTimer</span><span class="p">(</span><span class="n">withTimeInterval</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">repeats</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="n">block</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">timer</span><span class="p">)</span> <span class="k">in</span>
+        <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
+        <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">loadTime</span> <span class="o">+=</span> <span class="mf">0.1</span>
+    <span class="p">}</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">destroyTimer</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">timer</span><span class="p">?</span><span class="p">.</span><span class="n">invalidate</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">loadTime</span> <span class="p">=</span> <span class="mf">0.0</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">startProgress</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">progressLayer</span><span class="p">.</span><span class="n">opacity</span> <span class="p">=</span> <span class="mi">1</span>
+    <span class="n">progressLayer</span><span class="p">!</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">setupObservations</span><span class="p">(</span><span class="p">)</span>	<span class="c1">//</span><span class="c1"> </span><span class="c1">设</span><span class="c1">置</span><span class="c1">监</span><span class="c1">听</span>
+<span class="p">}</span>
+
+<span class="c1">//</span><span class="c1"> </span><span class="c1">设</span><span class="c1">置</span><span class="c1">监</span><span class="c1">听</span>
+<span class="kd">func</span> <span class="nf">setupObservations</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">setupProgressObservation</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">setupLoadTimeObservation</span><span class="p">(</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//</span><span class="c1"> </span><span class="c1">停</span><span class="c1">止</span><span class="c1">监</span><span class="c1">听</span>
+<span class="kd">func</span> <span class="nf">stopObservations</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">progressObservation</span><span class="p">?</span><span class="p">.</span><span class="n">invalidate</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">loadTimeObservation</span><span class="p">?</span><span class="p">.</span><span class="n">invalidate</span><span class="p">(</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>下面是设置监听的具体方法，也是重头戏：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">监</span><span class="c1">听</span><span class="c1">w</span><span class="c1">e</span><span class="c1">b</span><span class="c1">V</span><span class="c1">i</span><span class="c1">e</span><span class="c1">w</span><span class="c1">.</span><span class="c1">e</span><span class="c1">s</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">a</span><span class="c1">t</span><span class="c1">e</span><span class="c1">d</span><span class="c1">P</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1">，</span><span class="c1">即</span><span class="c1">页</span><span class="c1">面</span><span class="c1">加</span><span class="c1">载</span><span class="c1">实</span><span class="c1">际</span><span class="c1">进</span><span class="c1">度</span>
+<span class="kd">func</span> <span class="nf">setupProgressObservation</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">progressObservation</span> <span class="p">=</span> <span class="n">webView</span><span class="p">.</span><span class="n">observe</span><span class="p">(</span><span class="err">\</span><span class="p">.</span><span class="n">estimatedProgress</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[</span><span class="p">.</span><span class="n">old</span><span class="p">,</span> <span class="p">.</span><span class="n">new</span><span class="p">]</span><span class="p">,</span> <span class="n">changeHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">webView</span><span class="p">,</span> <span class="n">change</span><span class="p">)</span> <span class="k">in</span>
+        <span class="kd">let</span> <span class="nv">newValue</span> <span class="p">=</span> <span class="n">change</span><span class="p">.</span><span class="n">newValue</span>  <span class="p">?</span><span class="p">?</span> <span class="mi">0</span>
+        <span class="kd">let</span> <span class="nv">oldValue</span> <span class="p">=</span> <span class="n">change</span><span class="p">.</span><span class="n">oldValue</span>  <span class="p">?</span><span class="p">?</span> <span class="mi">0</span>
+
+        <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
+        <span class="c1">//</span><span class="c1"> </span><span class="c1"> </span><span class="c1">在</span><span class="c1">达</span><span class="c1">到</span><span class="c1">0</span><span class="c1">.</span><span class="c1">9</span><span class="c1">之</span><span class="c1">前</span><span class="c1">，</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">由</span><span class="c1">l</span><span class="c1">o</span><span class="c1">a</span><span class="c1">d</span><span class="c1">T</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">决</span><span class="c1">定</span><span class="c1">；</span><span class="c1">到</span><span class="c1">0</span><span class="c1">.</span><span class="c1">9</span><span class="c1">以</span><span class="c1">后</span><span class="c1">，</span><span class="c1">根</span><span class="c1">据</span><span class="c1">实</span><span class="c1">际</span><span class="c1">进</span><span class="c1">度</span><span class="c1">进</span><span class="c1">行</span><span class="c1">加</span><span class="c1">载</span>
+        <span class="k">if</span> <span class="n">newValue</span> <span class="o">&gt;</span> <span class="n">oldValue</span> <span class="o">&amp;&amp;</span> <span class="n">newValue</span> <span class="o">&gt;</span> <span class="mf">0.9</span> <span class="p">{</span>
+            <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="p">(</span><span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span><span class="p">)</span><span class="o">!</span> <span class="o">*</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">newValue</span> <span class="p">=</span><span class="p">=</span> <span class="mf">1.0</span> <span class="p">{</span>
+            <span class="c1">//</span><span class="c1"> </span><span class="c1">加</span><span class="c1">载</span><span class="c1">结</span><span class="c1">束</span><span class="c1">时</span><span class="c1">，</span><span class="c1">停</span><span class="c1">止</span><span class="c1">监</span><span class="c1">听</span><span class="c1">，</span><span class="c1">停</span><span class="c1">止</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">r</span>
+            <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">stopObservations</span><span class="p">(</span><span class="p">)</span>
+            <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">destroyTimer</span><span class="p">(</span><span class="p">)</span>
+
+            <span class="c1">//</span><span class="c1"> </span><span class="c1">结</span><span class="c1">束</span><span class="c1">时</span><span class="c1">隐</span><span class="c1">藏</span><span class="c1">p</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1"> </span><span class="c1">b</span><span class="c1">a</span><span class="c1">r</span><span class="c1">并</span><span class="c1">回</span><span class="c1">到</span><span class="c1">初</span><span class="c1">始</span><span class="c1">位</span><span class="c1">置</span>
+            <span class="kd">let</span> <span class="nv">time1</span> <span class="p">=</span> <span class="n">DispatchTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.4</span>
+            <span class="kd">let</span> <span class="nv">time2</span> <span class="p">=</span> <span class="n">time1</span> <span class="o">+</span> <span class="mf">0.1</span>
+            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">asyncAfter</span><span class="p">(</span><span class="n">deadline</span><span class="p">:</span> <span class="n">time1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">opacity</span> <span class="p">=</span> <span class="mi">0</span>
+            <span class="p">}</span>
+
+            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">asyncAfter</span><span class="p">(</span><span class="n">deadline</span><span class="p">:</span> <span class="n">time2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//</span><span class="c1"> </span><span class="c1">监</span><span class="c1">听</span><span class="c1">l</span><span class="c1">o</span><span class="c1">a</span><span class="c1">d</span><span class="c1">T</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span>
+<span class="kd">func</span> <span class="nf">setupLoadTimeObservation</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">loadTimeObservation</span> <span class="p">=</span> <span class="n">observe</span><span class="p">(</span><span class="err">\</span><span class="p">.</span><span class="n">loadTime</span><span class="p">,</span> <span class="n">changeHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">changes</span><span class="p">)</span> <span class="k">in</span>
+        <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
+        <span class="c1">//</span><span class="c1"> </span><span class="c1">假</span><span class="c1">如</span><span class="c1">加</span><span class="c1">载</span><span class="c1">进</span><span class="c1">度</span><span class="c1">超</span><span class="c1">过</span><span class="c1">9</span><span class="c1">0</span><span class="c1">%</span><span class="c1">，</span><span class="c1">则</span><span class="c1">不</span><span class="c1">再</span><span class="c1">通</span><span class="c1">过</span><span class="c1">l</span><span class="c1">o</span><span class="c1">a</span><span class="c1">d</span><span class="c1">T</span><span class="c1">i</span><span class="c1">m</span><span class="c1">e</span><span class="c1">更</span><span class="c1">新</span>
+        <span class="k">if</span> <span class="n">weakself</span><span class="p">!</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span> <span class="o">&gt;=</span> <span class="n">weakself</span><span class="p">!</span><span class="p">.</span><span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.9</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+        <span class="kd">var</span> <span class="nv">ratio</span> <span class="p">=</span> <span class="mf">0.0</span> <span class="c1">//</span><span class="c1"> </span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">的</span><span class="c1">进</span><span class="c1">度</span><span class="c1">比</span><span class="c1">例</span>
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">time</span> <span class="p">=</span> <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">loadTime</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mi">3</span> <span class="p">{</span>
+            <span class="c1">//</span><span class="c1"> </span><span class="c1">前</span><span class="c1">3</span><span class="c1">秒</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">走</span><span class="c1">5</span><span class="c1">0</span><span class="c1">%</span><span class="c1">，</span><span class="c1">那</span><span class="c1">么</span><span class="c1">每</span><span class="c1">秒</span><span class="c1">是</span><span class="c1">走</span><span class="c1">0</span><span class="c1">.</span><span class="c1">5</span><span class="c1"> </span><span class="c1">/</span><span class="c1"> </span><span class="c1">3</span><span class="c1">；</span>
+            <span class="c1">//</span><span class="c1"> </span><span class="c1">0</span><span class="c1">.</span><span class="c1">1</span><span class="c1">是</span><span class="c1">已</span><span class="c1">经</span><span class="c1">固</span><span class="c1">定</span><span class="c1">的</span><span class="c1">进</span><span class="c1">度</span><span class="c1">，</span><span class="c1">下</span><span class="c1">面</span><span class="c1">的</span><span class="c1">逻</span><span class="c1">辑</span><span class="c1">类</span><span class="c1">似</span>
+            <span class="n">ratio</span> <span class="p">=</span> <span class="n">time</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">+</span> <span class="mf">0.1</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mi">7</span> <span class="p">{</span>
+            <span class="n">ratio</span> <span class="p">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">+</span> <span class="mf">0.6</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="o">&amp;&amp;</span> <span class="n">time</span> <span class="o">&lt;=</span> <span class="mi">15</span> <span class="p">{</span>
+            <span class="n">ratio</span> <span class="p">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">/</span> <span class="mi">8</span> <span class="o">+</span> <span class="mf">0.8</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="o">&amp;&amp;</span> <span class="n">time</span> <span class="o">&lt;</span>  <span class="mi">25</span> <span class="p">{</span>
+            <span class="n">ratio</span> <span class="p">=</span> <span class="mf">0.9</span>
+        <span class="p">}</span>
+
+        <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">weakself</span><span class="p">!</span><span class="p">.</span><span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><p>这样，进度条的全部实现已经完成。</p>
+<p>如果对KVO有不理解，可以参考我的另一篇使用KVO的例子：<a href="http://pkuflint.me/2018/understanding-kvo-in-swift/">理解KVO - 用Swift在WKWebView中添加进度条</a>。在这篇文章中，我用于实现进度条的逻辑正是像Safari那样的真实进度。</p>
+<blockquote>
+<p>本人初学，有错误或疏漏之处，欢迎斧正！</p>
+</blockquote>
+<p>参考文档：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/24b3e3ddc946">https://www.jianshu.com/p/24b3e3ddc946</a></li>
+</ul>
+			</div>
+
+<div class="related-posts thin">
+	<h2></h2>
+	<ul>
+	
+	<li><a href="/posts/2019/understanding-kvo-in-swift/">理解KVO - 用Swift在WKWebView中添加进度条</a></li>
+	
+	<li><a href="/posts/2019/swift-iap-pitfalls/">苹果内购接入的坑与核心流程 - Swift</a></li>
+	
+	<li><a href="/posts/2019/self-taught-swift-lesson-01/">自学路上的坑01 - Scheme勾选项带来的一些列问题</a></li>
+	
+	<li><a href="/posts/2019/beginning-core-data/">Core Data入门</a></li>
+	
+	</ul>
+</div>
+
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://shenxiaobing.com/tags/swift">Swift</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/%E8%BF%9B%E5%BA%A6%E6%9D%A1">进度条</a></span><span class="tag"><a href="https://shenxiaobing.com/tags/wkwebview">WKWebView</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2018-06-28 10:03</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://shenxiaobing.com/posts/2019/localization-of-ios-project/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>iOS工程的本地化-Swift</span>
+			</a>
+			<a class="prev-post" href="https://shenxiaobing.com/posts/2019/understanding-kvo-in-swift/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>理解KVO - 用Swift在WKWebView中添加进度条</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://shenxiaobing.com">Shen Xiaobing</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://shenxiaobing.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://shenxiaobing.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

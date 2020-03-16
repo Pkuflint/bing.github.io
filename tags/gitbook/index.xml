@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gitbook on Shen Xiaobing独立博客：慎思笃行</title>
-    <link>http://shenxiaobing.com/tags/gitbook/</link>
-    <description>Recent content in gitbook on Shen Xiaobing独立博客：慎思笃行</description>
+    <title>gitbook on A Possible Verse</title>
+    <link>https://shenxiaobing.com/tags/gitbook/</link>
+    <description>Recent content in gitbook on A Possible Verse</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sun, 04 Dec 2016 15:41:30 +0000</lastBuildDate>
     
-	<atom:link href="http://shenxiaobing.com/tags/gitbook/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shenxiaobing.com/tags/gitbook/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>你的智商不怎么高呀——Gitbook踩坑记</title>
-      <link>http://shenxiaobing.com/2016/your-iq-not-so-high/</link>
+      <link>https://shenxiaobing.com/posts/2019/your-iq-not-so-high/</link>
       <pubDate>Sun, 04 Dec 2016 15:41:30 +0000</pubDate>
       
-      <guid>http://shenxiaobing.com/2016/your-iq-not-so-high/</guid>
+      <guid>https://shenxiaobing.com/posts/2019/your-iq-not-so-high/</guid>
       <description>&lt;p&gt;最近在用Gitbook整理工作中的FAQ。这两天遇到了一点Gitbook上的问题，纠结了很久，前后得有整整10个小时吧。Google并没有帮到我，而最后的结果，让我有了这篇文字标题的感受。&lt;/p&gt;</description>
     </item>
     
