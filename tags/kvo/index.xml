@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>KVO on A Possible Verse</title>
-    <link>https://shenxiaobing.com/tags/kvo/</link>
-    <description>Recent content in KVO on A Possible Verse</description>
+    <title>KVO on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/tags/kvo/</link>
+    <description>Recent content in KVO on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Thu, 28 Jun 2018 05:40:11 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/tags/kvo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/tags/kvo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>理解KVO - 用Swift在WKWebView中添加进度条</title>
-      <link>https://shenxiaobing.com/posts/2019/understanding-kvo-in-swift/</link>
+      <link>http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</link>
       <pubDate>Thu, 28 Jun 2018 05:40:11 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/understanding-kvo-in-swift/</guid>
+      <guid>http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</guid>
       <description>&lt;p&gt;KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。&lt;/p&gt;</description>
     </item>
     

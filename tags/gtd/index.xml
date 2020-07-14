@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GTD on A Possible Verse</title>
-    <link>https://shenxiaobing.com/tags/gtd/</link>
-    <description>Recent content in GTD on A Possible Verse</description>
+    <title>GTD on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/tags/gtd/</link>
+    <description>Recent content in GTD on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Wed, 07 Mar 2018 17:15:20 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/tags/gtd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/tags/gtd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>做事靠系统——读《小强升职记》</title>
-      <link>https://shenxiaobing.com/posts/2019/getting-things-done/</link>
+      <link>http://shenxiaobing.com/post/2019/getting-things-done/</link>
       <pubDate>Wed, 07 Mar 2018 17:15:20 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/getting-things-done/</guid>
+      <guid>http://shenxiaobing.com/post/2019/getting-things-done/</guid>
       <description>&lt;p&gt;《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。&lt;/p&gt;
 &lt;p&gt;书中主要的核心内容有以下三点：&lt;/p&gt;
 &lt;ol&gt;

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CDN on A Possible Verse</title>
-    <link>https://shenxiaobing.com/tags/cdn/</link>
-    <description>Recent content in CDN on A Possible Verse</description>
+    <title>CDN on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/tags/cdn/</link>
+    <description>Recent content in CDN on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Wed, 08 Feb 2017 15:52:25 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>《CDN技术详解》笔记——CDN是什么</title>
-      <link>https://shenxiaobing.com/posts/2019/reading-notes-what-is-cdn/</link>
+      <link>http://shenxiaobing.com/post/2019/reading-notes-what-is-cdn/</link>
       <pubDate>Wed, 08 Feb 2017 15:52:25 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/reading-notes-what-is-cdn/</guid>
+      <guid>http://shenxiaobing.com/post/2019/reading-notes-what-is-cdn/</guid>
       <description>&lt;p&gt;最近粗略地读完了《CDN技术详解》这本书。书中有一部分几乎完全是只看得懂文字而看不懂意思，附录的技术实操部分也直接跳过。尽管如此，读完了还是很有收获，不仅仅对CDN的理解更深了一些，对网络相关的内容如DNS协议、SSL协议等也顺带地了解了一些。&lt;/p&gt;
 &lt;p&gt;本文根据该书的阅读笔记整理而成，简要地介绍了CDN的作用、原理和类型等。&lt;/p&gt;</description>
     </item>

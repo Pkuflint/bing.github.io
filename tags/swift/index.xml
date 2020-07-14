@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Swift on A Possible Verse</title>
-    <link>https://shenxiaobing.com/tags/swift/</link>
-    <description>Recent content in Swift on A Possible Verse</description>
+    <title>Swift on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/tags/swift/</link>
+    <description>Recent content in Swift on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Fri, 29 Jun 2018 11:03:50 +0000</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>I made an app</title>
-      <link>https://shenxiaobing.com/posts/2019/i-made-an-app/</link>
+      <link>http://shenxiaobing.com/post/2019/i-made-an-app/</link>
       <pubDate>Fri, 29 Jun 2018 11:03:50 +0000</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/i-made-an-app/</guid>
+      <guid>http://shenxiaobing.com/post/2019/i-made-an-app/</guid>
       <description>&lt;p&gt;我的第一个App终于提审了。&lt;/p&gt;
 &lt;p&gt;从2015年开始，我就念叨着要做一个App；而2016和2017年的年度目标之一就是上架一个App。但直到现在，2018年，我才真正完成我的第一款App。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>iOS工程的本地化-Swift</title>
-      <link>https://shenxiaobing.com/posts/2019/localization-of-ios-project/</link>
+      <link>http://shenxiaobing.com/post/2019/localization-of-ios-project/</link>
       <pubDate>Fri, 29 Jun 2018 14:20:39 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/localization-of-ios-project/</guid>
+      <guid>http://shenxiaobing.com/post/2019/localization-of-ios-project/</guid>
       <description>&lt;p&gt;应用如果需要根据设备语言显示不同的语言，就需要进行本地化的工作。就iOS工程而言，需要本地化的内容主要有：文字、图片、语音。一般而言，图片和语言的本地化，都可以转化为实质上的字符串的本地化。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;info.plist本地化&lt;/li&gt;
@@ -43,10 +42,10 @@
     
     <item>
       <title>仿照微信WebView实现ProgressBar</title>
-      <link>https://shenxiaobing.com/posts/2019/progress-bar-like-wechat-webview/</link>
+      <link>http://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</link>
       <pubDate>Thu, 28 Jun 2018 10:03:47 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/progress-bar-like-wechat-webview/</guid>
+      <guid>http://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</guid>
       <description>&lt;h2 id=&#34;两种进度条逻辑&#34;&gt;两种进度条逻辑&lt;/h2&gt;
 &lt;p&gt;在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。&lt;/p&gt;
 &lt;p&gt;还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：&lt;/p&gt;</description>
@@ -54,19 +53,19 @@
     
     <item>
       <title>理解KVO - 用Swift在WKWebView中添加进度条</title>
-      <link>https://shenxiaobing.com/posts/2019/understanding-kvo-in-swift/</link>
+      <link>http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</link>
       <pubDate>Thu, 28 Jun 2018 05:40:11 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/understanding-kvo-in-swift/</guid>
+      <guid>http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</guid>
       <description>&lt;p&gt;KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>苹果内购接入的坑与核心流程 - Swift</title>
-      <link>https://shenxiaobing.com/posts/2019/swift-iap-pitfalls/</link>
+      <link>http://shenxiaobing.com/post/2019/swift-iap-pitfalls/</link>
       <pubDate>Wed, 27 Jun 2018 19:56:09 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/swift-iap-pitfalls/</guid>
+      <guid>http://shenxiaobing.com/post/2019/swift-iap-pitfalls/</guid>
       <description>&lt;p&gt;通过苹果开发文档、搜索与挣扎摸索，我已经在App上实现了【消耗型商品】的内购。总结流程如下：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;完成必须的准备工作&lt;/li&gt;
@@ -78,10 +77,10 @@
     
     <item>
       <title>自学路上的坑01 - Scheme勾选项带来的一些列问题</title>
-      <link>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</link>
+      <link>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</link>
       <pubDate>Wed, 20 Jun 2018 07:43:51 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</guid>
+      <guid>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -94,10 +93,10 @@
     
     <item>
       <title>Core Data入门</title>
-      <link>https://shenxiaobing.com/posts/2019/beginning-core-data/</link>
+      <link>http://shenxiaobing.com/post/2019/beginning-core-data/</link>
       <pubDate>Thu, 26 Apr 2018 13:49:23 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/beginning-core-data/</guid>
+      <guid>http://shenxiaobing.com/post/2019/beginning-core-data/</guid>
       <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;</description>
     </item>
     

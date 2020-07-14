@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>新知 on A Possible Verse</title>
-    <link>https://shenxiaobing.com/categories/%E6%96%B0%E7%9F%A5/</link>
-    <description>Recent content in 新知 on A Possible Verse</description>
+    <title>新知 on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/categories/%E6%96%B0%E7%9F%A5/</link>
+    <description>Recent content in 新知 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Wed, 03 Jan 2018 15:35:45 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/categories/%E6%96%B0%E7%9F%A5/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/categories/%E6%96%B0%E7%9F%A5/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>我所知的地方棋牌</title>
-      <link>https://shenxiaobing.com/posts/2019/an-overview-of-local-board-game/</link>
+      <link>http://shenxiaobing.com/post/2019/an-overview-of-local-board-game/</link>
       <pubDate>Wed, 03 Jan 2018 15:35:45 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/an-overview-of-local-board-game/</guid>
+      <guid>http://shenxiaobing.com/post/2019/an-overview-of-local-board-game/</guid>
       <description>&lt;p&gt;从业内所知的2016年几宗大的地方棋牌收购案之后，地方棋牌开始火爆起来，可以说是遍地开花。由于开发成本低、开发门槛低加上闲徕、乐玩等大的地方棋牌厂商的财富示范效应，在中国二三四线城市出现了无数的地方棋牌公司。而其他行业的老板，眼馋闲徕、乐玩在被收购时漂亮的盈利数据，也纷纷往这方面投资。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>疯狂：手游公会、平台与玩家</title>
-      <link>https://shenxiaobing.com/posts/2019/game-guilds/</link>
+      <link>http://shenxiaobing.com/post/2019/game-guilds/</link>
       <pubDate>Sat, 13 Dec 2014 19:06:01 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/game-guilds/</guid>
+      <guid>http://shenxiaobing.com/post/2019/game-guilds/</guid>
       <description>&lt;p&gt;先听一听最近媒体上的消息吧：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;天龙八部3D，首月流水2亿。&lt;/li&gt;
@@ -38,10 +37,10 @@
     
     <item>
       <title>「Quora」程序员知道，大多数人不知道的事</title>
-      <link>https://shenxiaobing.com/posts/2019/what-non-porgrammers-do-not-know/</link>
+      <link>http://shenxiaobing.com/post/2019/what-non-porgrammers-do-not-know/</link>
       <pubDate>Mon, 25 Aug 2014 18:36:08 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/what-non-porgrammers-do-not-know/</guid>
+      <guid>http://shenxiaobing.com/post/2019/what-non-porgrammers-do-not-know/</guid>
       <description>&lt;p&gt;整理来自Quora的标题问题的回复，都是支持过千的哦。让你更加了解程序员的世界。&lt;/p&gt;
 &lt;p&gt;根在树的顶端。&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;试着讲给一个普通人：
@@ -51,10 +50,10 @@
     
     <item>
       <title>「Quora」如何培养孩子成为亿万富翁？</title>
-      <link>https://shenxiaobing.com/posts/2019/how-to-raise-kids-to-be-billionaire/</link>
+      <link>http://shenxiaobing.com/post/2019/how-to-raise-kids-to-be-billionaire/</link>
       <pubDate>Tue, 24 Jun 2014 18:21:23 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/how-to-raise-kids-to-be-billionaire/</guid>
+      <guid>http://shenxiaobing.com/post/2019/how-to-raise-kids-to-be-billionaire/</guid>
       <description>&lt;p&gt;这个是Quora上的一个问题，有人对此进行了详细的回答，并获得5000多票的支持。不管你有没有大胆地想过这个问题，不妨看一看世界上另外地一小部分人地看法。&lt;/p&gt;</description>
     </item>
     

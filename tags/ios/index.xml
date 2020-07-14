@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>iOS on A Possible Verse</title>
-    <link>https://shenxiaobing.com/tags/ios/</link>
-    <description>Recent content in iOS on A Possible Verse</description>
+    <title>iOS on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/tags/ios/</link>
+    <description>Recent content in iOS on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Fri, 27 Jul 2018 12:33:33 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>我的App审核简史</title>
-      <link>https://shenxiaobing.com/posts/2019/a-brief-history-of-app-review/</link>
+      <link>http://shenxiaobing.com/post/2019/a-brief-history-of-app-review/</link>
       <pubDate>Fri, 27 Jul 2018 12:33:33 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/a-brief-history-of-app-review/</guid>
+      <guid>http://shenxiaobing.com/post/2019/a-brief-history-of-app-review/</guid>
       <description>&lt;p&gt;两款应用终于过审了。记录下过程，以备参考。&lt;/p&gt;
 &lt;p&gt;先交代下两款应用的背景：&lt;/p&gt;
 &lt;p&gt;应用一：爱跑十三周，跑步应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题；&lt;/p&gt;
@@ -26,20 +25,20 @@
     
     <item>
       <title>I made an app</title>
-      <link>https://shenxiaobing.com/posts/2019/i-made-an-app/</link>
+      <link>http://shenxiaobing.com/post/2019/i-made-an-app/</link>
       <pubDate>Fri, 29 Jun 2018 11:03:50 +0000</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/i-made-an-app/</guid>
+      <guid>http://shenxiaobing.com/post/2019/i-made-an-app/</guid>
       <description>&lt;p&gt;我的第一个App终于提审了。&lt;/p&gt;
 &lt;p&gt;从2015年开始，我就念叨着要做一个App；而2016和2017年的年度目标之一就是上架一个App。但直到现在，2018年，我才真正完成我的第一款App。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>iOS工程的本地化-Swift</title>
-      <link>https://shenxiaobing.com/posts/2019/localization-of-ios-project/</link>
+      <link>http://shenxiaobing.com/post/2019/localization-of-ios-project/</link>
       <pubDate>Fri, 29 Jun 2018 14:20:39 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/localization-of-ios-project/</guid>
+      <guid>http://shenxiaobing.com/post/2019/localization-of-ios-project/</guid>
       <description>&lt;p&gt;应用如果需要根据设备语言显示不同的语言，就需要进行本地化的工作。就iOS工程而言，需要本地化的内容主要有：文字、图片、语音。一般而言，图片和语言的本地化，都可以转化为实质上的字符串的本地化。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;info.plist本地化&lt;/li&gt;
@@ -55,10 +54,10 @@
     
     <item>
       <title>自学路上的坑01 - Scheme勾选项带来的一些列问题</title>
-      <link>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</link>
+      <link>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</link>
       <pubDate>Wed, 20 Jun 2018 07:43:51 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</guid>
+      <guid>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -71,10 +70,10 @@
     
     <item>
       <title>Core Data入门</title>
-      <link>https://shenxiaobing.com/posts/2019/beginning-core-data/</link>
+      <link>http://shenxiaobing.com/post/2019/beginning-core-data/</link>
       <pubDate>Thu, 26 Apr 2018 13:49:23 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/beginning-core-data/</guid>
+      <guid>http://shenxiaobing.com/post/2019/beginning-core-data/</guid>
       <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;</description>
     </item>
     

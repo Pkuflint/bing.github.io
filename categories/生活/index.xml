@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>生活 on A Possible Verse</title>
-    <link>https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</link>
-    <description>Recent content in 生活 on A Possible Verse</description>
+    <title>生活 on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</link>
+    <description>Recent content in 生活 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Tue, 03 Sep 2019 20:20:00 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>我为什么不玩魔兽世界怀旧服</title>
-      <link>https://shenxiaobing.com/posts/2019/say-no-to-wow-nostalgia-server/</link>
+      <link>http://shenxiaobing.com/post/2019/say-no-to-wow-nostalgia-server/</link>
       <pubDate>Tue, 03 Sep 2019 20:20:00 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/say-no-to-wow-nostalgia-server/</guid>
+      <guid>http://shenxiaobing.com/post/2019/say-no-to-wow-nostalgia-server/</guid>
       <description>&lt;p&gt;魔兽世界怀旧服开了，据说有的服务器排队时间高达5个小时。我兴味索然，虽然我从大二就开始玩魔兽世界，玩得疯的时候每天玩十个多小时，厌倦的时候又很久不上线。不管AFK多久，出了新版本总是想回来看看。&lt;/p&gt;
 &lt;p&gt;但怀旧服是个例外，我不想玩。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>意义</title>
-      <link>https://shenxiaobing.com/posts/2019/meaning/</link>
+      <link>http://shenxiaobing.com/post/2019/meaning/</link>
       <pubDate>Mon, 03 Sep 2018 15:12:31 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/meaning/</guid>
+      <guid>http://shenxiaobing.com/post/2019/meaning/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;意义，就是对特定对象的价值。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -38,10 +37,10 @@
     
     <item>
       <title>自学编程6年，从入门到放弃</title>
-      <link>https://shenxiaobing.com/posts/2019/from-zero-to-quit/</link>
+      <link>http://shenxiaobing.com/post/2019/from-zero-to-quit/</link>
       <pubDate>Wed, 20 Jun 2018 02:49:00 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/from-zero-to-quit/</guid>
+      <guid>http://shenxiaobing.com/post/2019/from-zero-to-quit/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;我会用4种编程语言写出Hello World！&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -52,10 +51,10 @@
     
     <item>
       <title>一天</title>
-      <link>https://shenxiaobing.com/posts/2019/one-day/</link>
+      <link>http://shenxiaobing.com/post/2019/one-day/</link>
       <pubDate>Mon, 14 May 2018 16:30:02 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/one-day/</guid>
+      <guid>http://shenxiaobing.com/post/2019/one-day/</guid>
       <description>&lt;p&gt;我下楼去买可乐。&lt;/p&gt;
 &lt;p&gt;走下楼梯时，看到楼梯上靠墙坐着一个头发花白的中年人。他低着头，在玩开心消消乐。我走过了，却还是忍不住回头看了他一样。他很严肃。&lt;/p&gt;
 &lt;p&gt;这是我今天喝的第三罐可乐。可乐倒进嘴里，苦味已经盖过了甜味。我只能喝可乐。喝酒太辣太苦，而我也没有配得上酒的忧愁或把酒言欢的朋友。我有的只是这种说不出是甜还是苦的平常生活。&lt;/p&gt;</description>
@@ -63,64 +62,159 @@
     
     <item>
       <title>我现在相信的</title>
-      <link>https://shenxiaobing.com/posts/2019/things-i-believe/</link>
+      <link>http://shenxiaobing.com/post/2019/things-i-believe/</link>
       <pubDate>Mon, 26 Mar 2018 16:15:11 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/things-i-believe/</guid>
+      <guid>http://shenxiaobing.com/post/2019/things-i-believe/</guid>
       <description>&lt;p&gt;尽管对立的理论都能找到足够多的论据和拥趸，每个人，包括我，还是会对某一方的理论更为认同。尽管这种认同并不能增加理论的正确性，理清自己认同的东西还是很有必要。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>看呐，那个人在玩《王者荣耀》</title>
-      <link>https://shenxiaobing.com/posts/2019/a-man-playing-wangzherongyao/</link>
+      <link>http://shenxiaobing.com/post/2019/a-man-playing-wangzherongyao/</link>
       <pubDate>Wed, 02 Aug 2017 16:23:56 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/a-man-playing-wangzherongyao/</guid>
+      <guid>http://shenxiaobing.com/post/2019/a-man-playing-wangzherongyao/</guid>
       <description>&lt;p&gt;那个人在玩《王者荣耀》。&lt;/p&gt;
 &lt;p&gt;他眼睛死死地盯着屏幕，双手死死地握着手机，右手拇指不停地点着屏幕。他不自觉地把伸出了下嘴唇，包住了上嘴唇。他自己都没有意识到他自己的这个习惯。他表情严肃，看不出游戏中的战况如何。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>一晃四个月</title>
-      <link>https://shenxiaobing.com/posts/2019/how-time-flies/</link>
+      <link>http://shenxiaobing.com/post/2019/how-time-flies/</link>
       <pubDate>Mon, 10 Jul 2017 18:09:35 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/how-time-flies/</guid>
+      <guid>http://shenxiaobing.com/post/2019/how-time-flies/</guid>
       <description>&lt;h2 id=&#34;better-slow-than-never&#34;&gt;Better slow than never&lt;/h2&gt;
 &lt;p&gt;四个月前的二三月份，我都仅仅写了一篇博文。四个月后的现在，四五六月完全没有写任何东西。曾经你为懈怠而自责，没想到那竟是你最勤奋状态最好的时候。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>再见，魔兽世界</title>
-      <link>https://shenxiaobing.com/posts/2019/a-proper-goodbye-to-wow/</link>
+      <link>http://shenxiaobing.com/post/2019/a-proper-goodbye-to-wow/</link>
       <pubDate>Wed, 28 Dec 2016 00:25:41 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/a-proper-goodbye-to-wow/</guid>
+      <guid>http://shenxiaobing.com/post/2019/a-proper-goodbye-to-wow/</guid>
       <description>&lt;p&gt;2005年秋天，我大二。&lt;/p&gt;
 &lt;p&gt;我和大学同学一起前往网吧，注册魔兽世界账号，并创建了自己的角色。他的角色是兽人术士，而我则是一个兽人战士。虽然第一次游戏我只进行了2个小时左右，就因为头晕呕吐无法继续，但这却是我魔兽世界生涯的开始。此后我跟他一开始一起白天进网吧玩，到后来我一个人白天进网吧玩，到最后我一个人晚上进网吧通宵玩。到了毕业时，我记得我主要的角色累积纯在线时间超过了200天，就是200*24小时。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>写给2004年春天的你</title>
-      <link>https://shenxiaobing.com/posts/2019/letter-to-you-of-2004-spring/</link>
+      <link>http://shenxiaobing.com/post/2019/letter-to-you-of-2004-spring/</link>
       <pubDate>Sun, 04 Dec 2016 16:36:19 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/letter-to-you-of-2004-spring/</guid>
+      <guid>http://shenxiaobing.com/post/2019/letter-to-you-of-2004-spring/</guid>
       <description>我就是你，2016年冬天的你。 我突然想找人倾诉，身边没人，就想起了你。 我，未来的你，现在是一个客服。对，不是作家，不是学者，是一个靠学舌去为</description>
     </item>
     
     <item>
       <title>博客是什么</title>
-      <link>https://shenxiaobing.com/posts/2019/what-is-blog-for/</link>
+      <link>http://shenxiaobing.com/post/2019/what-is-blog-for/</link>
       <pubDate>Thu, 24 Nov 2016 00:45:29 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/what-is-blog-for/</guid>
+      <guid>http://shenxiaobing.com/post/2019/what-is-blog-for/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;The powerful play goes on, and we may contribute a verse.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;这是我的博客的副标题，一句来自电影《死亡诗社》中的台词：人生的大幕拉开，我可以贡献一诗篇。&lt;/p&gt;
 &lt;p&gt;这本是我对这个博客站点的期许：一个提供价值的地方。&lt;/p&gt;
 &lt;p&gt;但实事求是地说，他最大的可能性也仅仅是，对一部分人在特定的时刻有价值。大多数的时候，包括现在，以及近期的将来，博客的文章数量和质量应该都不尽如人意。那么继续写的意义何在？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>蜿蜒前行</title>
+      <link>http://shenxiaobing.com/post/2019/no-straight-forward/</link>
+      <pubDate>Mon, 14 Nov 2016 23:10:42 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/no-straight-forward/</guid>
+      <description>&lt;p&gt;我一直都很羡慕那些走直线的人，那些知道自己想要什么并能够付诸行动去争取的人。&lt;/p&gt;
+&lt;p&gt;大学本科的专业在现实中没什么市场，有人就利用本科和研究生的时间备考注册会计师，以每年通过2门课的速度，顺利拿到的注册会计师证书，获得了硕士学位，进入了知名房地产企业。&lt;/p&gt;
+&lt;p&gt;这是身边印象最深刻的例子，而在网络上看到的，以及某个圈子里大牛的事例，更是多不胜数。那些人不仅天资聪慧，而且持之以恒地努力。他们是走直线的人。&lt;/p&gt;
+&lt;p&gt;而我走出的路，总是一曲蜿蜒。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>这十年发生了什么</title>
+      <link>http://shenxiaobing.com/post/2019/ten-years/</link>
+      <pubDate>Mon, 05 Sep 2016 19:26:58 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/ten-years/</guid>
+      <description>&lt;p&gt;我的第一个电子邮箱是以&lt;code&gt;@yahoo.cn&lt;/code&gt;为后缀的。&lt;code&gt;@yahoo.cn&lt;/code&gt;邮箱已经不再提供服务，而我也早已不记得密码，唯一还有用到的地方就是作为前程无忧的登录用户名。&lt;/p&gt;
+&lt;p&gt;高中时在“未来北大人论坛”认识了几个网友，都是想考北大的。然而没有一个人考上，后来也没人会聊起，但我们都加着彼此的QQ好友，时不时会互相问候一下。那段时期留下的唯一印记，就是pkuflint这个我自己编的昵称，而pku就是北大的英文缩写。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>境外游记——澳门被骗，香港失望，泰国很好</title>
+      <link>http://shenxiaobing.com/post/2019/travel-outside/</link>
+      <pubDate>Tue, 21 Jun 2016 19:24:47 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/travel-outside/</guid>
+      <description>&lt;p&gt;在我离职之后，我去了澳门、香港和泰国。这是我第一次出境，但是并没有特别大的冲击感。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>六城游记</title>
+      <link>http://shenxiaobing.com/post/2019/travel-to-6-cities/</link>
+      <pubDate>Tue, 21 Jun 2016 19:19:40 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/travel-to-6-cities/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;题记：如果我走的足够远，我就能领悟人生的真谛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在家懒了几天之后，我终于走出了家门。第一站是东莞。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>抓小偷</title>
+      <link>http://shenxiaobing.com/post/2019/catch-thief/</link>
+      <pubDate>Mon, 29 Dec 2014 19:10:23 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/catch-thief/</guid>
+      <description>&lt;p&gt;2014年的倒数第三天，早上08:10左右，我快步走着，赶往公司班车最近的停靠点。&lt;/p&gt;
+&lt;p&gt;走到软件园对面的建设银行附近，我看到迎面走来来一个穿棉衣背双肩包的男人，姑且叫他IT男吧。他背后还跟了一个人，戴着一顶圆筒状无帽檐的平顶帽，毛茸茸的，姑且叫他圆帽男。圆帽男紧跟着IT男，右手伸出去，眼睛直勾勾地盯着自己伸出的手。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>向路人借钱</title>
+      <link>http://shenxiaobing.com/post/2019/borrow-money-from-stranger/</link>
+      <pubDate>Sat, 06 Dec 2014 19:02:48 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/borrow-money-from-stranger/</guid>
+      <description>&lt;p&gt;我一早去搭brt公交上班，走到站台入口，要从钱包里拿出公交卡时，背包里却怎么也找不到钱包了。翻遍了各种夹层也没有一毛钱零钱。我掏出手机看了下时间，盘算着走回去拿钱包再回来肯定是要迟到的。&lt;/p&gt;
+&lt;p&gt;要不要向路人借2块钱？我看着站台入口附近进出的年轻人，想着找谁才能借到呢？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>生活的意义</title>
+      <link>http://shenxiaobing.com/post/2019/meaning-of-life/</link>
+      <pubDate>Wed, 27 Aug 2014 18:51:39 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/meaning-of-life/</guid>
+      <description>&lt;p&gt;从高三开始，我时常为这个问题感到苦闷。我自己不认同他们口中出现的各种“生命的意义”，而自己也找不到别的让自己信服的“意义”。高中时期，我说生命的意义是爱，为此还写了一篇蹩脚的作文。之后，我就再没有确定的答案。我一直追寻的，自己觉得应该是一个高大伟岸的东西，不会只是关于小小的自己，或者普通生活中的一个东西。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>就当我们今天才毕业吧</title>
+      <link>http://shenxiaobing.com/post/2019/let-today-be-our-new-graduation/</link>
+      <pubDate>Sat, 12 Jul 2014 17:56:04 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/let-today-be-our-new-graduation/</guid>
+      <description>&lt;p&gt;就当我们今天才毕业吧，剪一个最潮的发型，而不是像之前一样每次都对理发师说请随意。&lt;/p&gt;
+&lt;p&gt;就当我们今天才毕业吧，与同学和朋友们保持联系，而不是像之前一样一年都不联系一次。&lt;/p&gt;
+&lt;p&gt;就当我们今天才毕业吧，对最简单的工作也会充满兴趣，而不是像之前一样越来越厌倦。&lt;/p&gt;
+&lt;p&gt;就当我们今天才毕业吧，提高自己和充实自己，而不是像之前一样总是在心里抱怨工作。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>我的独立博客正式上线了！</title>
+      <link>http://shenxiaobing.com/post/2019/first-blog/</link>
+      <pubDate>Fri, 20 Jun 2014 18:12:04 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/first-blog/</guid>
+      <description>&lt;p&gt;前天晚上注册域名，今天晚上购买了香港的共享主机空间，现在，第一篇原创的博客即将诞生！&lt;/p&gt;
+&lt;p&gt;从大二时开始，我维护并放弃了至少5个博客，包括博客中国，天涯，新浪和网易博客。这里面写的久的也就半年20多篇文章。我是想说，我过去做的不好，没能坚持。而这次是一次新的开始。&lt;/p&gt;
+&lt;p&gt;为什么又要建一个自己的博客呢，而且还是花钱建的？&lt;/p&gt;</description>
     </item>
     
   </channel>

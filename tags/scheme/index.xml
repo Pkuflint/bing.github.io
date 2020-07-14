@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scheme on A Possible Verse</title>
-    <link>https://shenxiaobing.com/tags/scheme/</link>
-    <description>Recent content in Scheme on A Possible Verse</description>
+    <title>Scheme on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/tags/scheme/</link>
+    <description>Recent content in Scheme on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Wed, 20 Jun 2018 07:43:51 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/tags/scheme/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/tags/scheme/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>自学路上的坑01 - Scheme勾选项带来的一些列问题</title>
-      <link>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</link>
+      <link>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</link>
       <pubDate>Wed, 20 Jun 2018 07:43:51 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/self-taught-swift-lesson-01/</guid>
+      <guid>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;
 &lt;/blockquote&gt;

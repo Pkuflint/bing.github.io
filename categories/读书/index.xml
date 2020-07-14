@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>读书 on A Possible Verse</title>
-    <link>https://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/</link>
-    <description>Recent content in 读书 on A Possible Verse</description>
+    <title>读书 on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/</link>
+    <description>Recent content in 读书 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <language>zh-cn</language>
     <lastBuildDate>Sat, 08 Feb 2020 18:15:18 +0800</lastBuildDate>
     
-	<atom:link href="https://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>极简股票交易入门——读《韭菜的自我修养》</title>
-      <link>https://shenxiaobing.com/posts/2020/self-improvement-as-jiu-cai/</link>
+      <link>http://shenxiaobing.com/post/2020/self-improvement-as-jiu-cai/</link>
       <pubDate>Sat, 08 Feb 2020 18:15:18 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2020/self-improvement-as-jiu-cai/</guid>
+      <guid>http://shenxiaobing.com/post/2020/self-improvement-as-jiu-cai/</guid>
       <description>&lt;p&gt;对于股票交易来说，最核心的问题就是三个：买什么，什么时候买，什么时候卖。以下是书中给股市入门玩家的回答。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>做事靠系统——读《小强升职记》</title>
-      <link>https://shenxiaobing.com/posts/2019/getting-things-done/</link>
+      <link>http://shenxiaobing.com/post/2019/getting-things-done/</link>
       <pubDate>Wed, 07 Mar 2018 17:15:20 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/getting-things-done/</guid>
+      <guid>http://shenxiaobing.com/post/2019/getting-things-done/</guid>
       <description>&lt;p&gt;《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。&lt;/p&gt;
 &lt;p&gt;书中主要的核心内容有以下三点：&lt;/p&gt;
 &lt;ol&gt;
@@ -38,81 +37,103 @@
     
     <item>
       <title>读《寻路中国》</title>
-      <link>https://shenxiaobing.com/posts/2019/reading-notes-country-driving/</link>
+      <link>http://shenxiaobing.com/post/2019/reading-notes-country-driving/</link>
       <pubDate>Sun, 30 Jul 2017 13:59:59 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/reading-notes-country-driving/</guid>
+      <guid>http://shenxiaobing.com/post/2019/reading-notes-country-driving/</guid>
       <description>&lt;p&gt;《寻路中国-从乡村到工厂的自驾之旅》，讲述了2001-2007年间作者在中国西北、北京农村以及浙江工厂的见闻。作者彼得海斯勒（中文名：何伟）是一个美国记者，长期住在中国。读他的书，就好像是将自己对中国的视角由第一人称变成了第三人称，借由这个转变，你会看到之前视而不见的东西。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>在中国买房子——读《欧成效文集》</title>
-      <link>https://shenxiaobing.com/posts/2019/about-real-estate/</link>
+      <link>http://shenxiaobing.com/post/2019/about-real-estate/</link>
       <pubDate>Sat, 18 Mar 2017 20:57:38 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/about-real-estate/</guid>
+      <guid>http://shenxiaobing.com/post/2019/about-real-estate/</guid>
       <description>&lt;p&gt;我是从同学那里获得的《欧成效文集》，是两个pdf文件。在此之前，我从未听说过这个人。作者是上海的一个炒房者，应该是颇有成就，在这个行业内威望颇高。文集里的文章几乎都是以论坛文章的风格写就的，肆意却不够严谨。不过，几乎从未关注过房地产的我，还是大开眼界。&lt;/p&gt;
 &lt;p&gt;以下就是《欧成效文集》中的主要观点。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>《CDN技术详解》笔记——CDN是什么</title>
-      <link>https://shenxiaobing.com/posts/2019/reading-notes-what-is-cdn/</link>
+      <link>http://shenxiaobing.com/post/2019/reading-notes-what-is-cdn/</link>
       <pubDate>Wed, 08 Feb 2017 15:52:25 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/reading-notes-what-is-cdn/</guid>
+      <guid>http://shenxiaobing.com/post/2019/reading-notes-what-is-cdn/</guid>
       <description>&lt;p&gt;最近粗略地读完了《CDN技术详解》这本书。书中有一部分几乎完全是只看得懂文字而看不懂意思，附录的技术实操部分也直接跳过。尽管如此，读完了还是很有收获，不仅仅对CDN的理解更深了一些，对网络相关的内容如DNS协议、SSL协议等也顺带地了解了一些。&lt;/p&gt;
 &lt;p&gt;本文根据该书的阅读笔记整理而成，简要地介绍了CDN的作用、原理和类型等。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>《富爸爸穷爸爸》——从转变观念开始</title>
-      <link>https://shenxiaobing.com/posts/2019/reading-notes-rich-dad-poor-dad/</link>
+      <link>http://shenxiaobing.com/post/2019/reading-notes-rich-dad-poor-dad/</link>
       <pubDate>Fri, 27 Jan 2017 03:21:09 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/reading-notes-rich-dad-poor-dad/</guid>
+      <guid>http://shenxiaobing.com/post/2019/reading-notes-rich-dad-poor-dad/</guid>
       <description>&lt;p&gt;这是一本早就听说过、早就想读、但迟迟没读、直到今天才读完的书。符合这个标准的书，应该还有很多，我会一本一本地补上。&lt;/p&gt;
 &lt;p&gt;《富爸爸穷爸爸》是一个系列的书。当我在京东读书APP上搜索“富爸爸”这个关键词时，我发现仅仅是原作者（罗伯特清崎）自己写的就有十几本：&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>《余罪1》——连前传都撑不起来的系列第一部</title>
-      <link>https://shenxiaobing.com/posts/2019/reading-notes-yuzui1/</link>
+      <link>http://shenxiaobing.com/post/2019/reading-notes-yuzui1/</link>
       <pubDate>Tue, 17 Jan 2017 15:40:34 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/reading-notes-yuzui1/</guid>
+      <guid>http://shenxiaobing.com/post/2019/reading-notes-yuzui1/</guid>
       <description>&lt;p&gt;在午休时前往老王牛肉面店的路上，我开始阅读这个京东阅读app免费赠送的电子书，毕竟同名网剧在前段时间热过一阵子。&lt;/p&gt;
 &lt;p&gt;但这第一部既没有刑侦也没有犯罪，就只是主人公变成主角这条线的一段经历。全书就用一句可以概括：余罪在监狱里喊着“我是警察”，然后剩下的全部都是告诉你他为什么进了监狱。这个开头本身就没有什么吸引力，却要用整本书去铺开。如果这是电影，整个系列就可以不要拍了。事实上如果这是电影，就不可能会被拍出来。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>《岛上书店》——像看电影一样读小说</title>
-      <link>https://shenxiaobing.com/posts/2019/reading-notes-dao-shang-shu-dian/</link>
+      <link>http://shenxiaobing.com/post/2019/reading-notes-dao-shang-shu-dian/</link>
       <pubDate>Wed, 11 Jan 2017 19:00:51 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/reading-notes-dao-shang-shu-dian/</guid>
+      <guid>http://shenxiaobing.com/post/2019/reading-notes-dao-shang-shu-dian/</guid>
       <description>&lt;p&gt;岛上书店的老板，一个中年男人在意外丧妻之后，意志消沉。有一天，一个2岁大的小女孩被遗弃在了他的书店。他决定收养她，于是一切都变了。&lt;/p&gt;
 &lt;p&gt;到现在了，还是觉得应该文以载道或者忍不住去想作者想传达什么，但我总结不出来。也许是因为我才读了一遍的缘故。但这本书讲了一个好故事。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>读《北野武自述》——一本由他人代笔的评论集</title>
-      <link>https://shenxiaobing.com/posts/2019/read-bei-ye-wu/</link>
+      <link>http://shenxiaobing.com/post/2019/read-bei-ye-wu/</link>
       <pubDate>Fri, 22 Jan 2016 19:18:25 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/read-bei-ye-wu/</guid>
+      <guid>http://shenxiaobing.com/post/2019/read-bei-ye-wu/</guid>
       <description>&lt;p&gt;提到北野武，最先想到的头衔是日本现代电影大导演，而最先想到的形象却是他在《大逃杀》里扮演的变态老师和《菊次郎的夏天》里扮演的冷淡的中年帮派男人，其面瘫的表情尤其如出一辙。&lt;/p&gt;
 &lt;p&gt;北野武一开始并不是这个样子。当他从浅草——东京的文艺区里以漫才成名并进入电视领域成为大明星后，他出了一次严重的车祸。他活了下来，但脸部就成了现在我们看到的这个样子。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>本故事纯属虚构——读《万万没想到：生活就是喜剧》</title>
-      <link>https://shenxiaobing.com/posts/2019/read-wan-wan-mei-xiang-dao/</link>
+      <link>http://shenxiaobing.com/post/2019/read-wan-wan-mei-xiang-dao/</link>
       <pubDate>Sat, 17 Jan 2015 19:12:17 +0800</pubDate>
       
-      <guid>https://shenxiaobing.com/posts/2019/read-wan-wan-mei-xiang-dao/</guid>
+      <guid>http://shenxiaobing.com/post/2019/read-wan-wan-mei-xiang-dao/</guid>
       <description>&lt;p&gt;第一季的《万万没想到》可谓惊艳，所以顺带着会对这部剧后面的团队产生兴趣。于是去多看上买了《万万没想到：生活就是喜剧》的电子版。&lt;/p&gt;
 &lt;p&gt;作者是有时右逝，就是之前写《如果，宅》的那个，叫兽监制。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>App百万富翁的共同点 ——读《APP创富传奇》</title>
+      <link>http://shenxiaobing.com/post/2019/app-millionaire/</link>
+      <pubDate>Thu, 02 Oct 2014 18:54:57 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/app-millionaire/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;他们只有一台iPhone、一台从eBay上淘来的MacBook和几本编程手册。简单的电子设备加上一些想象力，就是那些最终成为超级明星和App百万富翁的人们的全部工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一切始于苹果应用商店的推出。这之后，独立游戏开发者，可以不依附大公司，直接将自己的作品，通过苹果分发到全世界。这些人中，出现了媒体热捧的明星，他们的作品有数百万下载，他们获取了百万美元的收益，他们被作者成为Appillionaire（App百万富翁）。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>读《书都不会读，你还想成功》</title>
+      <link>http://shenxiaobing.com/post/2019/reading-notes-on-how-to-read-books/</link>
+      <pubDate>Tue, 22 Jul 2014 18:29:38 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2019/reading-notes-on-how-to-read-books/</guid>
+      <description>&lt;p&gt;全书可分为三个部分：故事，教程和推荐书目。教程是书的理念；故事则是对书的理念的一种诠释，同时增加了读者的代入感；推荐书目是现代名人的推荐书目，没什么特别的，网上都可以搜到的。故事，教程和书目的篇幅占比大约是8：1：1。&lt;/p&gt;
+&lt;p&gt;故事的主人公是一个混得一般的职员，家庭压力大，刚与女友分手，工作业绩差。然后，被朋友引荐给了像作者一样的读书导师，开始了不寻常的“读书改变命运”的旅程。&lt;/p&gt;</description>
     </item>
     
   </channel>
