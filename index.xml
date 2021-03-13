@@ -6,10 +6,144 @@
     <description>Recent content on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 08 Feb 2020 18:15:18 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Mar 2021 17:09:03 +0800</lastBuildDate>
     
         <atom:link href="http://shenxiaobing.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在Ubuntu中使用Selenium Webdriver</title>
+      <link>http://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</link>
+      <pubDate>Sat, 13 Mar 2021 17:09:03 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</guid>
+      
+        <description>&lt;p&gt;在Windows上使用Selenium时，主要有三个步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载并按照Chrome浏览器。&lt;/li&gt;
+&lt;li&gt;下载并保存与Chrome相同版本的&lt;code&gt;chromewebdriver&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;安装Python库&lt;code&gt;selenium&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;大体而言，在Linux系统上也是这样的三个步骤。下面的代码是以Ubuntu 20.0.4LTS系统为例。&lt;/p&gt;
+&lt;h2 id=&#34;linux命令行安装chrome&#34;&gt;Linux命令行安装Chrome&lt;/h2&gt;
+&lt;p&gt;如果是全新的系统，先运行下面的命令更新。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo apt update
+sudo apt upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;依次运行如下代码安装Chrome浏览器。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i ./google-chrome*.deb
+sudo apt-get install -f
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;第2行命令运行完可能会有如下报错，直接运行第3行代码。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;error processing package google-chrome-stable &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;--install&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:
+ dependency problems - leaving unconfigured
+Processing triggers &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; mime-support &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;3.64ubuntu1&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; ...
+Processing triggers &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; man-db &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;2.9.1-1&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; ...
+Errors were encountered &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; processing:
+ google-chrome-stable
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完成。&lt;/p&gt;
+&lt;h2 id=&#34;linux安装webdriver&#34;&gt;Linux安装webdriver&lt;/h2&gt;
+&lt;p&gt;首先我们先确认下刚才安装的Chrome浏览器的版本。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;google-chrome --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;我这里显示的结果是&lt;code&gt;Google Chrome 89.0.4389.90 &lt;/code&gt;，我需要去下载与Chrome版本一致的&lt;code&gt;chromewebdriver&lt;/code&gt;。前往https://chromedriver.chromium.org/downloads找到对应版本的webdriver下载地址，然后复制下载链接。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /data/place-to-store
+wget https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;最后将webdriver移动到合适的存储位置（一般是推荐&lt;code&gt;/usr/bin/&lt;/code&gt;），并给予可执行权限。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mv chromedriver /usr/bin/chromedriver
+sudo chown root:root /usr/bin/chromedriver
+sudo chmod +x /usr/bin/chromedriver
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;安装selenium&#34;&gt;安装Selenium&lt;/h2&gt;
+&lt;p&gt;这个最简单，一行搞定：&lt;code&gt;pip3 install selenium&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;webdriver-options&#34;&gt;Webdriver options&lt;/h2&gt;
+&lt;p&gt;在Linux上有一些奇怪的错误，stackoverflow上有别人总结的可能避免问题的一些方式，全都加上都可以。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;--headless&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;--no-sandbox&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;--disable-dev-shm-usage&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;start-maximized&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;--disable-extensions&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;--disable-browser-side-navigation&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;enable-automation&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;--disable-infobars&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add_argument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;enable-features=NetworkServiceInProcess&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;driver&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;webdriver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Chrome&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;executable_path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;WEB_DRIVER_PATH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;chrome_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;以上步骤我亲自在重装后的Ubuntu20.0.4系统上测试过，确定可行。&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>极简股票交易入门——读《韭菜的自我修养》</title>
@@ -2214,116 +2348,6 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;未完待续&amp;hellip; &amp;hellip;&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>做事靠系统——读《小强升职记》</title>
-      <link>http://shenxiaobing.com/post/2019/getting-things-done/</link>
-      <pubDate>Wed, 07 Mar 2018 17:15:20 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/getting-things-done/</guid>
-      
-        <description>&lt;p&gt;《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。&lt;/p&gt;
-&lt;p&gt;书中主要的核心内容有以下三点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;如何制作待办任务清单&lt;/li&gt;
-&lt;li&gt;如何完成复杂项目&lt;/li&gt;
-&lt;li&gt;如何专注地工作&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;如何制作待办任务清单&#34;&gt;如何制作待办任务清单&lt;/h2&gt;
-&lt;p&gt;任务清单可以让我们专注于做事，而不用时时刻刻去挂念其他任务。清单让我们清空大脑专注在某个事情上面。&lt;/p&gt;
-&lt;p&gt;制作任务清单主要有以下3个步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;用事务篮收集所有想到的被交付的或大或小的待办项目&lt;/li&gt;
-&lt;li&gt;将以上待办项目整理为三份清单加一份日程表&lt;/li&gt;
-&lt;li&gt;专注于行动清单，要事为先&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;收集任务&#34;&gt;收集任务&lt;/h3&gt;
-&lt;p&gt;我们平时会接到工作上领导派发的需求，以及自己职责内的事务。它们经常在我们正在忙于另一件事情时出现，我们不应当打断正在做的事情，而是要把这件事情加入待办事务篮。待办事务篮里面可能有打电话这样的小事，也可能有准备某项目的运营计划这样的大事。&lt;/p&gt;
-&lt;p&gt;收集的作用是为了不打断当前工作且不遗忘重要的事务，同时也是为后续正确地归类最准备。&lt;/p&gt;
-&lt;h3 id=&#34;归类清单&#34;&gt;归类清单&lt;/h3&gt;
-&lt;p&gt;将收集到任务根据「可行动」以及「时间」属性，分类添加到3个清单和1份日程表中。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;行动清单，该清单里都是直接行动的事项，有空就去做；任务是有多个行动组成的，由任务分解后的「下一步行动」也直接写进行动清单。比如：找工作，本身是不能立刻行动的，需要拆分为：写简历、投简历、准备面试等可行动事务。&lt;/li&gt;
-&lt;li&gt;项目清单，该清单类似任务清单，由多个行动组成。与任务的区别在于，任务多是靠一个人可以完成，而项目则需要与他人协作。比如：新游戏上线最终确认这个事情，就需要联合多部门进行。&lt;/li&gt;
-&lt;li&gt;将来清单，该清单上的事务是不确定某个时间要做，先记录上，待时机成熟时，会转变为行动清单或日程表或者被丢进垃圾箱。&lt;/li&gt;
-&lt;li&gt;日程表，就是在确定的未来某个时间需要做的行动，所以这里的行动要写的非常具体，免得过了一段时间忘记。需要转交给其他人完成的事务，也写在日程表里，提醒追踪和验收。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;任务和项目分解后，应该包含着多个「下一步行动」，这个拆分后的行动添加进入行动清单。&lt;/p&gt;
-&lt;p&gt;如果有2分钟内就可以解决的事，那么应该立刻去做，不用写进行动清单里，比如：填个报销单。&lt;/p&gt;
-&lt;p&gt;有了以上的3个清单，我们脑袋里就不用装着沉甸甸的包袱，专注于清单中的事务就行。&lt;/p&gt;
-&lt;h3 id=&#34;要事为先&#34;&gt;要事为先&lt;/h3&gt;
-&lt;p&gt;在行动清单里，列出了我们一天中（或某个时间段）需要做的事情。如何安排他们的优先顺序呢？要事为先！&lt;/p&gt;
-&lt;p&gt;把事务根据「重要性」和「紧急性」分类为四类：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;重要且紧急&lt;/li&gt;
-&lt;li&gt;重要但不紧急&lt;/li&gt;
-&lt;li&gt;不重要但紧急&lt;/li&gt;
-&lt;li&gt;不重要也不紧急&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;重要且紧急的事情，当然是优先完成；不重要但紧急的事情如果可以转交别人完成，或者有礼貌地拒绝别人丢过来的任务；不重要也不紧急的就不要做了。&lt;/p&gt;
-&lt;p&gt;关键是重要而不紧急的行动，这个是关键。如果这类行动做的好，那么「重要且紧急」的事情就会少很多，多数的「重要且紧急」的事情都是因为没有处理好「重要但不紧急」的事情导致的。&lt;/p&gt;
-&lt;p&gt;怎么判断「重要性」呢？书中说是依据自己的职业价值观，即某事按照你的职业价值观能最大化你的收益，就是最重要的；不过我觉得一般不牵涉价值观，而仅仅涉及到工作中实际的效用，即业务的实际情况。&lt;/p&gt;
-&lt;p&gt;怎么判断「紧急性」呢？依据事务的截止日期。比如：这个需求很简单，你看着办，明天给我。如果说这句话的是某个产品，你可能想怼他；但如果是老板，立马变成了一个「紧急性」超高的任务。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;如何完成复杂项目&#34;&gt;如何完成复杂项目&lt;/h2&gt;
-&lt;p&gt;面对复杂项目或复杂任务，我们往往拖延症发作，焦虑，不知道从何入手，一直拖延到死线降至，潦草完事。&lt;/p&gt;
-&lt;p&gt;系统的方法则是：确认目标与任务分解。&lt;/p&gt;
-&lt;h3 id=&#34;确认目标&#34;&gt;确认目标&lt;/h3&gt;
-&lt;p&gt;目标要落地，在制定时就要合理，可以采用SMART原则：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Specific，目标明确，不能模糊；&lt;/li&gt;
-&lt;li&gt;Measurable，可衡量，有实现的标准；&lt;/li&gt;
-&lt;li&gt;Attainable，可实现性，经过努力可以实现；&lt;/li&gt;
-&lt;li&gt;Relevant，与其他目标有相关性，对其他目标有帮助；&lt;/li&gt;
-&lt;li&gt;Time-based，有时限，在规定时间内达成。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;任务分解的步骤&#34;&gt;任务分解的步骤&lt;/h3&gt;
-&lt;p&gt;对项目或任务进行分解，可以采用以下三个步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;确认项目或任务的主要事项，可以先分出模块，在大类里面想这个模块里面的具体的小的任务。这个环节，可以利用「思维导图」来完成。&lt;/li&gt;
-&lt;li&gt;将步骤一中确定的各类任务，确定对应的成本、周期、负责人以及里程碑，并通过「甘特图」的形式展现。「甘特图」可以用Excel也可以用微软的Project软件来做。&lt;/li&gt;
-&lt;li&gt;最后，就是制定奖励规则，就是里程碑达成的奖励并且兑现，这样可以对自己或团队有相当的激励。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;下一步行动的原则&#34;&gt;下一步行动的原则&lt;/h3&gt;
-&lt;p&gt;任务最终需要分解为「下一步行动」，这样我们才能真的去执行。分解的要素为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;动词开头&lt;/li&gt;
-&lt;li&gt;内容清晰&lt;/li&gt;
-&lt;li&gt;描述结果&lt;/li&gt;
-&lt;li&gt;设置开始时间、周期、最后期限&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这样就非常清晰地知道自己下一步要做什么了。&lt;/p&gt;
-&lt;h3 id=&#34;像打游戏一样做项目&#34;&gt;像打游戏一样做项目&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;明确的目标，这样可以进行行动；&lt;/li&gt;
-&lt;li&gt;明确的规则&lt;/li&gt;
-&lt;li&gt;即时反馈，比如里程碑奖励；&lt;/li&gt;
-&lt;li&gt;尽量做到自愿参与，来自规则的约束不如来自内在的动力&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;以上这几点，同样适用于培养习惯。说到培养习惯，书中说：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;培养习惯的秘诀是少而慢，而不是多和快。&lt;/p&gt;
-&lt;p&gt;再微不足道的成就，都要大肆庆祝。培养习惯可以不是一个人的事，可以找到同道互相支持鼓励。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;如何专注高效工作&#34;&gt;如何专注高效工作&lt;/h2&gt;
-&lt;p&gt;专注工作的目的是提高效率，因此主要手段在于：不受打扰以及精力充沛。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;番茄工作法&lt;/li&gt;
-&lt;li&gt;挑选时间段&lt;/li&gt;
-&lt;li&gt;拒绝别人的猴子&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;番茄工作法&#34;&gt;番茄工作法&lt;/h3&gt;
-&lt;p&gt;番茄工作法，就是专注工作一段时间并休息一段时间，专注工作的这段时间称为一个番茄。这里的关键点是：专注。&lt;/p&gt;
-&lt;p&gt;一般来说，可以采用一个番茄20分钟，然后休息5分钟；连续三个番茄，休息15分钟的方式。在番茄时间内，专注工作，不受打扰；主动休息是为了劳逸结合。&lt;/p&gt;
-&lt;p&gt;番茄时间根据实际情况可以调整，比如早上精力充沛，可以设置40分钟的番茄时间。&lt;/p&gt;
-&lt;h3 id=&#34;挑选时间段&#34;&gt;挑选时间段&lt;/h3&gt;
-&lt;p&gt;我们得承认，某些时间段我们的工作效率就是高，也许是因为那时的精力充沛，也许是因为那个时间段内比较不被人打扰，比如早上刚上班以及快下班那会。&lt;/p&gt;
-&lt;p&gt;找到这样的时段，安排要事去完成。&lt;/p&gt;
-&lt;h3 id=&#34;拒绝别人的猴子&#34;&gt;拒绝别人的猴子&lt;/h3&gt;
-&lt;p&gt;猴子，就是别人的事。别人的事，可能变成你的事。他解脱了，你就要背着这只猴子。&lt;/p&gt;
-&lt;p&gt;所以，要懂得用适当的、委婉的方式去处理别人可能丢给你的事，否则你需要做的事务可能会越来越多，且多半没有什么价值，最重要会浪费你自己的时间。&lt;/p&gt;</description>
       
     </item>
     

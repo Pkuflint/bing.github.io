@@ -6,10 +6,19 @@
     <description>Recent content in 全部文章 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 08 Feb 2020 18:15:18 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Mar 2021 17:09:03 +0800</lastBuildDate>
     
 	<atom:link href="http://shenxiaobing.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在Ubuntu中使用Selenium Webdriver</title>
+      <link>http://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</link>
+      <pubDate>Sat, 13 Mar 2021 17:09:03 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</guid>
+      <description>在Windows上使用Selenium时，主要有三个步骤： 下载并按照Chrome浏览器。 下载并保存与Chrome相同版本的chromeweb</description>
+    </item>
     
     <item>
       <title>极简股票交易入门——读《韭菜的自我修养》</title>
@@ -235,21 +244,6 @@
       
       <guid>http://shenxiaobing.com/post/2019/things-i-believe/</guid>
       <description>&lt;p&gt;尽管对立的理论都能找到足够多的论据和拥趸，每个人，包括我，还是会对某一方的理论更为认同。尽管这种认同并不能增加理论的正确性，理清自己认同的东西还是很有必要。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>做事靠系统——读《小强升职记》</title>
-      <link>http://shenxiaobing.com/post/2019/getting-things-done/</link>
-      <pubDate>Wed, 07 Mar 2018 17:15:20 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/getting-things-done/</guid>
-      <description>&lt;p&gt;《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。&lt;/p&gt;
-&lt;p&gt;书中主要的核心内容有以下三点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;如何制作待办任务清单&lt;/li&gt;
-&lt;li&gt;如何完成复杂项目&lt;/li&gt;
-&lt;li&gt;如何专注地工作&lt;/li&gt;
-&lt;/ol&gt;</description>
     </item>
     
   </channel>
