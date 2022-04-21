@@ -6,10 +6,19 @@
     <description>Recent content in 编程 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 Mar 2021 17:09:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Apr 2022 05:13:31 +0800</lastBuildDate>
     
 	<atom:link href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建Shadowsocks翻墙回国</title>
+      <link>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</link>
+      <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</guid>
+      <description>在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个</description>
+    </item>
     
     <item>
       <title>在Ubuntu中使用Selenium Webdriver</title>

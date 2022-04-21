@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://shenxiaobing.com/tags/shadowsocks/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/tags/ss/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/post/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/categories/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/tags/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://shenxiaobing.com/tags/%E7%BF%BB%E5%A2%99%E5%9B%9E%E5%9B%BD/</loc>
+    <lastmod>2022-04-22T05:13:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://shenxiaobing.com/tags/selenium/</loc>
     <lastmod>2021-03-13T17:09:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://shenxiaobing.com/post/</loc>
-    <lastmod>2021-03-13T17:09:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</loc>
     <lastmod>2021-03-13T17:09:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -30,35 +86,7 @@
   </url>
   
   <url>
-    <loc>http://shenxiaobing.com/</loc>
-    <lastmod>2021-03-13T17:09:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://shenxiaobing.com/categories/</loc>
-    <lastmod>2021-03-13T17:09:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://shenxiaobing.com/tags/</loc>
-    <lastmod>2021-03-13T17:09:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://shenxiaobing.com/tags/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2021-03-13T17:09:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2021-03-13T17:09:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

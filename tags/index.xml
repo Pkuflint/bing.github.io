@@ -6,10 +6,37 @@
     <description>Recent content in 文章标签 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 Mar 2021 17:09:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Apr 2022 05:13:31 +0800</lastBuildDate>
     
 	<atom:link href="http://shenxiaobing.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>shadowsocks</title>
+      <link>http://shenxiaobing.com/tags/shadowsocks/</link>
+      <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/tags/shadowsocks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ss</title>
+      <link>http://shenxiaobing.com/tags/ss/</link>
+      <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/tags/ss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>翻墙回国</title>
+      <link>http://shenxiaobing.com/tags/%E7%BF%BB%E5%A2%99%E5%9B%9E%E5%9B%BD/</link>
+      <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/tags/%E7%BF%BB%E5%A2%99%E5%9B%9E%E5%9B%BD/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Selenium</title>
@@ -161,33 +188,6 @@
       <pubDate>Mon, 03 Sep 2018 15:12:31 +0800</pubDate>
       
       <guid>http://shenxiaobing.com/tags/%E7%94%9F%E5%91%BD%E6%84%8F%E4%B9%89/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>自我</title>
-      <link>http://shenxiaobing.com/tags/%E8%87%AA%E6%88%91/</link>
-      <pubDate>Mon, 03 Sep 2018 15:12:31 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/tags/%E8%87%AA%E6%88%91/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>爱上跑步的13周</title>
-      <link>http://shenxiaobing.com/tags/%E7%88%B1%E4%B8%8A%E8%B7%91%E6%AD%A5%E7%9A%8413%E5%91%A8/</link>
-      <pubDate>Sat, 04 Aug 2018 23:05:26 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/tags/%E7%88%B1%E4%B8%8A%E8%B7%91%E6%AD%A5%E7%9A%8413%E5%91%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>爱跑十三周</title>
-      <link>http://shenxiaobing.com/tags/%E7%88%B1%E8%B7%91%E5%8D%81%E4%B8%89%E5%91%A8/</link>
-      <pubDate>Sat, 04 Aug 2018 23:05:26 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/tags/%E7%88%B1%E8%B7%91%E5%8D%81%E4%B8%89%E5%91%A8/</guid>
       <description></description>
     </item>
     

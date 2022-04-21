@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>编程 · 小兵的诗篇</title>
+  <title>搭建Shadowsocks翻墙回国 - 小兵的诗篇</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Shen Xiaobing" />
-  <meta name="description" content="小兵的个人博客，分享生活、读书、工作等生命进程的印记。" />
+  <meta name="description" content="在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个" />
+
   <meta name="keywords" content="小兵哥, 个人博客, pkuflint, 火石" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.62.2" />
 
 
-<link rel="canonical" href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/" />
-<link href="/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="alternate" type="application/rss+xml" title="小兵的诗篇" />
+<link rel="canonical" href="http://shenxiaobing.com/post/2022/build-ss-back-to-china/" />
+
 
 
 
@@ -58,15 +59,23 @@
 
 
 
-<meta property="og:title" content="编程" />
-<meta property="og:description" content="小兵的个人博客，分享生活、读书、工作等生命进程的印记。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/" />
-<meta property="og:updated_time" content="2022-04-22T05:13:31+08:00" />
-<meta itemprop="name" content="编程">
-<meta itemprop="description" content="小兵的个人博客，分享生活、读书、工作等生命进程的印记。"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="编程"/>
-<meta name="twitter:description" content="小兵的个人博客，分享生活、读书、工作等生命进程的印记。"/>
+<meta property="og:title" content="搭建Shadowsocks翻墙回国" />
+<meta property="og:description" content="在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://shenxiaobing.com/post/2022/build-ss-back-to-china/" />
+<meta property="article:published_time" content="2022-04-22T05:13:31+08:00" />
+<meta property="article:modified_time" content="2022-04-22T05:13:31+08:00" />
+<meta itemprop="name" content="搭建Shadowsocks翻墙回国">
+<meta itemprop="description" content="在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个">
+<meta itemprop="datePublished" content="2022-04-22T05:13:31&#43;08:00" />
+<meta itemprop="dateModified" content="2022-04-22T05:13:31&#43;08:00" />
+<meta itemprop="wordCount" content="745">
+
+
+
+<meta itemprop="keywords" content="翻墙回国,shadowsocks,ss," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="搭建Shadowsocks翻墙回国"/>
+<meta name="twitter:description" content="在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -280,7 +289,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -333,109 +342,211 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">搭建Shadowsocks翻墙回国</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-04-22" class="post-time">
+          2022-04-22
+        </time>
+        <div class="post-category">
+            <a href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
+            
+          </div>
+        <span class="more-meta"> 约 745 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+
+        
+        
+          <span id="/post/2022/build-ss-back-to-china/" class="leancloud_visitors" data-flag-title="搭建Shadowsocks翻墙回国">
+            <span class="post-meta-item-text"> | 阅读 </span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#搭建准备">搭建准备</a></li>
+    <li><a href="#搭建流程">搭建流程</a></li>
+    <li><a href="#注意事项">注意事项</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个痛点是我无论如何都无法正常访问苹果开发者后台。虽然有不少公司在提供翻墙回国的服务，但是按月订阅价格不菲。于是乎我就想着自己试着搭建一个翻墙回国的服务。</p>
+<p>总的来说，搭建翻墙回国和翻墙出去的流程是完全一样的。只是有几个需要注意的点，下面会一一列举。</p>
+<h2 id="搭建准备">搭建准备</h2>
+<p>搭建需要国内服务器一台。推荐腾讯云轻量应用服务器，非常便宜，而且流量大。</p>
+<h2 id="搭建流程">搭建流程</h2>
+<p>首先登录服务器。不管是使用云服务器平台自带的登录入口，还是用三方的软件（比如termius或putty）都一样。</p>
+<p>接下来依次运行下面的指令来安装shadowsocks，若服务器没有安装python3，则需要先安装python3。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
+</code></pre></td></tr></table>
+</div>
+</div><p>安装完毕，使用下面的指令启动shadowsocks服务。其中<code>-m</code>后面是加密模式，<code>-p</code>后面是端口号，<code>-k</code>后面是密码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">nohup ssserver -m aes-256-cfb -p <span class="m">15251</span> -k abc@123 <span class="p">&amp;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>到这里搭建工作就完成了。</p>
+<blockquote>
+<p>当然你也可使用网上流行的那个脚本去直接安装，选择shadowsocks-python即可，我们是回国的，服务器也是自己的，不用考虑加密啥的。</p>
+</blockquote>
+<h2 id="注意事项">注意事项</h2>
+<ol>
+<li>
+<p>使用root权限操作</p>
+<p>腾讯云默认的用户是ubuntu，需要使用<code>sudo su</code>来获取root用户权限，然后再去进行安装。否则可能会提示安装的路径没有加入PATH。</p>
+</li>
+<li>
+<p>开放服务器端口</p>
+<p>腾讯云和阿里云的服务器默认都只开放了少量的端口，其中大概率是不包括我们刚刚搭建的shadowsocks服务所使用的端口。因此需要前往服务器的管理后台，找到类似安全策略之类的页面（腾讯云是防火墙-管理规则），然后添加一条新的规则，在规则中输入刚才启动shadowsocks服务时所使用的端口号，协议选择TCP。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Shen Xiaobing</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2022-04-22
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.png">
+        <span>微信打赏</span>
+      </label>
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://shenxiaobing.com/tags/%E7%BF%BB%E5%A2%99%E5%9B%9E%E5%9B%BD/">翻墙回国</a>
+          <a href="http://shenxiaobing.com/tags/shadowsocks/">shadowsocks</a>
+          <a href="http://shenxiaobing.com/tags/ss/">ss</a>
           
+        </div>
 
-<section id="archive" class="archive">
-  
-
-  
-    <div class="archive-post">
-      <time datetime="2018-06-28" class="archive-post-time">
-        2018-06-28
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/understanding-kvo-in-swift/" class="archive-post-link">
-          理解KVO - 用Swift在WKWebView中添加进度条
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2018-06-27" class="archive-post-time">
-        2018-06-27
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/swift-iap-pitfalls/" class="archive-post-link">
-          苹果内购接入的坑与核心流程 - Swift
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2018-06-20" class="archive-post-time">
-        2018-06-20
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/self-taught-swift-lesson-01/" class="archive-post-link">
-          自学路上的坑01 - Scheme勾选项带来的一些列问题
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2018-04-26" class="archive-post-time">
-        2018-04-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/beginning-core-data/" class="archive-post-link">
-          Core Data入门
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2018-01-26" class="archive-post-time">
-        2018-01-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/11-truths-of-debugging/" class="archive-post-link">
-          关于调试的11个真相
-        </a>
-      </span>
-    </div>
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
       
-      <li >
-        <a href="/categories/%E7%BC%96%E7%A8%8B/">1</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/categories/%E7%BC%96%E7%A8%8B/page/2/">2</a>
-      </li>
-      
-    </ul>
-  </nav>
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2021/selenium-webdriver-on-linux-ubuntu/">
+            <span class="next-text nav-default">在Ubuntu中使用Selenium Webdriver</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
 
+  
+  
 
+  
 
+  
+  
 
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://shenxiaobing.com/post/2022/build-ss-back-to-china/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'shenxiaobing';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  </div>
+
+    
+
+  
 
         </div>
       </div>

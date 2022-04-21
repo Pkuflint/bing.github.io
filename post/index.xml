@@ -6,10 +6,19 @@
     <description>Recent content in 全部文章 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 Mar 2021 17:09:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Apr 2022 05:13:31 +0800</lastBuildDate>
     
 	<atom:link href="http://shenxiaobing.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>搭建Shadowsocks翻墙回国</title>
+      <link>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</link>
+      <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</guid>
+      <description>在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个</description>
+    </item>
     
     <item>
       <title>在Ubuntu中使用Selenium Webdriver</title>
@@ -235,15 +244,6 @@
       
       <guid>http://shenxiaobing.com/post/2019/beginning-core-data/</guid>
       <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>我现在相信的</title>
-      <link>http://shenxiaobing.com/post/2019/things-i-believe/</link>
-      <pubDate>Mon, 26 Mar 2018 16:15:11 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/things-i-believe/</guid>
-      <description>&lt;p&gt;尽管对立的理论都能找到足够多的论据和拥趸，每个人，包括我，还是会对某一方的理论更为认同。尽管这种认同并不能增加理论的正确性，理清自己认同的东西还是很有必要。&lt;/p&gt;</description>
     </item>
     
   </channel>
