@@ -22,6 +22,9 @@
 &lt;p&gt;总的来说，搭建翻墙回国和翻墙出去的流程是完全一样的。只是有几个需要注意的点，下面会一一列举。&lt;/p&gt;
 &lt;h2 id=&#34;搭建准备&#34;&gt;搭建准备&lt;/h2&gt;
 &lt;p&gt;搭建需要国内服务器一台。推荐腾讯云轻量应用服务器，非常便宜，而且流量大。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;请注意这种服务器的带宽只有6Mbps，用来看视频是太行的。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;搭建流程&#34;&gt;搭建流程&lt;/h2&gt;
 &lt;p&gt;首先登录服务器。不管是使用云服务器平台自带的登录入口，还是用三方的软件（比如termius或putty）都一样。&lt;/p&gt;
 &lt;p&gt;接下来依次运行下面的指令来安装shadowsocks，若服务器没有安装python3，则需要先安装python3。&lt;/p&gt;
