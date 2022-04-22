@@ -6,10 +6,19 @@
     <description>Recent content in 全部文章 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Apr 2022 05:13:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Apr 2022 19:23:48 +0800</lastBuildDate>
     
 	<atom:link href="http://shenxiaobing.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何在同一台电脑操作不同github账户的SSH-KEY</title>
+      <link>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</link>
+      <pubDate>Fri, 22 Apr 2022 19:23:48 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</guid>
+      <description>如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号</description>
+    </item>
     
     <item>
       <title>搭建Shadowsocks翻墙回国</title>
@@ -235,15 +244,6 @@
       <description>&lt;p&gt;我下楼去买可乐。&lt;/p&gt;
 &lt;p&gt;走下楼梯时，看到楼梯上靠墙坐着一个头发花白的中年人。他低着头，在玩开心消消乐。我走过了，却还是忍不住回头看了他一样。他很严肃。&lt;/p&gt;
 &lt;p&gt;这是我今天喝的第三罐可乐。可乐倒进嘴里，苦味已经盖过了甜味。我只能喝可乐。喝酒太辣太苦，而我也没有配得上酒的忧愁或把酒言欢的朋友。我有的只是这种说不出是甜还是苦的平常生活。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Core Data入门</title>
-      <link>http://shenxiaobing.com/post/2019/beginning-core-data/</link>
-      <pubDate>Thu, 26 Apr 2018 13:49:23 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/beginning-core-data/</guid>
-      <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;</description>
     </item>
     
   </channel>

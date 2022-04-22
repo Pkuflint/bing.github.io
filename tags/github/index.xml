@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on 小兵的诗篇</title>
+    <link>http://shenxiaobing.com/tags/github/</link>
+    <description>Recent content in github on 小兵的诗篇</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 22 Apr 2022 19:23:48 +0800</lastBuildDate>
+    
+	<atom:link href="http://shenxiaobing.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何在同一台电脑操作不同github账户的SSH-KEY</title>
+      <link>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</link>
+      <pubDate>Fri, 22 Apr 2022 19:23:48 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</guid>
+      <description>如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号</description>
+    </item>
+    
+  </channel>
+</rss>

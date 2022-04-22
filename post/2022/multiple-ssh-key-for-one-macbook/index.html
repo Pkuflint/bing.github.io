@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>归档 - 小兵的诗篇</title>
+  <title>如何在同一台电脑操作不同github账户的SSH-KEY - 小兵的诗篇</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,7 +22,8 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Shen Xiaobing" /><meta name="description" content="A Possible Verse" />
+<meta name="author" content="Shen Xiaobing" />
+  <meta name="description" content="如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号" />
 
   <meta name="keywords" content="小兵哥, 个人博客, pkuflint, 火石" />
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.62.2" />
 
 
-<link rel="canonical" href="http://shenxiaobing.com/post/" />
-<link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="小兵的诗篇" />
+<link rel="canonical" href="http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/" />
+
 
 
 
@@ -58,15 +59,23 @@
 
 
 
-<meta property="og:title" content="全部文章" />
-<meta property="og:description" content="A Possible Verse" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://shenxiaobing.com/post/" />
-<meta property="og:updated_time" content="2022-04-22T19:23:48+08:00" />
-<meta itemprop="name" content="全部文章">
-<meta itemprop="description" content="A Possible Verse"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="全部文章"/>
-<meta name="twitter:description" content="A Possible Verse"/>
+<meta property="og:title" content="如何在同一台电脑操作不同github账户的SSH-KEY" />
+<meta property="og:description" content="如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/" />
+<meta property="article:published_time" content="2022-04-22T19:23:48+08:00" />
+<meta property="article:modified_time" content="2022-04-22T19:23:48+08:00" />
+<meta itemprop="name" content="如何在同一台电脑操作不同github账户的SSH-KEY">
+<meta itemprop="description" content="如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号">
+<meta itemprop="datePublished" content="2022-04-22T19:23:48&#43;08:00" />
+<meta itemprop="dateModified" content="2022-04-22T19:23:48&#43;08:00" />
+<meta itemprop="wordCount" content="1037">
+
+
+
+<meta itemprop="keywords" content="ssh-key,github," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何在同一台电脑操作不同github账户的SSH-KEY"/>
+<meta name="twitter:description" content="如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -291,7 +300,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           <a class="menu-item-link menu-parent" href="http://shenxiaobing.com">全部</a>
@@ -333,191 +342,300 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何在同一台电脑操作不同github账户的SSH-KEY</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-04-22" class="post-time">
+          2022-04-22
+        </time>
+        <div class="post-category">
+            <a href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
+            
+          </div>
+        <span class="more-meta"> 约 1037 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+
+        
+        
+
+        
+        
+          <span id="/post/2022/multiple-ssh-key-for-one-macbook/" class="leancloud_visitors" data-flag-title="如何在同一台电脑操作不同github账户的SSH-KEY">
+            <span class="post-meta-item-text"> | 阅读 </span>
+            <span class="leancloud-visitors-count"></span>
+          </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-生成ssh-key">1. 生成ssh-key</a></li>
+    <li><a href="#2-配置ssh-key到账号或项目中">2. 配置ssh key到账号或项目中</a></li>
+    <li><a href="#3-配置ssh-config">3. 配置ssh config</a></li>
+    <li><a href="#4-git操作注意事项">4. git操作注意事项</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。</p>
+<p>具体步骤如下：</p>
+<ol>
+<li>针对不同github账号甚至不同的repository生成ssh-key，并添加到电脑中</li>
+<li>配置ssh-key_pub内容到github账号或项目中。</li>
+<li>配置电脑.ssh的config文件</li>
+<li>git操作注意事项</li>
+</ol>
+<h2 id="1-生成ssh-key">1. 生成ssh-key</h2>
+<p>在terminal使用以下指令生成新的ssh_key。github推荐的是ed25519的方式，如果是老电脑或系统不支持，可以用第2条命令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">ssh-keygen -t ed25519 -C <span class="s2">&#34;your_email&#34;</span>
+ssh-keygen -t rsa -b <span class="m">4096</span> -C  <span class="s2">&#34;your_email&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在提示保存位置时，要输入完整的路径，比如：<code>/Users/bing/.ssh/id_ed25519_alias</code>。其中alias用来区别不同账号或者项目的ssh key。</p>
+<p>生成后添加ssh key。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-add ~/.ssh/id_ed25519_alias
+ssh-add ~/.ssh/id_ed25519_alias2
+</code></pre></td></tr></table>
+</div>
+</div><p>如果要删除之前添加过的key，则运行<code>ssh-add -D</code>。</p>
+<p>查看已经添加的ssh key，运行<code>ssh-add -l</code>。</p>
+<h2 id="2-配置ssh-key到账号或项目中">2. 配置ssh key到账号或项目中</h2>
+<p>如果key用于账号级别，则前往github个人中心-Settings-SSH and GPG Keys界面添加Key；若key用于项目界面，则前往Github项目页面-Settings-Deploy Keys界面添加。</p>
+<p>打开ssh key对应的pub文件，内容一般以<code>ssh-ed25519</code>、<code>ssh-rsa</code>等开头。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vim ~/.ssh/id_ed25519_alias.pub
+</code></pre></td></tr></table>
+</div>
+</div><p>复制里面的内容，在添加Key的界面添加保存即可。</p>
+<h2 id="3-配置ssh-config">3. 配置ssh config</h2>
+<p>打开<code>~/.ssh/config</code>文件，若没有则新建一个。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vim ~/.ssh/config
+</code></pre></td></tr></table>
+</div>
+</div><p>将以下内容配置进去。请注意里面的<code>Host</code>就是后面实际git操作时要用到的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># alias account
+Host github.com-alias
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_alias
+
+#alias1 account
+Host github.com-alias1
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_alias1
+</code></pre></td></tr></table>
+</div>
+</div><p>这里不能将多个key的Host都设置为<code>github.com</code>，设置后只有第一个生效。</p>
+<h2 id="4-git操作注意事项">4. git操作注意事项</h2>
+<p>在本地项目文件夹里，设置项目的git config。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config user.name &#34;alias&#34;
+git config user.email &#34;alias@example.com&#34; 
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以设置一个全局的，这样不需要每个项目文件都进行配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --globals user.name &#34;alias&#34;
+git config --globals user.email &#34;alias@example.com&#34; 
+</code></pre></td></tr></table>
+</div>
+</div><p>下面就是具体的git操作，只有一点需要注意，就是把原始的github项目的ssh链接进行替换。</p>
+<ul>
+<li>原始链接：git@github.com:Pkuflint/bing.github.io.git</li>
+<li>修改链接：git@github.com-<strong>alias</strong>:Pkuflint/bing.github.io.git</li>
+</ul>
+<p>比如我们试着进行一下<code>git pull</code>操作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git pull git@github.com-alias:Pkuflint/bing.github.io.git
+</code></pre></td></tr></table>
+</div>
+</div><p>如果是在自带Git功能的IDE里，也需要去修改下里面的git远程链接。</p>
+<p>参考文档：</p>
+<ol>
+<li><a href="https://gist.github.com/jexchan/2351996">https://gist.github.com/jexchan/2351996</a></li>
+</ol>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Shen Xiaobing</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2022-04-22
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/wechatpay.png">
+        <span>微信打赏</span>
+      </label>
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/alipay.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://shenxiaobing.com/tags/ssh-key/">ssh-key</a>
+          <a href="http://shenxiaobing.com/tags/github/">github</a>
           
-<section id="archive" class="archive">
-    
-      <div class="collection-title">
-        <h2 class="archive-year">2018</h2>
-      </div>
+        </div>
 
-    <div class="archive-post">
-      <time datetime="2018-04-26" class="archive-post-time">
-        2018-04-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/beginning-core-data/" class="archive-post-link">
-          Core Data入门
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2018-03-26" class="archive-post-time">
-        2018-03-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/things-i-believe/" class="archive-post-link">
-          我现在相信的
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2018-03-07" class="archive-post-time">
-        2018-03-07
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/getting-things-done/" class="archive-post-link">
-          做事靠系统——读《小强升职记》
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2018-02-08" class="archive-post-time">
-        2018-02-08
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/hello-brad/" class="archive-post-link">
-          那一刻，我感觉到一种疼痛 —— 观《你好，波拉德》
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2018-01-26" class="archive-post-time">
-        2018-01-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/11-truths-of-debugging/" class="archive-post-link">
-          关于调试的11个真相
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2018-01-03" class="archive-post-time">
-        2018-01-03
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/an-overview-of-local-board-game/" class="archive-post-link">
-          我所知的地方棋牌
-        </a>
-      </span>
-    </div>
-    
-      <div class="collection-title">
-        <h2 class="archive-year">2017</h2>
-      </div>
-
-    <div class="archive-post">
-      <time datetime="2017-08-02" class="archive-post-time">
-        2017-08-02
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/a-man-playing-wangzherongyao/" class="archive-post-link">
-          看呐，那个人在玩《王者荣耀》
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2017-07-30" class="archive-post-time">
-        2017-07-30
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/reading-notes-country-driving/" class="archive-post-link">
-          读《寻路中国》
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2017-07-10" class="archive-post-time">
-        2017-07-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/how-time-flies/" class="archive-post-link">
-          一晃四个月
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2017-03-18" class="archive-post-time">
-        2017-03-18
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/2019/about-real-estate/" class="archive-post-link">
-          在中国买房子——读《欧成效文集》
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
       
-      <li >
-        <a href="/post/">1</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/2/">2</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/post/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/6/">6</a>
-      </li>
-      
-    </ul>
-  </nav>
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2022/build-ss-back-to-china/">
+            <span class="next-text nav-default">搭建Shadowsocks翻墙回国</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
 
+  
+  
 
+  
 
+  
+  
 
+  
+
+  
+
+  <div class="disqus-comment">
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+    显示 Disqus 评论
+  </div>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = "http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/";
+    };
+    function load_disqus() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'shenxiaobing';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+      $('#load_disqus').remove();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+  
+  </div>
+
+    
+
+  
 
         </div>
       </div>

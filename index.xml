@@ -6,10 +6,149 @@
     <description>Recent content on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Apr 2022 05:13:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Apr 2022 19:23:48 +0800</lastBuildDate>
     
         <atom:link href="http://shenxiaobing.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何在同一台电脑操作不同github账户的SSH-KEY</title>
+      <link>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</link>
+      <pubDate>Fri, 22 Apr 2022 19:23:48 +0800</pubDate>
+      
+      <guid>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</guid>
+      
+        <description>&lt;p&gt;如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。&lt;/p&gt;
+&lt;p&gt;具体步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;针对不同github账号甚至不同的repository生成ssh-key，并添加到电脑中&lt;/li&gt;
+&lt;li&gt;配置ssh-key_pub内容到github账号或项目中。&lt;/li&gt;
+&lt;li&gt;配置电脑.ssh的config文件&lt;/li&gt;
+&lt;li&gt;git操作注意事项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1-生成ssh-key&#34;&gt;1. 生成ssh-key&lt;/h2&gt;
+&lt;p&gt;在terminal使用以下指令生成新的ssh_key。github推荐的是ed25519的方式，如果是老电脑或系统不支持，可以用第2条命令。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh-keygen -t ed25519 -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;your_email&amp;#34;&lt;/span&gt;
+ssh-keygen -t rsa -b &lt;span class=&#34;m&#34;&gt;4096&lt;/span&gt; -C  &lt;span class=&#34;s2&#34;&gt;&amp;#34;your_email&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在提示保存位置时，要输入完整的路径，比如：&lt;code&gt;/Users/bing/.ssh/id_ed25519_alias&lt;/code&gt;。其中alias用来区别不同账号或者项目的ssh key。&lt;/p&gt;
+&lt;p&gt;生成后添加ssh key。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;ssh-add ~/.ssh/id_ed25519_alias
+ssh-add ~/.ssh/id_ed25519_alias2
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果要删除之前添加过的key，则运行&lt;code&gt;ssh-add -D&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;查看已经添加的ssh key，运行&lt;code&gt;ssh-add -l&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;2-配置ssh-key到账号或项目中&#34;&gt;2. 配置ssh key到账号或项目中&lt;/h2&gt;
+&lt;p&gt;如果key用于账号级别，则前往github个人中心-Settings-SSH and GPG Keys界面添加Key；若key用于项目界面，则前往Github项目页面-Settings-Deploy Keys界面添加。&lt;/p&gt;
+&lt;p&gt;打开ssh key对应的pub文件，内容一般以&lt;code&gt;ssh-ed25519&lt;/code&gt;、&lt;code&gt;ssh-rsa&lt;/code&gt;等开头。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;vim ~/.ssh/id_ed25519_alias.pub
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;复制里面的内容，在添加Key的界面添加保存即可。&lt;/p&gt;
+&lt;h2 id=&#34;3-配置ssh-config&#34;&gt;3. 配置ssh config&lt;/h2&gt;
+&lt;p&gt;打开&lt;code&gt;~/.ssh/config&lt;/code&gt;文件，若没有则新建一个。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;vim ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;将以下内容配置进去。请注意里面的&lt;code&gt;Host&lt;/code&gt;就是后面实际git操作时要用到的。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;# alias account
+Host github.com-alias
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_alias
+
+#alias1 account
+Host github.com-alias1
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_alias1
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这里不能将多个key的Host都设置为&lt;code&gt;github.com&lt;/code&gt;，设置后只有第一个生效。&lt;/p&gt;
+&lt;h2 id=&#34;4-git操作注意事项&#34;&gt;4. git操作注意事项&lt;/h2&gt;
+&lt;p&gt;在本地项目文件夹里，设置项目的git config。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git config user.name &amp;#34;alias&amp;#34;
+git config user.email &amp;#34;alias@example.com&amp;#34; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;也可以设置一个全局的，这样不需要每个项目文件都进行配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git config --globals user.name &amp;#34;alias&amp;#34;
+git config --globals user.email &amp;#34;alias@example.com&amp;#34; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;下面就是具体的git操作，只有一点需要注意，就是把原始的github项目的ssh链接进行替换。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;原始链接：git@github.com:Pkuflint/bing.github.io.git&lt;/li&gt;
+&lt;li&gt;修改链接：git@github.com-&lt;strong&gt;alias&lt;/strong&gt;:Pkuflint/bing.github.io.git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;比如我们试着进行一下&lt;code&gt;git pull&lt;/code&gt;操作。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git pull git@github.com-alias:Pkuflint/bing.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果是在自带Git功能的IDE里，也需要去修改下里面的git远程链接。&lt;/p&gt;
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/jexchan/2351996&#34;&gt;https://gist.github.com/jexchan/2351996&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>搭建Shadowsocks翻墙回国</title>
@@ -2113,262 +2252,6 @@ sudo chmod +x /usr/bin/chromedriver
 &lt;p&gt;今天的主要任务就是测试一个新开发完成的麻将玩法。其他同事可以搞定，我就安排与追踪下进度。产品还是有很多小问题，让人有点无可奈何。我又列了下当前主要的模块，安排了下优先级。&lt;/p&gt;
 &lt;p&gt;然后，我又开始出离，观察自己现在的这个状态。我需要一罐可乐。&lt;/p&gt;
 &lt;p&gt;于是，我下楼去买可乐，今天的第三罐可乐。&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Core Data入门</title>
-      <link>http://shenxiaobing.com/post/2019/beginning-core-data/</link>
-      <pubDate>Thu, 26 Apr 2018 13:49:23 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/beginning-core-data/</guid>
-      
-        <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;添加Core Data&lt;/li&gt;
-&lt;li&gt;配置Core Data中的Entity&lt;/li&gt;
-&lt;li&gt;添加新数据&lt;/li&gt;
-&lt;li&gt;读取与修改数据&lt;/li&gt;
-&lt;li&gt;使用NSPredicate筛选数据&lt;/li&gt;
-&lt;li&gt;删除数据&lt;/li&gt;
-&lt;li&gt;保存数据&lt;/li&gt;
-&lt;li&gt;一份NSPredicate使用备忘清单&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;添加core-data&#34;&gt;添加Core Data&lt;/h2&gt;
-&lt;p&gt;如果在创建项目时没有勾选Using Core Data，可以手动创建Core Data。手动创建Core Data的方式如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在项目中创建新的文件，类型为：Core Data。&lt;/li&gt;
-&lt;li&gt;添加相关的预设方法进入&lt;code&gt;AppDelegate&lt;/code&gt;中，相关方法如下：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;func applicationWillTerminate(_ application: UIApplication) {
-    self.saveContext()
-}
-	
-// MARK: - Core Data stack
-    
-lazy var persistentContainer: NSPersistentContainer = {
-    let container = NSPersistentContainer(name: &amp;#34;DataModel&amp;#34;)
-    container.loadPersistentStores(completionHandler: { 
-    (storeDescription, error) in
-        if let error = error as NSError? {
-            fatalError(&amp;#34;Unresolved error \(error), \(error.userInfo)&amp;#34;)
-        }
-    })
-    return container
-}()
-    
-// MARK: - Core Data Saving support
-    
-func saveContext () {
-    let context = persistentContainer.viewContext
-    if context.hasChanges {
-        do {
-            try context.save()
-        } catch {
-            let nserror = error as NSError
-            fatalError(&amp;#34;Unresolved error \(nserror), \(nserror.userInfo)&amp;#34;)
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这两个方法是Xcode为使用Core Data的新项目自动创建的，我这里只是拷贝了进来。&lt;/p&gt;
-&lt;h2 id=&#34;配置core-data中的entity&#34;&gt;配置Core Data中的Entity&lt;/h2&gt;
-&lt;p&gt;点击创建的Core Data文件，我们在界面中配置Entity。Core Data中的Entity，就相当于编程语言中的Class，类比数据库就是一个Table。Entity的Attribute，就是Class的Property，Table中的Field。&lt;/p&gt;
-&lt;p&gt;举个例子：
-我的To-do App中需要两个类，一个是Category，代表清单的类别；一个是Item，代表清单中的具体事项。&lt;/p&gt;
-&lt;p&gt;在Core Data中创建2个Entity分别是Category和Item。Category设置1个Attribute：name，类型为String；Item设置2个Attribute：title和done，分别是String和Bool类型。&lt;/p&gt;
-&lt;p&gt;然后配置Category和Item的关系，将Category对Item的关系设置为一对多，而Item对Category的关系设置为一对一，毕竟一个事项只有一个类别。&lt;/p&gt;
-&lt;h2 id=&#34;添加新数据&#34;&gt;添加新数据&lt;/h2&gt;
-&lt;p&gt;无论要对Core Data做什么，都需要用到&lt;code&gt;context&lt;/code&gt;，因此需要在用到Core Data的类中添加一个实例变量：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;let context = (UIApplication.shared.delegate
-	as! AppDelegate).persistentContainer.viewContext
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;我要添加一个新的Category，那么从Core Data的Entity中创建对象是这样的：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;let newCategory = Category(context: self.context)   // 用Core Data中的Entity创建对象
-
-newCategory.name = &amp;#34;Work&amp;#34; // 设置Entity对象的必要attribute
-
-// 将新的category对象加入categoryList，而categoryList则指向是从数据库中读取的数据。
-categoryList.append(newCategory)  
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;读取与修改数据&#34;&gt;读取与修改数据&lt;/h2&gt;
-&lt;p&gt;从Core Data中读取全部数据：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;func fetchData() {
-    let request: NSFetchRequest&amp;lt;Category&amp;gt; = Category.fetchRequest()
-    
-    do {
-    	// 将实例变量categoryList指向读取的数据
-        categoryList = try context.fetch(request)  
-    } catch {
-        print(&amp;#34;Error fetching request, \(error)&amp;#34;)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;而要修改数据，则可以选择使用以下两种方式之一：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;// 将刚加入的Work改为Shopping
-categoryList[0].name = &amp;#34;Shopping&amp;#34; 
-
-// 将刚才的Shopping category的name attribute改为&amp;#34;Chores&amp;#34;
-categoryList[0].setValue(&amp;#34;Chores&amp;#34;, forKey: &amp;#34;name&amp;#34;) 
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;使用predicate筛选数据&#34;&gt;使用Predicate筛选数据&lt;/h2&gt;
-&lt;p&gt;有时我们不需要读取数据库中的所有数据，比如我只想读取：Category是Work的所有待办事项Item；或者我想搜索Work类别里待办事项中名字里包含&amp;quot;urgent&amp;quot;的事项，这时，我们这样写：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;let selectedCategory = &amp;#34;Work&amp;#34;  // 清单类别
-let searchKeyword = &amp;#34;urgent&amp;#34;  // 搜索筛选的关键词
-
-let request: NSFetchRequest&amp;lt;Item&amp;gt; = Item.fetchRequest()
-
-// 此处parentCategory是Core Data中Item的一个关系设定，将关系指向Category并命名为parentCategory。
-let predicate1 = NSPredicate(format: &amp;#34;parentCategory.name MATCHES %@&amp;#34;, selectedCategory) 
-
-let predicate2 = NSPredicate(format: &amp;#34;title CONTAINS[cd] %@&amp;#34;, searchKeyword)
-
-let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
-
-request.predicate = compoundPredicate
-request.sortDescriptors = [NSSortDescriptor(key: &amp;#34;title&amp;#34;, ascending: true)]
-
-do {
-    self.selectedItems = try context.fetch(request)
-} catch {
-    print(&amp;#34;Error fetching data, \(error)&amp;#34;)
-}       
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;删除数据&#34;&gt;删除数据&lt;/h2&gt;
-&lt;p&gt;读取数据后，直接从指向数据的变量中，删除对应的数据即可。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;self.context.delete(selectedItems[1]) // 从数据中移除
-selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;保存数据&#34;&gt;保存数据&lt;/h2&gt;
-&lt;p&gt;对Core Data进行新增、修改、删除后，都要进行保存才能生效。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;do {
-    try context.save()
-} catch {
-    print(&amp;#34;Error saving data, \(error)&amp;#34;)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;nspredicate使用备忘&#34;&gt;NSPredicate使用备忘&lt;/h2&gt;
-&lt;p&gt;关于Predicate的一份备忘清单，可以随时查看：&lt;a href=&#34;https://academy.realm.io/posts/nspredicate-cheatsheet/&#34;&gt;NSPredicate备忘清单&lt;/a&gt;&lt;/p&gt;</description>
       
     </item>
     
