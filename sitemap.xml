@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shenxiaobing.com/post/</loc>
+    <lastmod>2024-01-10T00:40:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2024-01-10T00:40:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenxiaobing.com/tags/</loc>
+    <lastmod>2024-01-10T00:40:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenxiaobing.com/categories/</loc>
+    <lastmod>2024-01-10T00:40:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenxiaobing.com/tags/%E6%97%A0%E9%A2%98/</loc>
+    <lastmod>2024-01-10T00:40:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenxiaobing.com/post/2024/happynewyear2024/</loc>
+    <lastmod>2024-01-10T00:40:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://shenxiaobing.com/</loc>
+    <lastmod>2024-01-10T00:40:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://shenxiaobing.com/tags/github/</loc>
     <lastmod>2022-04-22T19:23:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,35 +72,7 @@
   </url>
   
   <url>
-    <loc>https://shenxiaobing.com/post/</loc>
-    <lastmod>2022-04-22T19:23:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</loc>
-    <lastmod>2022-04-22T19:23:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenxiaobing.com/tags/</loc>
-    <lastmod>2022-04-22T19:23:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenxiaobing.com/categories/</loc>
-    <lastmod>2022-04-22T19:23:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenxiaobing.com/</loc>
     <lastmod>2022-04-22T19:23:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -207,13 +228,6 @@
   <url>
     <loc>https://shenxiaobing.com/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/</loc>
     <lastmod>2019-09-03T20:20:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2020-01-09T19:26:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

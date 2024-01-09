@@ -6,8 +6,15 @@
     <description>Recent content in 全部文章 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Apr 2022 19:23:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jan 2024 00:40:34 +0800</lastBuildDate>
     <atom:link href="https://shenxiaobing.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>无题</title>
+      <link>https://shenxiaobing.com/post/2024/happynewyear2024/</link>
+      <pubDate>Wed, 10 Jan 2024 00:40:34 +0800</pubDate>
+      <guid>https://shenxiaobing.com/post/2024/happynewyear2024/</guid>
+      <description>我自己也许不记得已经多久没有写文章，但我的博客记得一清二楚。文章的主题主要就是读书、编程、工作经验心得总结、生活感悟。但过去的一年没读几本书</description>
+    </item>
     <item>
       <title>如何在同一台电脑操作不同github账户的SSH-KEY</title>
       <link>https://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</link>
@@ -140,13 +147,6 @@
       <pubDate>Wed, 20 Jun 2018 02:49:00 +0800</pubDate>
       <guid>https://shenxiaobing.com/post/2019/from-zero-to-quit/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;我会用4种编程语言写出Hello World！&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;2013年-c语言&#34;&gt;2013年 C语言&lt;/h2&gt;&#xA;&lt;p&gt;自学编程的想法，最早应该可以追溯到2013年，证据就是我于当时写下的博客，以及博客中提到的新买的、后来被村长带走的《C语言编程》。我已经记不得当时为何要学编程，为何要从C语言开始，以及那本书我看了多少。&lt;/p&gt;&#xA;&lt;p&gt;不过，打出上面最后一句话后，我还是想起来了：当时我没能用C语言打出&lt;code&gt;Hello World!&lt;/code&gt;就放弃了，因为没弄好编译器。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>一天</title>
-      <link>https://shenxiaobing.com/post/2019/one-day/</link>
-      <pubDate>Mon, 14 May 2018 16:30:02 +0800</pubDate>
-      <guid>https://shenxiaobing.com/post/2019/one-day/</guid>
-      <description>&lt;p&gt;我下楼去买可乐。&lt;/p&gt;&#xA;&lt;p&gt;走下楼梯时，看到楼梯上靠墙坐着一个头发花白的中年人。他低着头，在玩开心消消乐。我走过了，却还是忍不住回头看了他一样。他很严肃。&lt;/p&gt;&#xA;&lt;p&gt;这是我今天喝的第三罐可乐。可乐倒进嘴里，苦味已经盖过了甜味。我只能喝可乐。喝酒太辣太苦，而我也没有配得上酒的忧愁或把酒言欢的朋友。我有的只是这种说不出是甜还是苦的平常生活。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

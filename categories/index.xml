@@ -6,8 +6,15 @@
     <description>Recent content in 文章分类 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Apr 2022 19:23:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jan 2024 00:40:34 +0800</lastBuildDate>
     <atom:link href="https://shenxiaobing.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>生活</title>
+      <link>https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Wed, 10 Jan 2024 00:40:34 +0800</pubDate>
+      <guid>https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
     <item>
       <title>编程</title>
       <link>https://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/</link>
@@ -20,13 +27,6 @@
       <link>https://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/</link>
       <pubDate>Sat, 08 Feb 2020 18:15:18 +0800</pubDate>
       <guid>https://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>生活</title>
-      <link>https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</link>
-      <pubDate>Tue, 03 Sep 2019 20:20:00 +0800</pubDate>
-      <guid>https://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/</guid>
       <description></description>
     </item>
     <item>
