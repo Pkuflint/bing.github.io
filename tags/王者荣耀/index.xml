@@ -2,24 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>王者荣耀 on 小兵的诗篇</title>
-    <link>http://shenxiaobing.com/tags/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80/</link>
+    <link>http://localhost:1313/tags/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80/</link>
     <description>Recent content in 王者荣耀 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 02 Aug 2017 16:23:56 +0800</lastBuildDate>
-    
-	<atom:link href="http://shenxiaobing.com/tags/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>看呐，那个人在玩《王者荣耀》</title>
-      <link>http://shenxiaobing.com/post/2019/a-man-playing-wangzherongyao/</link>
+      <link>http://localhost:1313/post/2019/a-man-playing-wangzherongyao/</link>
       <pubDate>Wed, 02 Aug 2017 16:23:56 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/a-man-playing-wangzherongyao/</guid>
-      <description>&lt;p&gt;那个人在玩《王者荣耀》。&lt;/p&gt;
-&lt;p&gt;他眼睛死死地盯着屏幕，双手死死地握着手机，右手拇指不停地点着屏幕。他不自觉地把伸出了下嘴唇，包住了上嘴唇。他自己都没有意识到他自己的这个习惯。他表情严肃，看不出游戏中的战况如何。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/a-man-playing-wangzherongyao/</guid>
+      <description>&lt;p&gt;那个人在玩《王者荣耀》。&lt;/p&gt;&#xA;&lt;p&gt;他眼睛死死地盯着屏幕，双手死死地握着手机，右手拇指不停地点着屏幕。他不自觉地把伸出了下嘴唇，包住了上嘴唇。他自己都没有意识到他自己的这个习惯。他表情严肃，看不出游戏中的战况如何。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

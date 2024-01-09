@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Core Data入门 - 小兵的诗篇</title>
-  
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Core Data入门 - 小兵的诗篇
+        </title>
+    
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -26,17 +32,17 @@
   <meta name="description" content="在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。
 " />
 
-  <meta name="keywords" content="小兵哥, 个人博客, pkuflint, 火石" />
+  <meta name="keywords" content="小兵的诗篇, Shen Xiaobing, 博客" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.62.2" />
+<meta name="generator" content="Hugo 0.121.1" />
 
 
-<link rel="canonical" href="http://shenxiaobing.com/post/2019/beginning-core-data/" />
+<link rel="canonical" href="http://localhost:1313/post/2019/beginning-core-data/" />
 
 
 
@@ -54,7 +60,9 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.e826e860368147e5a6685e686355e4d7789023c18c9ea2e78b35f6786ce92736.css" integrity="sha256-6CboYDaBR&#43;WmaF5oY1Xk13iQI8GMnqLnizX2eGzpJzY=" media="screen" crossorigin="anonymous">
+
+
 
 
 
@@ -63,19 +71,15 @@
 <meta property="og:title" content="Core Data入门" />
 <meta property="og:description" content="在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://shenxiaobing.com/post/2019/beginning-core-data/" />
+<meta property="og:url" content="http://localhost:1313/post/2019/beginning-core-data/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-04-26T13:49:23+08:00" />
 <meta property="article:modified_time" content="2018-04-26T13:49:23+08:00" />
+
 <meta itemprop="name" content="Core Data入门">
-<meta itemprop="description" content="在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。">
-<meta itemprop="datePublished" content="2018-04-26T13:49:23&#43;08:00" />
-<meta itemprop="dateModified" content="2018-04-26T13:49:23&#43;08:00" />
-<meta itemprop="wordCount" content="1692">
-
-
-
-<meta itemprop="keywords" content="Swift,Core Data,iOS," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Core Data入门"/>
+<meta itemprop="description" content="在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。"><meta itemprop="datePublished" content="2018-04-26T13:49:23+08:00" />
+<meta itemprop="dateModified" content="2018-04-26T13:49:23+08:00" />
+<meta itemprop="wordCount" content="1612">
+<meta itemprop="keywords" content="Swift,Core Data,iOS," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Core Data入门"/>
 <meta name="twitter:description" content="在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。"/>
 
 <!--[if lte IE 9]>
@@ -88,22 +92,25 @@
 <![endif]-->
 
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-42920896-3', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
+  </head>
+  <body>
+    <div id="back-to-top"></div>
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">小兵的诗篇</a>
   </div>
@@ -119,28 +126,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/">首页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">首页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%94%9F%E6%B4%BB/">生活</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/">编程</a>
           
         
       </li><li class="mobile-menu-item">
@@ -148,26 +155,26 @@ if (!doNotTrack) {
           
           <div class="mobile-menu-parent">
             <span class="mobile-submenu-open"></span>
-            <a href="http://shenxiaobing.com">
+            <a href="http://localhost:1313/">
               全部
             </a>
           </div>
           <ul class="mobile-submenu-list">
             
               <li>
-                <a href="http://shenxiaobing.com/post/">全部文章</a>
+                <a href="http://localhost:1313/post/">全部文章</a>
               </li>
             
               <li>
-                <a href="http://shenxiaobing.com/categories/">分类</a>
+                <a href="http://localhost:1313/categories/">分类</a>
               </li>
             
               <li>
-                <a href="http://shenxiaobing.com/tags/">标签</a>
+                <a href="http://localhost:1313/tags/">标签</a>
               </li>
             
               <li>
-                <a href="http://shenxiaobing.com/about">关于</a>
+                <a href="http://localhost:1313/about">关于</a>
               </li>
             
           </ul>
@@ -180,8 +187,8 @@ if (!doNotTrack) {
 </nav>
 
 
-  
     
+      
 
 
 
@@ -238,14 +245,15 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
+    
 
-  
+    
 
-  
+    
 
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
   <a href="/" class="logo">
     
       小兵的诗篇
@@ -261,7 +269,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/">首页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">首页</a>
           
 
         
@@ -272,7 +280,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%94%9F%E6%B4%BB/">生活</a>
           
 
         
@@ -283,7 +291,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
           
 
         
@@ -294,7 +302,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/">编程</a>
           
 
         
@@ -304,23 +312,23 @@ if (!doNotTrack) {
         <li class="menu-item">
         
           
-          <a class="menu-item-link menu-parent" href="http://shenxiaobing.com">全部</a>
+          <a class="menu-item-link menu-parent" href="http://localhost:1313/">全部</a>
           <ul class="submenu">
             
-              <li>
-                <a href="http://shenxiaobing.com/post/">全部文章</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/post/">全部文章</a>
               </li>
             
-              <li>
-                <a href="http://shenxiaobing.com/categories/">分类</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/categories/">分类</a>
               </li>
             
-              <li>
-                <a href="http://shenxiaobing.com/tags/">标签</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/tags/">标签</a>
               </li>
             
-              <li>
-                <a href="http://shenxiaobing.com/about">关于</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/about">关于</a>
               </li>
             
           </ul>
@@ -337,64 +345,61 @@ if (!doNotTrack) {
   </ul>
 </nav>
 
-  </header>
-
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          <article class="post bg-white">
-    
-    <header class="post-header">
-      <h1 class="post-title">Core Data入门</h1>
-      
-      <div class="post-meta">
-        <time datetime="2018-04-26" class="post-time">
-          2018-04-26
-        </time>
-        <div class="post-category">
-            <a href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
-            
-          </div>
-        <span class="more-meta"> 约 1692 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
-
-        
-        
-
-        
-        
-          <span id="/post/2019/beginning-core-data/" class="leancloud_visitors" data-flag-title="Core Data入门">
-            <span class="post-meta-item-text"> | 阅读 </span>
-            <span class="leancloud-visitors-count"></span>
-          </span>
-        
-      </div>
     </header>
 
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Core Data入门</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          Shen Xiaobing
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-04-26">
+      2018-04-26
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
+          
+      </div>
+
+
     
     
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#添加core-data">添加Core Data</a></li>
-    <li><a href="#配置core-data中的entity">配置Core Data中的Entity</a></li>
-    <li><a href="#添加新数据">添加新数据</a></li>
-    <li><a href="#读取与修改数据">读取与修改数据</a></li>
-    <li><a href="#使用predicate筛选数据">使用Predicate筛选数据</a></li>
-    <li><a href="#删除数据">删除数据</a></li>
-    <li><a href="#保存数据">保存数据</a></li>
-    <li><a href="#nspredicate使用备忘">NSPredicate使用备忘</a></li>
-  </ul>
-</nav>
+
+
+    
+    
   </div>
 </div>
 
-    
-    <div class="post-content">
-      <p>在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。</p>
+        </header>
+
+        
+        <div class="post-content">
+          <p>在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。</p>
 <ol>
 <li>添加Core Data</li>
 <li>配置Core Data中的Entity</li>
@@ -411,41 +416,7 @@ if (!doNotTrack) {
 <li>在项目中创建新的文件，类型为：Core Data。</li>
 <li>添加相关的预设方法进入<code>AppDelegate</code>中，相关方法如下：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">func applicationWillTerminate(_ application: UIApplication) {
+<pre tabindex="0"><code>func applicationWillTerminate(_ application: UIApplication) {
     self.saveContext()
 }
 	
@@ -475,9 +446,7 @@ func saveContext () {
         }
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>这两个方法是Xcode为使用Core Data的新项目自动创建的，我这里只是拷贝了进来。</p>
+</code></pre><p>这两个方法是Xcode为使用Core Data的新项目自动创建的，我这里只是拷贝了进来。</p>
 <h2 id="配置core-data中的entity">配置Core Data中的Entity</h2>
 <p>点击创建的Core Data文件，我们在界面中配置Entity。Core Data中的Entity，就相当于编程语言中的Class，类比数据库就是一个Table。Entity的Attribute，就是Class的Property，Table中的Field。</p>
 <p>举个例子：
@@ -486,52 +455,18 @@ func saveContext () {
 <p>然后配置Category和Item的关系，将Category对Item的关系设置为一对多，而Item对Category的关系设置为一对一，毕竟一个事项只有一个类别。</p>
 <h2 id="添加新数据">添加新数据</h2>
 <p>无论要对Core Data做什么，都需要用到<code>context</code>，因此需要在用到Core Data的类中添加一个实例变量：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">let context = (UIApplication.shared.delegate
+<pre tabindex="0"><code>let context = (UIApplication.shared.delegate
 	as! AppDelegate).persistentContainer.viewContext
-</code></pre></td></tr></table>
-</div>
-</div><p>我要添加一个新的Category，那么从Core Data的Entity中创建对象是这样的：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">let newCategory = Category(context: self.context)   // 用Core Data中的Entity创建对象
+</code></pre><p>我要添加一个新的Category，那么从Core Data的Entity中创建对象是这样的：</p>
+<pre tabindex="0"><code>let newCategory = Category(context: self.context)   // 用Core Data中的Entity创建对象
 
 newCategory.name = &#34;Work&#34; // 设置Entity对象的必要attribute
 
 // 将新的category对象加入categoryList，而categoryList则指向是从数据库中读取的数据。
 categoryList.append(newCategory)  
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="读取与修改数据">读取与修改数据</h2>
+</code></pre><h2 id="读取与修改数据">读取与修改数据</h2>
 <p>从Core Data中读取全部数据：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">func fetchData() {
+<pre tabindex="0"><code>func fetchData() {
     let request: NSFetchRequest&lt;Category&gt; = Category.fetchRequest()
     
     do {
@@ -541,52 +476,15 @@ categoryList.append(newCategory)
         print(&#34;Error fetching request, \(error)&#34;)
     }
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>而要修改数据，则可以选择使用以下两种方式之一：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 将刚加入的Work改为Shopping
+</code></pre><p>而要修改数据，则可以选择使用以下两种方式之一：</p>
+<pre tabindex="0"><code>// 将刚加入的Work改为Shopping
 categoryList[0].name = &#34;Shopping&#34; 
 
 // 将刚才的Shopping category的name attribute改为&#34;Chores&#34;
 categoryList[0].setValue(&#34;Chores&#34;, forKey: &#34;name&#34;) 
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="使用predicate筛选数据">使用Predicate筛选数据</h2>
+</code></pre><h2 id="使用predicate筛选数据">使用Predicate筛选数据</h2>
 <p>有时我们不需要读取数据库中的所有数据，比如我只想读取：Category是Work的所有待办事项Item；或者我想搜索Work类别里待办事项中名字里包含&quot;urgent&quot;的事项，这时，我们这样写：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">let selectedCategory = &#34;Work&#34;  // 清单类别
+<pre tabindex="0"><code>let selectedCategory = &#34;Work&#34;  // 清单类别
 let searchKeyword = &#34;urgent&#34;  // 搜索筛选的关键词
 
 let request: NSFetchRequest&lt;Item&gt; = Item.fetchRequest()
@@ -606,44 +504,23 @@ do {
 } catch {
     print(&#34;Error fetching data, \(error)&#34;)
 }       
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="删除数据">删除数据</h2>
+</code></pre><h2 id="删除数据">删除数据</h2>
 <p>读取数据后，直接从指向数据的变量中，删除对应的数据即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">self.context.delete(selectedItems[1]) // 从数据中移除
+<pre tabindex="0"><code>self.context.delete(selectedItems[1]) // 从数据中移除
 selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="保存数据">保存数据</h2>
+</code></pre><h2 id="保存数据">保存数据</h2>
 <p>对Core Data进行新增、修改、删除后，都要进行保存才能生效。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">do {
+<pre tabindex="0"><code>do {
     try context.save()
 } catch {
     print(&#34;Error saving data, \(error)&#34;)
 }
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="nspredicate使用备忘">NSPredicate使用备忘</h2>
+</code></pre><h2 id="nspredicate使用备忘">NSPredicate使用备忘</h2>
 <p>关于Predicate的一份备忘清单，可以随时查看：<a href="https://academy.realm.io/posts/nspredicate-cheatsheet/">NSPredicate备忘清单</a></p>
-    </div>
+        </div>
 
-    
-    
+        
+        
 <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
@@ -664,8 +541,9 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
 </div>
 
 
-    
-    
+
+        
+        
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
@@ -684,59 +562,63 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
   </div>
 </div>
 
-    <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://shenxiaobing.com/tags/swift/">Swift</a>
-          <a href="http://shenxiaobing.com/tags/core-data/">Core Data</a>
-          <a href="http://shenxiaobing.com/tags/ios/">iOS</a>
-          
-        </div>
 
-      
-      <nav class="post-nav">
-        
-          <a class="prev" href="/post/2019/one-day/">
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/swift/">Swift</a>
+                <a href="http://localhost:1313/tags/core-data/">Core Data</a>
+                <a href="http://localhost:1313/tags/ios/">iOS</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
             
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="prev" href="/post/2019/one-day/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
 </svg>
 
-            </i>
-            <span class="prev-text nav-default">一天</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        
-          <a class="next" href="/post/2019/things-i-believe/">
-            <span class="next-text nav-default">我现在相信的</span>
-            <span class="prev-text nav-mobile">下一篇</span>
+                </i>
+                <span class="prev-text nav-default">一天</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
             
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="next" href="/post/2019/things-i-believe/">
+                <span class="next-text nav-default">我现在相信的</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
 </svg>
 
-            </i>
-          </a>
-      </nav>
-    </footer>
-  </article>
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
 
   
   
 
   
-  
-
-  
-
-  
-  
-
   
 
   
@@ -748,7 +630,7 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_config = function () {
-      this.page.url = "http://shenxiaobing.com/post/2019/beginning-core-data/";
+      this.page.url = "http://localhost:1313/post/2019/beginning-core-data/";
     };
     function load_disqus() {
       
@@ -763,22 +645,49 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
       $('#load_disqus').remove();
     };
   </script>
-  <noscript>Please enable JavaScript to view the
+  <noscript
+    >Please enable JavaScript to view the
     <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
   </noscript>
   
-  </div>
+</div>
+
 
     
 
   
 
-        </div>
-      </div>
-    </main>
+  
 
-    <footer id="footer" class="footer">
-      <div class="icon-links">
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#添加core-data">添加Core Data</a></li>
+    <li><a href="#配置core-data中的entity">配置Core Data中的Entity</a></li>
+    <li><a href="#添加新数据">添加新数据</a></li>
+    <li><a href="#读取与修改数据">读取与修改数据</a></li>
+    <li><a href="#使用predicate筛选数据">使用Predicate筛选数据</a></li>
+    <li><a href="#删除数据">删除数据</a></li>
+    <li><a href="#保存数据">保存数据</a></li>
+    <li><a href="#nspredicate使用备忘">NSPredicate使用备忘</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
   
   
     <a href="mailto:xiaobing.shen@foxmail.com" rel="me noopener" class="iconfont"
@@ -792,7 +701,7 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
     </a>
 
 
-<a href="http://shenxiaobing.com/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -801,7 +710,7 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
 </svg>
 
   </a>
-   
+  
 </div>
 
 <div class="copyright">
@@ -817,7 +726,7 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
     &copy;
     
       2015 -
-    2022
+    2024
     <span class="heart">
       
       <i class="iconfont">
@@ -838,57 +747,45 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
   
 
   
-    <span>
-      <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备19049773号-1</a>
-    </span>
-  
 </div>
 
-    </footer>
+      </footer>
 
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="35" height="35">
   <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
 </svg>
 
-      </i>
+          </i>
+        </a>
+      </div>
     </div>
-  </div>
-  
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.7.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
 
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.e75288a864015438317db7a5d341fe95b25a03afb59ab32350f9f0464dada611.js" integrity="sha256-51KIqGQBVDgxfbel00H&#43;lbJaA6&#43;1mrMjUPnwRk2tphE=" crossorigin="anonymous"></script>
 
 
 
 
 
 
-<script id="baidu_analytics">
-  var _hmt = _hmt || [];
-  (function() {
-    if (window.location.hostname === 'localhost') return;
-    var hm = document.createElement("script"); hm.async = true;
-    hm.src = "https://hm.baidu.com/hm.js?7390efd508bf472b486211e3538692d9";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
+
 
 
 
 
 
   
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
@@ -899,114 +796,6 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
 
 
 
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script type="text/javascript">
-    AV.initialize("5nxAXNGRN9qW7YzsbrSTQIqi-gzGzoHsz", "cw5bUfHdfqCiITOe0fguV11D");
-  </script>
-
-  <script>
-    function showHitCount(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push($(this).attr("id").trim());
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var hits = item.get('hits');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(hits);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function (results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("hits");
-            counter.save(null, {
-              success: function (counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('hits'));
-              },
-              error: function (counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-             
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-             
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("hits", 1);
-            newcounter.save(null, {
-              success: function (newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('hits'));
-              },
-              error: function (newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function (error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function () {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        
-        addCount(Counter);
-      } else if ($('.post-link').length > 1) {
-        
-        showHitCount(Counter);
-      }
-    });
-  </script>
 
 
 
@@ -1016,5 +805,6 @@ selectedItems.remove(at: 1) // 接着更新下指向数据的实例变量
 
 
 
-</body>
+
+  </body>
 </html>

@@ -2,34 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>魔兽世界 on 小兵的诗篇</title>
-    <link>http://shenxiaobing.com/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/</link>
+    <link>http://localhost:1313/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/</link>
     <description>Recent content in 魔兽世界 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 03 Sep 2019 20:20:00 +0800</lastBuildDate>
-    
-	<atom:link href="http://shenxiaobing.com/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我为什么不玩魔兽世界怀旧服</title>
-      <link>http://shenxiaobing.com/post/2019/say-no-to-wow-nostalgia-server/</link>
+      <link>http://localhost:1313/post/2019/say-no-to-wow-nostalgia-server/</link>
       <pubDate>Tue, 03 Sep 2019 20:20:00 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/say-no-to-wow-nostalgia-server/</guid>
-      <description>&lt;p&gt;魔兽世界怀旧服开了，据说有的服务器排队时间高达5个小时。我兴味索然，虽然我从大二就开始玩魔兽世界，玩得疯的时候每天玩十个多小时，厌倦的时候又很久不上线。不管AFK多久，出了新版本总是想回来看看。&lt;/p&gt;
-&lt;p&gt;但怀旧服是个例外，我不想玩。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/say-no-to-wow-nostalgia-server/</guid>
+      <description>&lt;p&gt;魔兽世界怀旧服开了，据说有的服务器排队时间高达5个小时。我兴味索然，虽然我从大二就开始玩魔兽世界，玩得疯的时候每天玩十个多小时，厌倦的时候又很久不上线。不管AFK多久，出了新版本总是想回来看看。&lt;/p&gt;&#xA;&lt;p&gt;但怀旧服是个例外，我不想玩。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>再见，魔兽世界</title>
-      <link>http://shenxiaobing.com/post/2019/a-proper-goodbye-to-wow/</link>
+      <link>http://localhost:1313/post/2019/a-proper-goodbye-to-wow/</link>
       <pubDate>Wed, 28 Dec 2016 00:25:41 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/a-proper-goodbye-to-wow/</guid>
-      <description>&lt;p&gt;2005年秋天，我大二。&lt;/p&gt;
-&lt;p&gt;我和大学同学一起前往网吧，注册魔兽世界账号，并创建了自己的角色。他的角色是兽人术士，而我则是一个兽人战士。虽然第一次游戏我只进行了2个小时左右，就因为头晕呕吐无法继续，但这却是我魔兽世界生涯的开始。此后我跟他一开始一起白天进网吧玩，到后来我一个人白天进网吧玩，到最后我一个人晚上进网吧通宵玩。到了毕业时，我记得我主要的角色累积纯在线时间超过了200天，就是200*24小时。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/a-proper-goodbye-to-wow/</guid>
+      <description>&lt;p&gt;2005年秋天，我大二。&lt;/p&gt;&#xA;&lt;p&gt;我和大学同学一起前往网吧，注册魔兽世界账号，并创建了自己的角色。他的角色是兽人术士，而我则是一个兽人战士。虽然第一次游戏我只进行了2个小时左右，就因为头晕呕吐无法继续，但这却是我魔兽世界生涯的开始。此后我跟他一开始一起白天进网吧玩，到后来我一个人白天进网吧玩，到最后我一个人晚上进网吧通宵玩。到了毕业时，我记得我主要的角色累积纯在线时间超过了200天，就是200*24小时。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

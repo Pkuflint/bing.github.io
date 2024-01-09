@@ -2,23 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ss on 小兵的诗篇</title>
-    <link>http://shenxiaobing.com/tags/ss/</link>
+    <link>http://localhost:1313/tags/ss/</link>
     <description>Recent content in ss on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 22 Apr 2022 05:13:31 +0800</lastBuildDate>
-    
-	<atom:link href="http://shenxiaobing.com/tags/ss/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/ss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>搭建Shadowsocks翻墙回国</title>
-      <link>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</link>
+      <link>http://localhost:1313/post/2022/build-ss-back-to-china/</link>
       <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</guid>
+      <guid>http://localhost:1313/post/2022/build-ss-back-to-china/</guid>
       <description>在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个</description>
     </item>
-    
   </channel>
 </rss>

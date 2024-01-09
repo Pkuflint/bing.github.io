@@ -2,25 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>进度条 on 小兵的诗篇</title>
-    <link>http://shenxiaobing.com/tags/%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link>
+    <link>http://localhost:1313/tags/%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link>
     <description>Recent content in 进度条 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 28 Jun 2018 10:03:47 +0800</lastBuildDate>
-    
-	<atom:link href="http://shenxiaobing.com/tags/%E8%BF%9B%E5%BA%A6%E6%9D%A1/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/%E8%BF%9B%E5%BA%A6%E6%9D%A1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>仿照微信WebView实现ProgressBar</title>
-      <link>http://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</link>
+      <link>http://localhost:1313/post/2019/progress-bar-like-wechat-webview/</link>
       <pubDate>Thu, 28 Jun 2018 10:03:47 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</guid>
-      <description>&lt;h2 id=&#34;两种进度条逻辑&#34;&gt;两种进度条逻辑&lt;/h2&gt;
-&lt;p&gt;在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。&lt;/p&gt;
-&lt;p&gt;还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/progress-bar-like-wechat-webview/</guid>
+      <description>&lt;h2 id=&#34;两种进度条逻辑&#34;&gt;两种进度条逻辑&lt;/h2&gt;&#xA;&lt;p&gt;在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。&lt;/p&gt;&#xA;&lt;p&gt;还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

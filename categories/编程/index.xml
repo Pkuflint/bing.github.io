@@ -2,195 +2,123 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>编程 on 小兵的诗篇</title>
-    <link>http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/</link>
+    <link>http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/</link>
     <description>Recent content in 编程 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 22 Apr 2022 19:23:48 +0800</lastBuildDate>
-    
-	<atom:link href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在同一台电脑操作不同github账户的SSH-KEY</title>
-      <link>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</link>
+      <link>http://localhost:1313/post/2022/multiple-ssh-key-for-one-macbook/</link>
       <pubDate>Fri, 22 Apr 2022 19:23:48 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</guid>
+      <guid>http://localhost:1313/post/2022/multiple-ssh-key-for-one-macbook/</guid>
       <description>如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号</description>
     </item>
-    
     <item>
       <title>搭建Shadowsocks翻墙回国</title>
-      <link>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</link>
+      <link>http://localhost:1313/post/2022/build-ss-back-to-china/</link>
       <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2022/build-ss-back-to-china/</guid>
+      <guid>http://localhost:1313/post/2022/build-ss-back-to-china/</guid>
       <description>在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个</description>
     </item>
-    
     <item>
       <title>在Ubuntu中使用Selenium Webdriver</title>
-      <link>http://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</link>
+      <link>http://localhost:1313/post/2021/selenium-webdriver-on-linux-ubuntu/</link>
       <pubDate>Sat, 13 Mar 2021 17:09:03 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</guid>
+      <guid>http://localhost:1313/post/2021/selenium-webdriver-on-linux-ubuntu/</guid>
       <description>在Windows上使用Selenium时，主要有三个步骤： 下载并按照Chrome浏览器。 下载并保存与Chrome相同版本的chromeweb</description>
     </item>
-    
     <item>
       <title>零基础自学编程有多难</title>
-      <link>http://shenxiaobing.com/post/2019/how-hard-is-self-taught-programming/</link>
+      <link>http://localhost:1313/post/2019/how-hard-is-self-taught-programming/</link>
       <pubDate>Sun, 13 Oct 2019 04:16:59 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/how-hard-is-self-taught-programming/</guid>
-      <description>&lt;p&gt;一个零基础的文科生学编程有多难？为什么单把文科生拎出来，这里不是歧视文科生，只是想强调过往没有任何的编程和计算机基础这一点，而大多数理工科的毕业生多少都有一点基础。&lt;/p&gt;
-&lt;p&gt;我到现在都不能说自己是个程序员，但我自认为有足够曲折的编程自学经历来现身说法。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/how-hard-is-self-taught-programming/</guid>
+      <description>&lt;p&gt;一个零基础的文科生学编程有多难？为什么单把文科生拎出来，这里不是歧视文科生，只是想强调过往没有任何的编程和计算机基础这一点，而大多数理工科的毕业生多少都有一点基础。&lt;/p&gt;&#xA;&lt;p&gt;我到现在都不能说自己是个程序员，但我自认为有足够曲折的编程自学经历来现身说法。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Python正则表达式CheatSheet</title>
-      <link>http://shenxiaobing.com/post/2019/python-regular-expression-cheatsheet/</link>
+      <link>http://localhost:1313/post/2019/python-regular-expression-cheatsheet/</link>
       <pubDate>Thu, 05 Sep 2019 10:14:44 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/python-regular-expression-cheatsheet/</guid>
+      <guid>http://localhost:1313/post/2019/python-regular-expression-cheatsheet/</guid>
       <description>&lt;p&gt;这里是正则表达式常用表示法与函数，以备查询。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>如何用 Python 生成带 Logo 二维码</title>
-      <link>http://shenxiaobing.com/post/2019/make-qr-with-logo-in-python/</link>
+      <link>http://localhost:1313/post/2019/make-qr-with-logo-in-python/</link>
       <pubDate>Fri, 09 Nov 2018 15:21:41 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/make-qr-with-logo-in-python/</guid>
+      <guid>http://localhost:1313/post/2019/make-qr-with-logo-in-python/</guid>
       <description>&lt;p&gt;如何用 Python 生成像微信名片那样的中间带有 Logo 的二维码？使用 Python 的qrcode模块可以很容易做到。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>我的App审核简史</title>
-      <link>http://shenxiaobing.com/post/2019/a-brief-history-of-app-review/</link>
+      <link>http://localhost:1313/post/2019/a-brief-history-of-app-review/</link>
       <pubDate>Fri, 27 Jul 2018 12:33:33 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/a-brief-history-of-app-review/</guid>
-      <description>&lt;p&gt;两款应用终于过审了。记录下过程，以备参考。&lt;/p&gt;
-&lt;p&gt;先交代下两款应用的背景：&lt;/p&gt;
-&lt;p&gt;应用一：爱跑十三周，跑步应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题；&lt;/p&gt;
-&lt;p&gt;应用二：魔板拼图，解谜游戏应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/a-brief-history-of-app-review/</guid>
+      <description>&lt;p&gt;两款应用终于过审了。记录下过程，以备参考。&lt;/p&gt;&#xA;&lt;p&gt;先交代下两款应用的背景：&lt;/p&gt;&#xA;&lt;p&gt;应用一：爱跑十三周，跑步应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题；&lt;/p&gt;&#xA;&lt;p&gt;应用二：魔板拼图，解谜游戏应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>数字华容道怎样才能有解</title>
-      <link>http://shenxiaobing.com/post/2019/puzzle-random-algorithm/</link>
+      <link>http://localhost:1313/post/2019/puzzle-random-algorithm/</link>
       <pubDate>Fri, 06 Jul 2018 00:01:16 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/puzzle-random-algorithm/</guid>
-      <description>&lt;p&gt;数字华容道，是在4x4的格子中，依次从左到右，从上到下放置1-15这15个数字。经过一定的随机，必须将这15个数字复原。每个数字只能向相邻的唯一空格移动。难度更高的，格子和数字会更多，比如5x5。&lt;/p&gt;
-&lt;p&gt;我在开发一个类数字华容道游戏时，发现自己3x3的格子，居然怎么都解不出来。比如：一排1、2、3，二排4、5、6，三排8，7。经过网上查询，才知道完全随机位置的数值华容道仅有50%的概率是有解的。而我就是用的完全随机方式去打乱次序。&lt;/p&gt;
-&lt;p&gt;网上有两篇文章说的很好，以下是根据这两篇文章的总结。&lt;/p&gt;
-&lt;h2 id=&#34;数字华容道必然有解的前提&#34;&gt;数字华容道必然有解的前提&lt;/h2&gt;
-&lt;p&gt;首先，要弄清楚一个概念：逆序数。逆序数，即一个数字序列，将其中所有数字依次两两对比，若大数在前，小数在后，那么这就是一对逆序数。这里说到的逆序数，指的是数字序列中逆序数的数量。比如：上文提到的1、2、3、4、5、6、8、7，逆序数只有1个，即8和7。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/puzzle-random-algorithm/</guid>
+      <description>&lt;p&gt;数字华容道，是在4x4的格子中，依次从左到右，从上到下放置1-15这15个数字。经过一定的随机，必须将这15个数字复原。每个数字只能向相邻的唯一空格移动。难度更高的，格子和数字会更多，比如5x5。&lt;/p&gt;&#xA;&lt;p&gt;我在开发一个类数字华容道游戏时，发现自己3x3的格子，居然怎么都解不出来。比如：一排1、2、3，二排4、5、6，三排8，7。经过网上查询，才知道完全随机位置的数值华容道仅有50%的概率是有解的。而我就是用的完全随机方式去打乱次序。&lt;/p&gt;&#xA;&lt;p&gt;网上有两篇文章说的很好，以下是根据这两篇文章的总结。&lt;/p&gt;&#xA;&lt;h2 id=&#34;数字华容道必然有解的前提&#34;&gt;数字华容道必然有解的前提&lt;/h2&gt;&#xA;&lt;p&gt;首先，要弄清楚一个概念：逆序数。逆序数，即一个数字序列，将其中所有数字依次两两对比，若大数在前，小数在后，那么这就是一对逆序数。这里说到的逆序数，指的是数字序列中逆序数的数量。比如：上文提到的1、2、3、4、5、6、8、7，逆序数只有1个，即8和7。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>I made an app</title>
-      <link>http://shenxiaobing.com/post/2019/i-made-an-app/</link>
+      <link>http://localhost:1313/post/2019/i-made-an-app/</link>
       <pubDate>Fri, 29 Jun 2018 11:03:50 +0000</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/i-made-an-app/</guid>
-      <description>&lt;p&gt;我的第一个App终于提审了。&lt;/p&gt;
-&lt;p&gt;从2015年开始，我就念叨着要做一个App；而2016和2017年的年度目标之一就是上架一个App。但直到现在，2018年，我才真正完成我的第一款App。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/i-made-an-app/</guid>
+      <description>&lt;p&gt;我的第一个App终于提审了。&lt;/p&gt;&#xA;&lt;p&gt;从2015年开始，我就念叨着要做一个App；而2016和2017年的年度目标之一就是上架一个App。但直到现在，2018年，我才真正完成我的第一款App。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>iOS工程的本地化-Swift</title>
-      <link>http://shenxiaobing.com/post/2019/localization-of-ios-project/</link>
+      <link>http://localhost:1313/post/2019/localization-of-ios-project/</link>
       <pubDate>Fri, 29 Jun 2018 14:20:39 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/localization-of-ios-project/</guid>
-      <description>&lt;p&gt;应用如果需要根据设备语言显示不同的语言，就需要进行本地化的工作。就iOS工程而言，需要本地化的内容主要有：文字、图片、语音。一般而言，图片和语言的本地化，都可以转化为实质上的字符串的本地化。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;info.plist本地化&lt;/li&gt;
-&lt;li&gt;代码字符串本地化&lt;/li&gt;
-&lt;li&gt;storyboard, xib文件本地化&lt;/li&gt;
-&lt;li&gt;launchScreen.storyboard本地化&lt;/li&gt;
-&lt;li&gt;图片本地化&lt;/li&gt;
-&lt;li&gt;一次性导出本地化文件&lt;/li&gt;
-&lt;li&gt;新增内容的本地化&lt;/li&gt;
-&lt;li&gt;多人协作下使用自定义Localizable.strings文件&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <guid>http://localhost:1313/post/2019/localization-of-ios-project/</guid>
+      <description>&lt;p&gt;应用如果需要根据设备语言显示不同的语言，就需要进行本地化的工作。就iOS工程而言，需要本地化的内容主要有：文字、图片、语音。一般而言，图片和语言的本地化，都可以转化为实质上的字符串的本地化。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;info.plist本地化&lt;/li&gt;&#xA;&lt;li&gt;代码字符串本地化&lt;/li&gt;&#xA;&lt;li&gt;storyboard, xib文件本地化&lt;/li&gt;&#xA;&lt;li&gt;launchScreen.storyboard本地化&lt;/li&gt;&#xA;&lt;li&gt;图片本地化&lt;/li&gt;&#xA;&lt;li&gt;一次性导出本地化文件&lt;/li&gt;&#xA;&lt;li&gt;新增内容的本地化&lt;/li&gt;&#xA;&lt;li&gt;多人协作下使用自定义Localizable.strings文件&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>仿照微信WebView实现ProgressBar</title>
-      <link>http://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</link>
+      <link>http://localhost:1313/post/2019/progress-bar-like-wechat-webview/</link>
       <pubDate>Thu, 28 Jun 2018 10:03:47 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</guid>
-      <description>&lt;h2 id=&#34;两种进度条逻辑&#34;&gt;两种进度条逻辑&lt;/h2&gt;
-&lt;p&gt;在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。&lt;/p&gt;
-&lt;p&gt;还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/progress-bar-like-wechat-webview/</guid>
+      <description>&lt;h2 id=&#34;两种进度条逻辑&#34;&gt;两种进度条逻辑&lt;/h2&gt;&#xA;&lt;p&gt;在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。&lt;/p&gt;&#xA;&lt;p&gt;还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>理解KVO - 用Swift在WKWebView中添加进度条</title>
-      <link>http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</link>
+      <link>http://localhost:1313/post/2019/understanding-kvo-in-swift/</link>
       <pubDate>Thu, 28 Jun 2018 05:40:11 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</guid>
-      <description>&lt;p&gt;KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/understanding-kvo-in-swift/</guid>
+      <description>&lt;p&gt;KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>苹果内购接入的坑与核心流程 - Swift</title>
-      <link>http://shenxiaobing.com/post/2019/swift-iap-pitfalls/</link>
+      <link>http://localhost:1313/post/2019/swift-iap-pitfalls/</link>
       <pubDate>Wed, 27 Jun 2018 19:56:09 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/swift-iap-pitfalls/</guid>
-      <description>&lt;p&gt;通过苹果开发文档、搜索与挣扎摸索，我已经在App上实现了【消耗型商品】的内购。总结流程如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;完成必须的准备工作&lt;/li&gt;
-&lt;li&gt;用有效的商品id创建&lt;code&gt;SKProductRequest&lt;/code&gt;请求苹果服务器返回商品（&lt;code&gt;SKProduct&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;用返回的有效的商品创建payment，并将payment加入苹果的支付队列。&lt;/li&gt;
-&lt;li&gt;监听队列，并根据监听到的交易状态进行适当的处理，尤其需要在交易完毕时关闭交易。&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <guid>http://localhost:1313/post/2019/swift-iap-pitfalls/</guid>
+      <description>&lt;p&gt;通过苹果开发文档、搜索与挣扎摸索，我已经在App上实现了【消耗型商品】的内购。总结流程如下：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;完成必须的准备工作&lt;/li&gt;&#xA;&lt;li&gt;用有效的商品id创建&lt;code&gt;SKProductRequest&lt;/code&gt;请求苹果服务器返回商品（&lt;code&gt;SKProduct&lt;/code&gt;）。&lt;/li&gt;&#xA;&lt;li&gt;用返回的有效的商品创建payment，并将payment加入苹果的支付队列。&lt;/li&gt;&#xA;&lt;li&gt;监听队列，并根据监听到的交易状态进行适当的处理，尤其需要在交易完毕时关闭交易。&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
-    
     <item>
       <title>自学路上的坑01 - Scheme勾选项带来的一些列问题</title>
-      <link>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</link>
+      <link>http://localhost:1313/post/2019/self-taught-swift-lesson-01/</link>
       <pubDate>Wed, 20 Jun 2018 07:43:51 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中勾选&lt;code&gt;Malloc Stack&lt;/code&gt;会导致每次Xcode覆盖安装App都预先占用一定量的数据存储空间，且由于某种原因，本来每次存储几十KB的数据结果占用了几十MB；同时，这个勾选项还会导致&lt;code&gt;Instrument - Leak&lt;/code&gt;界面出现名为&lt;code&gt;&amp;lt;Allocated Prior To Attach&amp;gt;&lt;/code&gt;的Leak。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中&lt;code&gt;Zombie Object&lt;/code&gt;调试结束要记得关掉，否则会在&lt;code&gt;Instrument - Leak&lt;/code&gt;界面产生大量的名为&lt;code&gt;Zombie Object&lt;/code&gt;的Leak。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/self-taught-swift-lesson-01/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中勾选&lt;code&gt;Malloc Stack&lt;/code&gt;会导致每次Xcode覆盖安装App都预先占用一定量的数据存储空间，且由于某种原因，本来每次存储几十KB的数据结果占用了几十MB；同时，这个勾选项还会导致&lt;code&gt;Instrument - Leak&lt;/code&gt;界面出现名为&lt;code&gt;&amp;lt;Allocated Prior To Attach&amp;gt;&lt;/code&gt;的Leak。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中&lt;code&gt;Zombie Object&lt;/code&gt;调试结束要记得关掉，否则会在&lt;code&gt;Instrument - Leak&lt;/code&gt;界面产生大量的名为&lt;code&gt;Zombie Object&lt;/code&gt;的Leak。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Core Data入门</title>
-      <link>http://shenxiaobing.com/post/2019/beginning-core-data/</link>
+      <link>http://localhost:1313/post/2019/beginning-core-data/</link>
       <pubDate>Thu, 26 Apr 2018 13:49:23 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/beginning-core-data/</guid>
+      <guid>http://localhost:1313/post/2019/beginning-core-data/</guid>
       <description>&lt;p&gt;在iOS App中，如果要存储的数据量比较大，就会使用Core Data。这里汇总了下使用Core Data的基本方式。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>关于调试的11个真相</title>
-      <link>http://shenxiaobing.com/post/2019/11-truths-of-debugging/</link>
+      <link>http://localhost:1313/post/2019/11-truths-of-debugging/</link>
       <pubDate>Fri, 26 Jan 2018 15:31:59 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/11-truths-of-debugging/</guid>
-      <description>&lt;p&gt;原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <guid>http://localhost:1313/post/2019/11-truths-of-debugging/</guid>
+      <description>&lt;p&gt;原文来自斯坦福 cs106a 课程的一份讲义。因为翻译能力有限，所以原文也一并贴在下面了。&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;直觉和预感很好，只是你还得去验证它们。当预感和事实冲突时，事实总是胜出。这就是生活！&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
-    
   </channel>
 </rss>

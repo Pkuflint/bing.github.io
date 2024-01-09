@@ -2,27 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数字华容道 on 小兵的诗篇</title>
-    <link>http://shenxiaobing.com/tags/%E6%95%B0%E5%AD%97%E5%8D%8E%E5%AE%B9%E9%81%93/</link>
+    <link>http://localhost:1313/tags/%E6%95%B0%E5%AD%97%E5%8D%8E%E5%AE%B9%E9%81%93/</link>
     <description>Recent content in 数字华容道 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 06 Jul 2018 00:01:16 +0800</lastBuildDate>
-    
-	<atom:link href="http://shenxiaobing.com/tags/%E6%95%B0%E5%AD%97%E5%8D%8E%E5%AE%B9%E9%81%93/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/%E6%95%B0%E5%AD%97%E5%8D%8E%E5%AE%B9%E9%81%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数字华容道怎样才能有解</title>
-      <link>http://shenxiaobing.com/post/2019/puzzle-random-algorithm/</link>
+      <link>http://localhost:1313/post/2019/puzzle-random-algorithm/</link>
       <pubDate>Fri, 06 Jul 2018 00:01:16 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/puzzle-random-algorithm/</guid>
-      <description>&lt;p&gt;数字华容道，是在4x4的格子中，依次从左到右，从上到下放置1-15这15个数字。经过一定的随机，必须将这15个数字复原。每个数字只能向相邻的唯一空格移动。难度更高的，格子和数字会更多，比如5x5。&lt;/p&gt;
-&lt;p&gt;我在开发一个类数字华容道游戏时，发现自己3x3的格子，居然怎么都解不出来。比如：一排1、2、3，二排4、5、6，三排8，7。经过网上查询，才知道完全随机位置的数值华容道仅有50%的概率是有解的。而我就是用的完全随机方式去打乱次序。&lt;/p&gt;
-&lt;p&gt;网上有两篇文章说的很好，以下是根据这两篇文章的总结。&lt;/p&gt;
-&lt;h2 id=&#34;数字华容道必然有解的前提&#34;&gt;数字华容道必然有解的前提&lt;/h2&gt;
-&lt;p&gt;首先，要弄清楚一个概念：逆序数。逆序数，即一个数字序列，将其中所有数字依次两两对比，若大数在前，小数在后，那么这就是一对逆序数。这里说到的逆序数，指的是数字序列中逆序数的数量。比如：上文提到的1、2、3、4、5、6、8、7，逆序数只有1个，即8和7。&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/puzzle-random-algorithm/</guid>
+      <description>&lt;p&gt;数字华容道，是在4x4的格子中，依次从左到右，从上到下放置1-15这15个数字。经过一定的随机，必须将这15个数字复原。每个数字只能向相邻的唯一空格移动。难度更高的，格子和数字会更多，比如5x5。&lt;/p&gt;&#xA;&lt;p&gt;我在开发一个类数字华容道游戏时，发现自己3x3的格子，居然怎么都解不出来。比如：一排1、2、3，二排4、5、6，三排8，7。经过网上查询，才知道完全随机位置的数值华容道仅有50%的概率是有解的。而我就是用的完全随机方式去打乱次序。&lt;/p&gt;&#xA;&lt;p&gt;网上有两篇文章说的很好，以下是根据这两篇文章的总结。&lt;/p&gt;&#xA;&lt;h2 id=&#34;数字华容道必然有解的前提&#34;&gt;数字华容道必然有解的前提&lt;/h2&gt;&#xA;&lt;p&gt;首先，要弄清楚一个概念：逆序数。逆序数，即一个数字序列，将其中所有数字依次两两对比，若大数在前，小数在后，那么这就是一对逆序数。这里说到的逆序数，指的是数字序列中逆序数的数量。比如：上文提到的1、2、3、4、5、6、8、7，逆序数只有1个，即8和7。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

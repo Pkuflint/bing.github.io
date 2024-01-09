@@ -2,28 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>生命意义 on 小兵的诗篇</title>
-    <link>http://shenxiaobing.com/tags/%E7%94%9F%E5%91%BD%E6%84%8F%E4%B9%89/</link>
+    <link>http://localhost:1313/tags/%E7%94%9F%E5%91%BD%E6%84%8F%E4%B9%89/</link>
     <description>Recent content in 生命意义 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 03 Sep 2018 15:12:31 +0800</lastBuildDate>
-    
-	<atom:link href="http://shenxiaobing.com/tags/%E7%94%9F%E5%91%BD%E6%84%8F%E4%B9%89/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="http://localhost:1313/tags/%E7%94%9F%E5%91%BD%E6%84%8F%E4%B9%89/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>意义</title>
-      <link>http://shenxiaobing.com/post/2019/meaning/</link>
+      <link>http://localhost:1313/post/2019/meaning/</link>
       <pubDate>Mon, 03 Sep 2018 15:12:31 +0800</pubDate>
-      
-      <guid>http://shenxiaobing.com/post/2019/meaning/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;意义，就是对特定对象的价值。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;当这个词语被用到的时候，一般都会忽略到「特定对象」。“要过有意义的人生”，“人生没有意义”，这种泛指的用法让人迷惑。有意义的人生，对谁或者对什么有意义呢？对自己本人，对家庭，对族群，对国家？对世界和平、自由平等？对耶稣佛陀？&lt;/p&gt;
-&lt;p&gt;厘清定义之后，意义不再令人困惑。没有意义，也不再令人恐惧。「我的人生」的意义，如果有，注定是为「第三方」提供价值。如果只是对我自己有价值，那这就是所有人的现状，自为的状态。因此，当提到「我的人生」的意义时，一定会指向第三方。&lt;/p&gt;
-&lt;p&gt;第三方的可能性是什么？&lt;/p&gt;</description>
+      <guid>http://localhost:1313/post/2019/meaning/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;意义，就是对特定对象的价值。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;当这个词语被用到的时候，一般都会忽略到「特定对象」。“要过有意义的人生”，“人生没有意义”，这种泛指的用法让人迷惑。有意义的人生，对谁或者对什么有意义呢？对自己本人，对家庭，对族群，对国家？对世界和平、自由平等？对耶稣佛陀？&lt;/p&gt;&#xA;&lt;p&gt;厘清定义之后，意义不再令人困惑。没有意义，也不再令人恐惧。「我的人生」的意义，如果有，注定是为「第三方」提供价值。如果只是对我自己有价值，那这就是所有人的现状，自为的状态。因此，当提到「我的人生」的意义时，一定会指向第三方。&lt;/p&gt;&#xA;&lt;p&gt;第三方的可能性是什么？&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

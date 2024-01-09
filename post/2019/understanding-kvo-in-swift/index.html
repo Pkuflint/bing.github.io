@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>理解KVO - 用Swift在WKWebView中添加进度条 - 小兵的诗篇</title>
-  
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          理解KVO - 用Swift在WKWebView中添加进度条 - 小兵的诗篇
+        </title>
+    
 
 <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
 
 <meta name="MobileOptimized" content="width"/>
 <meta name="HandheldFriendly" content="true"/>
@@ -26,17 +32,17 @@
   <meta name="description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。
 " />
 
-  <meta name="keywords" content="小兵哥, 个人博客, pkuflint, 火石" />
+  <meta name="keywords" content="小兵的诗篇, Shen Xiaobing, 博客" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.62.2" />
+<meta name="generator" content="Hugo 0.121.1" />
 
 
-<link rel="canonical" href="http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/" />
+<link rel="canonical" href="http://localhost:1313/post/2019/understanding-kvo-in-swift/" />
 
 
 
@@ -54,7 +60,9 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.0995afa14b62cd93e93cfc066b646c4c17a3eddca0e9d52a1d9dcf5d90aaacd3.css" integrity="sha256-CZWvoUtizZPpPPwGa2RsTBej7dyg6dUqHZ3PXZCqrNM=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.e826e860368147e5a6685e686355e4d7789023c18c9ea2e78b35f6786ce92736.css" integrity="sha256-6CboYDaBR&#43;WmaF5oY1Xk13iQI8GMnqLnizX2eGzpJzY=" media="screen" crossorigin="anonymous">
+
+
 
 
 
@@ -63,19 +71,15 @@
 <meta property="og:title" content="理解KVO - 用Swift在WKWebView中添加进度条" />
 <meta property="og:description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/" />
+<meta property="og:url" content="http://localhost:1313/post/2019/understanding-kvo-in-swift/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-06-28T05:40:11+08:00" />
 <meta property="article:modified_time" content="2018-06-28T05:40:11+08:00" />
+
 <meta itemprop="name" content="理解KVO - 用Swift在WKWebView中添加进度条">
-<meta itemprop="description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。">
-<meta itemprop="datePublished" content="2018-06-28T05:40:11&#43;08:00" />
-<meta itemprop="dateModified" content="2018-06-28T05:40:11&#43;08:00" />
-<meta itemprop="wordCount" content="2866">
-
-
-
-<meta itemprop="keywords" content="KVO,Swift," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="理解KVO - 用Swift在WKWebView中添加进度条"/>
+<meta itemprop="description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。"><meta itemprop="datePublished" content="2018-06-28T05:40:11+08:00" />
+<meta itemprop="dateModified" content="2018-06-28T05:40:11+08:00" />
+<meta itemprop="wordCount" content="2851">
+<meta itemprop="keywords" content="KVO,Swift," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="理解KVO - 用Swift在WKWebView中添加进度条"/>
 <meta name="twitter:description" content="KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。"/>
 
 <!--[if lte IE 9]>
@@ -88,22 +92,25 @@
 <![endif]-->
 
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-42920896-3', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
+  </head>
+  <body>
+    <div id="back-to-top"></div>
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
+    <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">小兵的诗篇</a>
   </div>
@@ -119,28 +126,28 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/">首页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">首页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%94%9F%E6%B4%BB/">生活</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/">编程</a>
           
         
       </li><li class="mobile-menu-item">
@@ -148,26 +155,26 @@ if (!doNotTrack) {
           
           <div class="mobile-menu-parent">
             <span class="mobile-submenu-open"></span>
-            <a href="http://shenxiaobing.com">
+            <a href="http://localhost:1313/">
               全部
             </a>
           </div>
           <ul class="mobile-submenu-list">
             
               <li>
-                <a href="http://shenxiaobing.com/post/">全部文章</a>
+                <a href="http://localhost:1313/post/">全部文章</a>
               </li>
             
               <li>
-                <a href="http://shenxiaobing.com/categories/">分类</a>
+                <a href="http://localhost:1313/categories/">分类</a>
               </li>
             
               <li>
-                <a href="http://shenxiaobing.com/tags/">标签</a>
+                <a href="http://localhost:1313/tags/">标签</a>
               </li>
             
               <li>
-                <a href="http://shenxiaobing.com/about">关于</a>
+                <a href="http://localhost:1313/about">关于</a>
               </li>
             
           </ul>
@@ -180,8 +187,8 @@ if (!doNotTrack) {
 </nav>
 
 
-  
     
+      
 
 
 
@@ -238,14 +245,15 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
+    
 
-  
+    
 
-  
+    
 
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
   <a href="/" class="logo">
     
       小兵的诗篇
@@ -261,7 +269,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/">首页</a>
+            <a class="menu-item-link" href="http://localhost:1313/">首页</a>
           
 
         
@@ -272,7 +280,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%94%9F%E6%B4%BB/">生活</a>
           
 
         
@@ -283,7 +291,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
           
 
         
@@ -294,7 +302,7 @@ if (!doNotTrack) {
         
           
           
-            <a class="menu-item-link" href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+            <a class="menu-item-link" href="http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/">编程</a>
           
 
         
@@ -304,23 +312,23 @@ if (!doNotTrack) {
         <li class="menu-item">
         
           
-          <a class="menu-item-link menu-parent" href="http://shenxiaobing.com">全部</a>
+          <a class="menu-item-link menu-parent" href="http://localhost:1313/">全部</a>
           <ul class="submenu">
             
-              <li>
-                <a href="http://shenxiaobing.com/post/">全部文章</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/post/">全部文章</a>
               </li>
             
-              <li>
-                <a href="http://shenxiaobing.com/categories/">分类</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/categories/">分类</a>
               </li>
             
-              <li>
-                <a href="http://shenxiaobing.com/tags/">标签</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/tags/">标签</a>
               </li>
             
-              <li>
-                <a href="http://shenxiaobing.com/about">关于</a>
+              <li class="submenu-item">
+                <a href="http://localhost:1313/about">关于</a>
               </li>
             
           </ul>
@@ -337,60 +345,61 @@ if (!doNotTrack) {
   </ul>
 </nav>
 
-  </header>
-
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          <article class="post bg-white">
-    
-    <header class="post-header">
-      <h1 class="post-title">理解KVO - 用Swift在WKWebView中添加进度条</h1>
-      
-      <div class="post-meta">
-        <time datetime="2018-06-28" class="post-time">
-          2018-06-28
-        </time>
-        <div class="post-category">
-            <a href="http://shenxiaobing.com/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
-            
-          </div>
-        <span class="more-meta"> 约 2866 字 </span>
-          <span class="more-meta"> 预计阅读 6 分钟 </span>
-
-        
-        
-
-        
-        
-          <span id="/post/2019/understanding-kvo-in-swift/" class="leancloud_visitors" data-flag-title="理解KVO - 用Swift在WKWebView中添加进度条">
-            <span class="post-meta-item-text"> | 阅读 </span>
-            <span class="leancloud-visitors-count"></span>
-          </span>
-        
-      </div>
     </header>
 
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">理解KVO - 用Swift在WKWebView中添加进度条</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      <a href="/about">
+        <span class="post-meta-author-name">
+          Shen Xiaobing
+        </span>
+      </a>
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2018-06-28">
+      2018-06-28
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    
+
+    <div class="post-meta-category">
+        <a href="http://localhost:1313/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
+          
+      </div>
+
+
     
     
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#添加观察者">添加观察者</a></li>
-    <li><a href="#接收被观察者通知并响应处理">接收被观察者通知并响应处理</a></li>
-    <li><a href="#移除观察者">移除观察者</a></li>
-    <li><a href="#更swifty的实现方式block-based-kvo">更Swifty的实现方式：Block-based KVO</a></li>
-  </ul>
-</nav>
+
+
+    
+    
   </div>
 </div>
 
-    
-    <div class="post-content">
-      <p>KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。</p>
+        </header>
+
+        
+        <div class="post-content">
+          <p>KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。</p>
 <p>KVO实现起来比较简单，主要的流程只有3个：</p>
 <ol>
 <li>添加观察者</li>
@@ -400,32 +409,32 @@ if (!doNotTrack) {
 <p>下面我们用一个实际的例子来说明一下这3个步骤。在App里使用<code>WKWebView</code>来加载网页时，我们希望实现一个在页面顶部的进度条，来表示网页加载的进度。而恰好<code>WKWebView</code>的实例有一个<code>estimatedProgress</code>属性，我们可以在此基础上使用KVO来实现。</p>
 <h2 id="添加观察者">添加观察者</h2>
 <p>第一步，是要正确地声明变量。因为KVO是在Objective-C中提供的，要在Swift中使用，被观察的属性必须添加<code>@objc</code>和<code>dynamic</code>关键词，来确保可以正确地被观察到。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">声</span><span class="c1">明</span><span class="c1">属</span><span class="c1">性</span><span class="c1">，</span><span class="c1">我</span><span class="c1">们</span><span class="c1">的</span><span class="c1">网</span><span class="c1">页</span><span class="c1">视</span><span class="c1">图</span>
-<span class="kr">@objc</span> <span class="kd">var</span> <span class="nv">webview</span><span class="p">:</span> <span class="n">WKWebView</span><span class="p">!</span>
-
-<span class="c1">//</span><span class="c1"> </span><span class="c1">创</span><span class="c1">建</span><span class="c1">私</span><span class="c1">有</span><span class="c1">变</span><span class="c1">量</span><span class="c1">，</span><span class="c1">用</span><span class="c1">于</span><span class="c1">添</span><span class="c1">加</span><span class="c1">观</span><span class="c1">察</span><span class="c1">者</span><span class="c1">时</span><span class="c1">创</span><span class="c1">建</span><span class="c1">c</span><span class="c1">o</span><span class="c1">n</span><span class="c1">t</span><span class="c1">e</span><span class="c1">x</span><span class="c1">t</span><span class="c1">参</span><span class="c1">数</span>
-<span class="kd">private</span> <span class="kd">var</span> <span class="nv">progressContext</span> <span class="p">=</span> <span class="mi">0</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#6c7986">// 声明属性，我们的网页视图</span>
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">@objc</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">webview</span>: WKWebView!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6c7986">// 创建私有变量，用于添加观察者时创建context参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">private</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">progressContext</span> = <span style="color:#d0bf69">0</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>第二步，就是在适合的位置添加观察者。一般来说在<code>viewDidLoad</code>中添加就可以。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">订</span><span class="c1">阅</span><span class="c1">观</span><span class="c1">察</span><span class="c1">w</span><span class="c1">e</span><span class="c1">b</span><span class="c1">V</span><span class="c1">i</span><span class="c1">e</span><span class="c1">w</span><span class="c1">.</span><span class="c1">e</span><span class="c1">s</span><span class="c1">t</span><span class="c1">i</span><span class="c1">m</span><span class="c1">a</span><span class="c1">t</span><span class="c1">e</span><span class="c1">d</span><span class="c1">P</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1">属</span><span class="c1">性</span>
-<span class="n">webView</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKeyPath</span><span class="p">:</span> <span class="p">#</span><span class="n">keyPath</span><span class="p">(</span><span class="n">estimatedProgress</span><span class="p">)</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[</span><span class="p">.</span><span class="n">new</span><span class="p">,</span> <span class="p">.</span><span class="n">old</span><span class="p">]</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">progressContext</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#6c7986">// 订阅观察webView.estimatedProgress属性</span>
+</span></span><span style="display:flex;"><span>webView.addObserver(<span style="color:#fc5fa3">self</span>, forKeyPath: #keyPath(estimatedProgress), options: [.new, .old], context: &amp;progressContext)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>对于方法<code>func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutableRawPointer?)</code>简单介绍下其参数：</p>
 <ul>
@@ -449,254 +458,254 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>context，这里的环境变量，一般用于在不同的观察者在观察相同的<code>keyPath</code>时用于区分。上面的添加观察者代码中，我其实没必要传入<code>context</code>，只是为了演示如何创建与传入<code>context</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">4</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">首</span><span class="c1">先</span><span class="c1">是</span><span class="c1">声</span><span class="c1">明</span><span class="c1">私</span><span class="c1">有</span><span class="c1">变</span><span class="c1">量</span>
-<span class="kd">private</span> <span class="kd">var</span> <span class="nv">myContext</span> <span class="p">=</span> <span class="mi">0</span>
-  
-<span class="c1">//</span><span class="c1"> </span><span class="c1">然</span><span class="c1">后</span><span class="c1">直</span><span class="c1">接</span><span class="c1">使</span><span class="c1">用</span><span class="c1">`</span><span class="c1">&amp;</span><span class="c1">m</span><span class="c1">y</span><span class="c1">C</span><span class="c1">o</span><span class="c1">n</span><span class="c1">t</span><span class="c1">e</span><span class="c1">x</span><span class="c1">t</span><span class="c1">`</span><span class="c1">作</span><span class="c1">为</span><span class="c1">`</span><span class="c1">c</span><span class="c1">o</span><span class="c1">n</span><span class="c1">t</span><span class="c1">e</span><span class="c1">x</span><span class="c1">t</span><span class="c1">`</span><span class="c1">参</span><span class="c1">数</span><span class="c1">传</span><span class="c1">入</span><span class="c1">。</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#6c7986">// 首先是声明私有变量</span>
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">private</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">myContext</span> = <span style="color:#d0bf69">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6c7986">// 然后直接使用`&amp;myContext`作为`context`参数传入。</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
 <h2 id="接收被观察者通知并响应处理">接收被观察者通知并响应处理</h2>
 <p>我们的目的是实现进度条，因此需要先添加一条进度条。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-23">23</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">setUpWebView</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">webView</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">view</span><span class="p">.</span><span class="n">bounds</span>
-    <span class="n">webView</span><span class="p">.</span><span class="n">navigationDelegate</span> <span class="p">=</span> <span class="kc">self</span>
-    <span class="n">webView</span><span class="p">.</span><span class="n">autoresizingMask</span> <span class="p">=</span> <span class="p">[</span><span class="p">.</span><span class="n">flexibleWidth</span><span class="p">,</span> <span class="p">.</span><span class="n">flexibleHeight</span><span class="p">]</span>
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">url</span> <span class="p">=</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="n">urlString</span><span class="p">!</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">url is nil</span><span class="s">&#34;</span><span class="p">)</span>
-        <span class="k">return</span>
-    <span class="p">}</span>
-    <span class="n">webView</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">URLRequest</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n">url</span><span class="p">)</span><span class="p">)</span>
-
-    <span class="c1">//</span><span class="c1"> </span><span class="c1">创</span><span class="c1">建</span><span class="c1">名</span><span class="c1">为</span><span class="c1">p</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1">的</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span>
-    <span class="kd">let</span> <span class="nv">progress</span> <span class="p">=</span> <span class="n">UIView</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span><span class="p">)</span>
-    <span class="n">webView</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
-    <span class="c1">//</span><span class="c1"> </span><span class="c1">之</span><span class="c1">前</span><span class="c1">已</span><span class="c1">经</span><span class="c1">提</span><span class="c1">前</span><span class="c1">声</span><span class="c1">明</span><span class="c1">了</span><span class="c1">p</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1">L</span><span class="c1">a</span><span class="c1">y</span><span class="c1">e</span><span class="c1">r</span><span class="c1">作</span><span class="c1">为</span><span class="c1">实</span><span class="c1">例</span><span class="c1">变</span><span class="c1">量</span><span class="c1">，</span><span class="c1">方</span><span class="c1">便</span><span class="c1">作</span><span class="c1">为</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">修</span><span class="c1">改</span>
-    <span class="n">progressLayer</span> <span class="p">=</span> <span class="n">CALayer</span><span class="p">(</span><span class="p">)</span>
-    <span class="n">progressLayer</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="n">APPColor</span><span class="p">.</span><span class="n">orange</span><span class="p">.</span><span class="n">cgColor</span>
-    <span class="n">progress</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">addSublayer</span><span class="p">(</span><span class="n">progressLayer</span><span class="p">!</span><span class="p">)</span>
-
-    <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">webView</span><span class="p">)</span>
-    
-    <span class="c1">//</span><span class="c1"> </span><span class="c1">设</span><span class="c1">置</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">进</span><span class="c1">度</span><span class="c1">的</span><span class="c1">方</span><span class="c1">法</span><span class="c1">，</span><span class="c1">这</span><span class="c1">里</span><span class="c1">直</span><span class="c1">接</span><span class="c1">在</span><span class="c1">打</span><span class="c1">开</span><span class="c1">网</span><span class="c1">页</span><span class="c1">时</span><span class="c1">，</span><span class="c1">设</span><span class="c1">置</span><span class="c1">1</span><span class="c1">0</span><span class="c1">%</span><span class="c1">的</span><span class="c1">加</span><span class="c1">载</span><span class="c1">进</span><span class="c1">度</span><span class="c1">，</span><span class="c1">让</span><span class="c1">页</span><span class="c1">面</span><span class="c1">加</span><span class="c1">载</span><span class="c1">看</span><span class="c1">起</span><span class="c1">来</span><span class="c1">更</span><span class="c1">快</span>
-    <span class="n">progressLayer</span><span class="p">!</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#fc5fa3">func</span> <span style="color:#41a1c0">setUpWebView</span>() {
+</span></span><span style="display:flex;"><span>    webView.frame = view.bounds
+</span></span><span style="display:flex;"><span>    webView.navigationDelegate = <span style="color:#fc5fa3">self</span>
+</span></span><span style="display:flex;"><span>    webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+</span></span><span style="display:flex;"><span>    <span style="color:#fc5fa3">guard</span> <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">url</span> = URL(string: urlString!) <span style="color:#fc5fa3">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a167e6">print</span>(<span style="color:#fc6a5d">&#34;url is nil&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#fc5fa3">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    webView.load(URLRequest(url: url))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7986">// 创建名为progress的进度条</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">progress</span> = UIView(frame: CGRect(x: <span style="color:#d0bf69">0</span>, y: <span style="color:#d0bf69">0</span>, width: webView.frame.width, height: <span style="color:#d0bf69">3</span>))
+</span></span><span style="display:flex;"><span>    webView.addSubview(progress)
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7986">// 之前已经提前声明了progressLayer作为实例变量，方便作为进度条修改</span>
+</span></span><span style="display:flex;"><span>    progressLayer = CALayer()
+</span></span><span style="display:flex;"><span>    progressLayer.backgroundColor = APPColor.orange.cgColor
+</span></span><span style="display:flex;"><span>    progress.layer.addSublayer(progressLayer!)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    view.addSubview(webView)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7986">// 设置进度条进度的方法，这里直接在打开网页时，设置10%的加载进度，让页面加载看起来更快</span>
+</span></span><span style="display:flex;"><span>    progressLayer!.frame = CGRect(x: <span style="color:#d0bf69">0</span>, y: <span style="color:#d0bf69">0</span>, width: webView.frame.width * <span style="color:#d0bf69">0.1</span>, height: <span style="color:#d0bf69">3</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>进度条配置好了，下面就可以设置监听方法，来处理进度条了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-26">26</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kr">override</span> <span class="kd">func</span> <span class="nf">observeValue</span><span class="p">(</span><span class="n">forKeyPath</span> <span class="n">keyPath</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span><span class="p">,</span> <span class="n">of</span> <span class="n">object</span><span class="p">:</span> <span class="nb">Any</span><span class="p">?</span><span class="p">,</span> <span class="n">change</span><span class="p">:</span> <span class="p">[</span><span class="n">NSKeyValueChangeKey</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">]</span><span class="p">?</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">UnsafeMutableRawPointer</span><span class="p">?</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">if</span> <span class="n">keyPath</span> <span class="p">=</span><span class="p">=</span> <span class="p">#</span><span class="n">keyPath</span><span class="p">(</span><span class="n">webView</span><span class="p">.</span><span class="n">estimatedProgress</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">context</span> <span class="p">=</span><span class="p">=</span> <span class="p">&amp;</span><span class="n">progressContext</span> <span class="p">{</span>
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">changes</span> <span class="p">=</span> <span class="n">change</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
-    <span class="c1">//</span><span class="c1">	</span><span class="c1">请</span><span class="c1">注</span><span class="c1">意</span><span class="c1">这</span><span class="c1">里</span><span class="c1">读</span><span class="c1">取</span><span class="c1">o</span><span class="c1">p</span><span class="c1">t</span><span class="c1">i</span><span class="c1">o</span><span class="c1">n</span><span class="c1">s</span><span class="c1">中</span><span class="c1">数</span><span class="c1">值</span><span class="c1">的</span><span class="c1">方</span><span class="c1">法</span>
-    <span class="kd">let</span> <span class="nv">newValue</span> <span class="p">=</span> <span class="n">changes</span><span class="p">[</span><span class="n">NSKeyValueChangeKey</span><span class="p">.</span><span class="n">newKey</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nb">Double</span> <span class="p">?</span><span class="p">?</span> <span class="mi">0</span>
-    <span class="kd">let</span> <span class="nv">oldValue</span> <span class="p">=</span> <span class="n">changes</span><span class="p">[</span><span class="n">NSKeyValueChangeKey</span><span class="p">.</span><span class="n">oldKey</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nb">Double</span> <span class="p">?</span><span class="p">?</span> <span class="mi">0</span>
-
-    <span class="c1">//</span><span class="c1"> </span><span class="c1">因</span><span class="c1">为</span><span class="c1">我</span><span class="c1">们</span><span class="c1">已</span><span class="c1">经</span><span class="c1">设</span><span class="c1">置</span><span class="c1">了</span><span class="c1">进</span><span class="c1">度</span><span class="c1">条</span><span class="c1">为</span><span class="c1">0</span><span class="c1">.</span><span class="c1">1</span><span class="c1">，</span><span class="c1">所</span><span class="c1">以</span><span class="c1">只</span><span class="c1">有</span><span class="c1">在</span><span class="c1">进</span><span class="c1">度</span><span class="c1">大</span><span class="c1">于</span><span class="c1">0</span><span class="c1">.</span><span class="c1">1</span><span class="c1">后</span><span class="c1">再</span><span class="c1">进</span><span class="c1">行</span><span class="c1">变</span><span class="c1">化</span>
-    <span class="k">if</span> <span class="n">newValue</span> <span class="o">&gt;</span> <span class="n">oldValue</span> <span class="o">&amp;&amp;</span> <span class="n">newValue</span> <span class="o">&gt;</span> <span class="mf">0.1</span> <span class="p">{</span>
-        <span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="p">}</span>
-    
-    <span class="c1">//</span><span class="c1"> </span><span class="c1">当</span><span class="c1">进</span><span class="c1">度</span><span class="c1">为</span><span class="c1">1</span><span class="c1">0</span><span class="c1">0</span><span class="c1">%</span><span class="c1">时</span><span class="c1">，</span><span class="c1">隐</span><span class="c1">藏</span><span class="c1">p</span><span class="c1">r</span><span class="c1">o</span><span class="c1">g</span><span class="c1">r</span><span class="c1">e</span><span class="c1">s</span><span class="c1">s</span><span class="c1">L</span><span class="c1">a</span><span class="c1">y</span><span class="c1">e</span><span class="c1">r</span><span class="c1">并</span><span class="c1">将</span><span class="c1">其</span><span class="c1">初</span><span class="c1">始</span><span class="c1">值</span><span class="c1">改</span><span class="c1">为</span><span class="c1">0</span>
-    <span class="k">if</span> <span class="n">newValue</span> <span class="p">=</span><span class="p">=</span> <span class="mf">1.0</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">time1</span> <span class="p">=</span> <span class="n">DispatchTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.4</span>
-        <span class="kd">let</span> <span class="nv">time2</span> <span class="p">=</span> <span class="n">time1</span> <span class="o">+</span> <span class="mf">0.1</span>
-        <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">asyncAfter</span><span class="p">(</span><span class="n">deadline</span><span class="p">:</span> <span class="n">time1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
-            <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">opacity</span> <span class="p">=</span> <span class="mi">0</span>
-        <span class="p">}</span>
-        <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">asyncAfter</span><span class="p">(</span><span class="n">deadline</span><span class="p">:</span> <span class="n">time2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
-            <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span> 
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#fc5fa3">override</span> <span style="color:#fc5fa3">func</span> <span style="color:#41a1c0">observeValue</span>(forKeyPath keyPath: <span style="color:#d0a8ff">String</span>?, of object: <span style="color:#d0a8ff">Any</span>?, change: [NSKeyValueChangeKey : <span style="color:#d0a8ff">Any</span>]?, context: UnsafeMutableRawPointer?) {
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">if</span> keyPath == #keyPath(webView.estimatedProgress) &amp;&amp; context == &amp;progressContext {
+</span></span><span style="display:flex;"><span>    <span style="color:#fc5fa3">guard</span> <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">changes</span> = change <span style="color:#fc5fa3">else</span> { <span style="color:#fc5fa3">return</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7986">//	请注意这里读取options中数值的方法</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">newValue</span> = changes[NSKeyValueChangeKey.newKey] <span style="color:#fc5fa3">as</span>? <span style="color:#d0a8ff">Double</span> ?? <span style="color:#d0bf69">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">oldValue</span> = changes[NSKeyValueChangeKey.oldKey] <span style="color:#fc5fa3">as</span>? <span style="color:#d0a8ff">Double</span> ?? <span style="color:#d0bf69">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7986">// 因为我们已经设置了进度条为0.1，所以只有在进度大于0.1后再进行变化</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fc5fa3">if</span> newValue &gt; oldValue &amp;&amp; newValue &gt; <span style="color:#d0bf69">0.1</span> {
+</span></span><span style="display:flex;"><span>        progressLayer.frame = CGRect(x: <span style="color:#d0bf69">0</span>, y: <span style="color:#d0bf69">0</span>, width: webView.frame.width * CGFloat(newValue), height: <span style="color:#d0bf69">3</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7986">// 当进度为100%时，隐藏progressLayer并将其初始值改为0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fc5fa3">if</span> newValue == <span style="color:#d0bf69">1.0</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">time1</span> = DispatchTime.now() + <span style="color:#d0bf69">0.4</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">time2</span> = time1 + <span style="color:#d0bf69">0.1</span>
+</span></span><span style="display:flex;"><span>        DispatchQueue.main.asyncAfter(deadline: time1) {
+</span></span><span style="display:flex;"><span>            <span style="color:#fc5fa3">weak</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">weakself</span> = <span style="color:#fc5fa3">self</span>
+</span></span><span style="display:flex;"><span>            weakself?.progressLayer.opacity = <span style="color:#d0bf69">0</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        DispatchQueue.main.asyncAfter(deadline: time2) {
+</span></span><span style="display:flex;"><span>            <span style="color:#fc5fa3">weak</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">weakself</span> = <span style="color:#fc5fa3">self</span>
+</span></span><span style="display:flex;"><span>            weakself?.progressLayer.frame = CGRect(x: <span style="color:#d0bf69">0</span>, y: <span style="color:#d0bf69">0</span>, width: <span style="color:#d0bf69">0</span>, height: <span style="color:#d0bf69">3</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>} 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="移除观察者">移除观察者</h2>
 <p>在不需要监听时，或者至少在<code>观察者</code>要被释放之前，需要移除观察者身份。</p>
 <p>在<code>viewDidDisappear</code>或者其他适当的位置，调用：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">removeObserver</span><span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKeyPath</span><span class="p">:</span> <span class="p">#</span><span class="n">keyPath</span><span class="p">(</span><span class="n">webView</span><span class="p">.</span><span class="n">estimatedProgress</span><span class="p">)</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>removeObserver(<span style="color:#fc5fa3">self</span>, forKeyPath: #keyPath(webView.estimatedProgress))
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样利用KVO实现加载进度条的目的已经达成了。</p>
 <h2 id="更swifty的实现方式block-based-kvo">更Swifty的实现方式：Block-based KVO</h2>
 <p>在Swift4里，官方推荐了另外Key-value Oberservation的实现方式。简单来说，就是创建一个变量observation、给obervation赋值。赋值实现了既添加观察者又实现响应通知的功能。最后在不需要观察时，直接把observation设置为<code>nil</code>即可。</p>
 <p>针对上面的进度加载条，实现代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-33">33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-34">34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-35">35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-36">36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-37">37</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-38"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-38">38</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-39"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-39">39</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-40"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-40">40</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-41"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-41">41</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">声</span><span class="c1">明</span><span class="c1">变</span><span class="c1">量</span><span class="c1">，</span><span class="c1">被</span><span class="c1">观</span><span class="c1">察</span><span class="c1">的</span><span class="c1">属</span><span class="c1">性</span><span class="c1">依</span><span class="c1">然</span><span class="c1">还</span><span class="c1">需</span><span class="c1">要</span><span class="c1">添</span><span class="c1">加</span><span class="c1">@</span><span class="c1">o</span><span class="c1">b</span><span class="c1">j</span><span class="c1">c</span><span class="c1">和</span><span class="c1">d</span><span class="c1">y</span><span class="c1">n</span><span class="c1">a</span><span class="c1">m</span><span class="c1">i</span><span class="c1">c</span>
-<span class="kr">@objc</span> <span class="kd">var</span> <span class="nv">webView</span> <span class="p">=</span> <span class="n">WKWebView</span><span class="p">(</span><span class="p">)</span>
-<span class="kd">var</span> <span class="nv">progressLayer</span><span class="p">:</span> <span class="n">CALayer</span><span class="p">!</span>
-<span class="kd">var</span> <span class="nv">progressObervation</span><span class="p">:</span> <span class="n">NSKeyValueObservation</span><span class="p">?</span>
-
-<span class="c1">//</span><span class="c1"> </span><span class="c1">设</span><span class="c1">置</span><span class="c1">观</span><span class="c1">察</span>
-<span class="kd">func</span> <span class="nf">setupObserver</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">//</span><span class="c1"> </span><span class="c1">请</span><span class="c1">务</span><span class="c1">必</span><span class="c1">注</span><span class="c1">意</span><span class="c1">方</span><span class="c1">法</span><span class="c1">的</span><span class="c1">写</span><span class="c1">法</span>
-    <span class="n">progressObservation</span> <span class="p">=</span> <span class="n">observe</span><span class="p">(</span><span class="err">\</span><span class="p">.</span><span class="n">webView</span><span class="p">.</span><span class="n">estimatedProgress</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[</span><span class="p">.</span><span class="n">old</span><span class="p">,</span> <span class="p">.</span><span class="n">new</span><span class="p">]</span><span class="p">,</span> <span class="n">changeHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="kc">self</span><span class="p">,</span> <span class="n">change</span><span class="p">)</span> <span class="k">in</span>
-        <span class="kd">let</span> <span class="nv">newValue</span> <span class="p">=</span> <span class="n">change</span><span class="p">.</span><span class="n">newValue</span>  <span class="p">?</span><span class="p">?</span> <span class="mi">0</span>
-        <span class="kd">let</span> <span class="nv">oldValue</span> <span class="p">=</span> <span class="n">change</span><span class="p">.</span><span class="n">oldValue</span>  <span class="p">?</span><span class="p">?</span> <span class="mi">0</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">new value is </span><span class="si">\(</span><span class="n">newValue</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">new value is </span><span class="si">\(</span><span class="n">oldValue</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">newValue</span> <span class="o">&gt;</span> <span class="n">oldValue</span> <span class="o">&amp;&amp;</span> <span class="n">newValue</span> <span class="o">&gt;</span> <span class="mf">0.1</span> <span class="p">{</span>
-            <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="s">time to reset new value</span><span class="s">&#34;</span><span class="p">)</span>
-            <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
-            <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="p">(</span><span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">webView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">width</span><span class="p">)</span><span class="o">!</span> <span class="o">*</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-        <span class="p">}</span>
-
-        <span class="k">if</span> <span class="n">newValue</span> <span class="p">=</span><span class="p">=</span> <span class="mf">1.0</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nv">time1</span> <span class="p">=</span> <span class="n">DispatchTime</span><span class="p">.</span><span class="n">now</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.4</span>
-            <span class="kd">let</span> <span class="nv">time2</span> <span class="p">=</span> <span class="n">time1</span> <span class="o">+</span> <span class="mf">0.1</span>
-            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">asyncAfter</span><span class="p">(</span><span class="n">deadline</span><span class="p">:</span> <span class="n">time1</span><span class="p">)</span> <span class="p">{</span>
-                <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
-                <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">opacity</span> <span class="p">=</span> <span class="mi">0</span>
-            <span class="p">}</span>
-
-            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">asyncAfter</span><span class="p">(</span><span class="n">deadline</span><span class="p">:</span> <span class="n">time2</span><span class="p">)</span> <span class="p">{</span>
-                <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">weakself</span> <span class="p">=</span> <span class="kc">self</span>
-                <span class="n">weakself</span><span class="p">?</span><span class="p">.</span><span class="n">progressLayer</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">destroyObserver</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">progressObservation</span> <span class="p">=</span> <span class="kc">nil</span>
-    
-    <span class="n">progressObserver</span><span class="p">?</span><span class="p">.</span><span class="n">invalidate</span><span class="p">(</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#6c7986">// 声明变量，被观察的属性依然还需要添加@objc和dynamic</span>
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">@objc</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">webView</span> = WKWebView()
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">progressLayer</span>: CALayer!
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">progressObervation</span>: NSKeyValueObservation?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6c7986">// 设置观察</span>
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">func</span> <span style="color:#41a1c0">setupObserver</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7986">// 请务必注意方法的写法</span>
+</span></span><span style="display:flex;"><span>    progressObservation = observe(<span style="color:#960050">\</span>.webView.estimatedProgress, options: [.old, .new], changeHandler: { (<span style="color:#fc5fa3">self</span>, change) <span style="color:#fc5fa3">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">newValue</span> = change.newValue  ?? <span style="color:#d0bf69">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">oldValue</span> = change.oldValue  ?? <span style="color:#d0bf69">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a167e6">print</span>(<span style="color:#fc6a5d">&#34;new value is </span><span style="color:#fc6a5d">\(</span>newValue<span style="color:#fc6a5d">)</span><span style="color:#fc6a5d">&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a167e6">print</span>(<span style="color:#fc6a5d">&#34;new value is </span><span style="color:#fc6a5d">\(</span>oldValue<span style="color:#fc6a5d">)</span><span style="color:#fc6a5d">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fc5fa3">if</span> newValue &gt; oldValue &amp;&amp; newValue &gt; <span style="color:#d0bf69">0.1</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a167e6">print</span>(<span style="color:#fc6a5d">&#34;time to reset new value&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#fc5fa3">weak</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">weakself</span> = <span style="color:#fc5fa3">self</span>
+</span></span><span style="display:flex;"><span>            weakself?.progressLayer.frame = CGRect(x: <span style="color:#d0bf69">0</span>, y: <span style="color:#d0bf69">0</span>, width: (weakself?.webView.frame.width)! * CGFloat(newValue), height: <span style="color:#d0bf69">3</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#fc5fa3">if</span> newValue == <span style="color:#d0bf69">1.0</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">time1</span> = DispatchTime.now() + <span style="color:#d0bf69">0.4</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#fc5fa3">let</span> <span style="color:#41a1c0">time2</span> = time1 + <span style="color:#d0bf69">0.1</span>
+</span></span><span style="display:flex;"><span>            DispatchQueue.main.asyncAfter(deadline: time1) {
+</span></span><span style="display:flex;"><span>                <span style="color:#fc5fa3">weak</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">weakself</span> = <span style="color:#fc5fa3">self</span>
+</span></span><span style="display:flex;"><span>                weakself?.progressLayer.opacity = <span style="color:#d0bf69">0</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            DispatchQueue.main.asyncAfter(deadline: time2) {
+</span></span><span style="display:flex;"><span>                <span style="color:#fc5fa3">weak</span> <span style="color:#fc5fa3">var</span> <span style="color:#41a1c0">weakself</span> = <span style="color:#fc5fa3">self</span>
+</span></span><span style="display:flex;"><span>                weakself?.progressLayer.frame = CGRect(x: <span style="color:#d0bf69">0</span>, y: <span style="color:#d0bf69">0</span>, width: <span style="color:#d0bf69">0</span>, height: <span style="color:#d0bf69">3</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fc5fa3">func</span> <span style="color:#41a1c0">destroyObserver</span>() {
+</span></span><span style="display:flex;"><span>    progressObservation = <span style="color:#fc5fa3">nil</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    progressObserver?.invalidate()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样看来是不是很简单？而且一个NSKeyValueObservation对象只负责观察一个<code>keyPath</code>，非常清晰。同时只用一行代码和闭包，更简洁。</p>
 <p>这里介绍下给observation赋值的方法参数。</p>
 <ul>
 <li>
 <p>receiver，即方法的接受者。上面的方法可以改成：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">progressObserver</span> <span class="p">=</span> <span class="n">webView</span><span class="p">.</span><span class="n">observe</span><span class="p">(</span><span class="err">\</span><span class="p">.</span><span class="n">estimatedProgress</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="p">[</span><span class="p">.</span><span class="n">old</span><span class="p">,</span> <span class="p">.</span><span class="n">new</span><span class="p">]</span><span class="p">,</span> <span class="n">changeHandler</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">webView</span><span class="p">,</span> <span class="n">change</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">//</span><span class="c1"> </span><span class="c1">c</span><span class="c1">o</span><span class="c1">d</span><span class="c1">e</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>progressObserver = webView.observe(<span style="color:#960050">\</span>.estimatedProgress, options: [.old, .new], changeHandler: { (webView, change) {
+</span></span><span style="display:flex;"><span>	<span style="color:#6c7986">// code</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -710,21 +719,21 @@ if (!doNotTrack) {
 </li>
 </ul>
 <p>最后关于停止监听，有两个办法可选：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<div class="highlight"><div style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-5">5</a>
 </span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-swift" data-lang="swift"><span class="c1">//</span><span class="c1"> </span><span class="c1">销</span><span class="c1">毁</span>
-<span class="n">progressObserver</span> <span class="p">=</span> <span class="kc">nil</span>
-
-<span class="c1">//</span><span class="c1"> </span><span class="c1">不</span><span class="c1">销</span><span class="c1">毁</span><span class="c1">，</span><span class="c1">仅</span><span class="c1">仅</span><span class="c1">停</span><span class="c1">止</span><span class="c1">监</span><span class="c1">听</span>
-<span class="n">progressObserver</span><span class="p">?</span><span class="p">.</span><span class="n">invalidate</span><span class="p">(</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#fff;background-color:#1f1f24;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#6c7986">// 销毁</span>
+</span></span><span style="display:flex;"><span>progressObserver = <span style="color:#fc5fa3">nil</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6c7986">// 不销毁，仅仅停止监听</span>
+</span></span><span style="display:flex;"><span>progressObserver?.invalidate()
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果不需要停止，可以不用处理，也不用刻意去移除监听，<code>controller</code>作为<code>observation</code>的<code>owner</code>会自动处理。</p>
 <blockquote>
@@ -738,10 +747,10 @@ if (!doNotTrack) {
 <li><a href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/using_key_value_observing_in_swift">Using Key-Value Observing in Swift | Apple Developer Documentation</a></li>
 <li><a href="https://nshipster.com/key-value-observing/">https://nshipster.com/key-value-observing/</a></li>
 </ul>
-    </div>
+        </div>
 
-    
-    
+        
+        
 <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
@@ -762,8 +771,9 @@ if (!doNotTrack) {
 </div>
 
 
-    
-    
+
+        
+        
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
@@ -782,58 +792,62 @@ if (!doNotTrack) {
   </div>
 </div>
 
-    <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://shenxiaobing.com/tags/kvo/">KVO</a>
-          <a href="http://shenxiaobing.com/tags/swift/">Swift</a>
-          
-        </div>
 
-      
-      <nav class="post-nav">
-        
-          <a class="prev" href="/post/2019/progress-bar-like-wechat-webview/">
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://localhost:1313/tags/kvo/">KVO</a>
+                <a href="http://localhost:1313/tags/swift/">Swift</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
             
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="prev" href="/post/2019/progress-bar-like-wechat-webview/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
 </svg>
 
-            </i>
-            <span class="prev-text nav-default">仿照微信WebView实现ProgressBar</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        
-          <a class="next" href="/post/2019/swift-iap-pitfalls/">
-            <span class="next-text nav-default">苹果内购接入的坑与核心流程 - Swift</span>
-            <span class="prev-text nav-mobile">下一篇</span>
+                </i>
+                <span class="prev-text nav-default">仿照微信WebView实现ProgressBar</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
             
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="next" href="/post/2019/swift-iap-pitfalls/">
+                <span class="next-text nav-default">苹果内购接入的坑与核心流程 - Swift</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
 </svg>
 
-            </i>
-          </a>
-      </nav>
-    </footer>
-  </article>
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+
+
+      
+      
+
+  
 
   
   
 
   
-  
-
-  
-
-  
-  
-
   
 
   
@@ -845,7 +859,7 @@ if (!doNotTrack) {
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_config = function () {
-      this.page.url = "http://shenxiaobing.com/post/2019/understanding-kvo-in-swift/";
+      this.page.url = "http://localhost:1313/post/2019/understanding-kvo-in-swift/";
     };
     function load_disqus() {
       
@@ -860,22 +874,45 @@ if (!doNotTrack) {
       $('#load_disqus').remove();
     };
   </script>
-  <noscript>Please enable JavaScript to view the
+  <noscript
+    >Please enable JavaScript to view the
     <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
   </noscript>
   
-  </div>
+</div>
+
 
     
 
   
 
-        </div>
-      </div>
-    </main>
+  
 
-    <footer id="footer" class="footer">
-      <div class="icon-links">
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#添加观察者">添加观察者</a></li>
+    <li><a href="#接收被观察者通知并响应处理">接收被观察者通知并响应处理</a></li>
+    <li><a href="#移除观察者">移除观察者</a></li>
+    <li><a href="#更swifty的实现方式block-based-kvo">更Swifty的实现方式：Block-based KVO</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
   
   
     <a href="mailto:xiaobing.shen@foxmail.com" rel="me noopener" class="iconfont"
@@ -889,7 +926,7 @@ if (!doNotTrack) {
     </a>
 
 
-<a href="http://shenxiaobing.com/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://localhost:1313/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -898,7 +935,7 @@ if (!doNotTrack) {
 </svg>
 
   </a>
-   
+  
 </div>
 
 <div class="copyright">
@@ -914,7 +951,7 @@ if (!doNotTrack) {
     &copy;
     
       2015 -
-    2022
+    2024
     <span class="heart">
       
       <i class="iconfont">
@@ -935,57 +972,45 @@ if (!doNotTrack) {
   
 
   
-    <span>
-      <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备19049773号-1</a>
-    </span>
-  
 </div>
 
-    </footer>
+      </footer>
 
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="35" height="35">
   <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
 </svg>
 
-      </i>
+          </i>
+        </a>
+      </div>
     </div>
-  </div>
-  
-<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.7.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
 
 
 
 
-<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.e75288a864015438317db7a5d341fe95b25a03afb59ab32350f9f0464dada611.js" integrity="sha256-51KIqGQBVDgxfbel00H&#43;lbJaA6&#43;1mrMjUPnwRk2tphE=" crossorigin="anonymous"></script>
 
 
 
 
 
 
-<script id="baidu_analytics">
-  var _hmt = _hmt || [];
-  (function() {
-    if (window.location.hostname === 'localhost') return;
-    var hm = document.createElement("script"); hm.async = true;
-    hm.src = "https://hm.baidu.com/hm.js?7390efd508bf472b486211e3538692d9";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
+
 
 
 
 
 
   
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
@@ -996,114 +1021,6 @@ if (!doNotTrack) {
 
 
 
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script type="text/javascript">
-    AV.initialize("5nxAXNGRN9qW7YzsbrSTQIqi-gzGzoHsz", "cw5bUfHdfqCiITOe0fguV11D");
-  </script>
-
-  <script>
-    function showHitCount(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push($(this).attr("id").trim());
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var hits = item.get('hits');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(hits);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function (results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("hits");
-            counter.save(null, {
-              success: function (counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('hits'));
-              },
-              error: function (counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-             
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-             
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("hits", 1);
-            newcounter.save(null, {
-              success: function (newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('hits'));
-              },
-              error: function (newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function (error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function () {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        
-        addCount(Counter);
-      } else if ($('.post-link').length > 1) {
-        
-        showHitCount(Counter);
-      }
-    });
-  </script>
 
 
 
@@ -1113,5 +1030,6 @@ if (!doNotTrack) {
 
 
 
-</body>
+
+  </body>
 </html>
