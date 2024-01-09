@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>游记 on 小兵的诗篇</title>
-    <link>http://localhost:1313/tags/%E6%B8%B8%E8%AE%B0/</link>
+    <link>https://shenxiaobing.com/tags/%E6%B8%B8%E8%AE%B0/</link>
     <description>Recent content in 游记 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 21 Jun 2016 19:24:47 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E6%B8%B8%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shenxiaobing.com/tags/%E6%B8%B8%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>境外游记——澳门被骗，香港失望，泰国很好</title>
-      <link>http://localhost:1313/post/2019/travel-outside/</link>
+      <link>https://shenxiaobing.com/post/2019/travel-outside/</link>
       <pubDate>Tue, 21 Jun 2016 19:24:47 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/travel-outside/</guid>
+      <guid>https://shenxiaobing.com/post/2019/travel-outside/</guid>
       <description>&lt;p&gt;在我离职之后，我去了澳门、香港和泰国。这是我第一次出境，但是并没有特别大的冲击感。&lt;/p&gt;</description>
     </item>
     <item>
       <title>六城游记</title>
-      <link>http://localhost:1313/post/2019/travel-to-6-cities/</link>
+      <link>https://shenxiaobing.com/post/2019/travel-to-6-cities/</link>
       <pubDate>Tue, 21 Jun 2016 19:19:40 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/travel-to-6-cities/</guid>
+      <guid>https://shenxiaobing.com/post/2019/travel-to-6-cities/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;题记：如果我走的足够远，我就能领悟人生的真谛。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;在家懒了几天之后，我终于走出了家门。第一站是东莞。&lt;/p&gt;</description>
     </item>
   </channel>

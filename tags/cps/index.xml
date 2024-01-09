@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cps on 小兵的诗篇</title>
-    <link>http://localhost:1313/tags/cps/</link>
+    <link>https://shenxiaobing.com/tags/cps/</link>
     <description>Recent content in cps on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 13 Dec 2014 19:06:01 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cps/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shenxiaobing.com/tags/cps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>疯狂：手游公会、平台与玩家</title>
-      <link>http://localhost:1313/post/2019/game-guilds/</link>
+      <link>https://shenxiaobing.com/post/2019/game-guilds/</link>
       <pubDate>Sat, 13 Dec 2014 19:06:01 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/game-guilds/</guid>
+      <guid>https://shenxiaobing.com/post/2019/game-guilds/</guid>
       <description>&lt;p&gt;先听一听最近媒体上的消息吧：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;天龙八部3D，首月流水2亿。&lt;/li&gt;&#xA;&lt;li&gt;征途口袋版，首日流水975万。&lt;/li&gt;&#xA;&lt;li&gt;全民奇迹，首日流水2600万，开服1000组，总流水破亿（含iOS版）。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;听起来一个比一个牛，我也一直对这些数据顶礼膜拜，直到我开始了解手游公会。&lt;/p&gt;</description>
     </item>
   </channel>

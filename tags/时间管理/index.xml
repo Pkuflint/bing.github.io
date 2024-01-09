@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>时间管理 on 小兵的诗篇</title>
-    <link>http://localhost:1313/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</link>
+    <link>https://shenxiaobing.com/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</link>
     <description>Recent content in 时间管理 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 07 Mar 2018 17:15:20 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shenxiaobing.com/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>做事靠系统——读《小强升职记》</title>
-      <link>http://localhost:1313/post/2019/getting-things-done/</link>
+      <link>https://shenxiaobing.com/post/2019/getting-things-done/</link>
       <pubDate>Wed, 07 Mar 2018 17:15:20 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/getting-things-done/</guid>
+      <guid>https://shenxiaobing.com/post/2019/getting-things-done/</guid>
       <description>&lt;p&gt;《小强升职记》是一本关于时间管理方面的小书，以故事和对话的形式展开，非常易读易懂易用。&lt;/p&gt;&#xA;&lt;p&gt;书中主要的核心内容有以下三点：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;如何制作待办任务清单&lt;/li&gt;&#xA;&lt;li&gt;如何完成复杂项目&lt;/li&gt;&#xA;&lt;li&gt;如何专注地工作&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
   </channel>

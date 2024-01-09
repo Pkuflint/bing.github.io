@@ -2,150 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>全部文章 on 小兵的诗篇</title>
-    <link>http://localhost:1313/post/</link>
+    <link>https://shenxiaobing.com/post/</link>
     <description>Recent content in 全部文章 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 22 Apr 2022 19:23:48 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shenxiaobing.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在同一台电脑操作不同github账户的SSH-KEY</title>
-      <link>http://localhost:1313/post/2022/multiple-ssh-key-for-one-macbook/</link>
+      <link>https://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</link>
       <pubDate>Fri, 22 Apr 2022 19:23:48 +0800</pubDate>
-      <guid>http://localhost:1313/post/2022/multiple-ssh-key-for-one-macbook/</guid>
+      <guid>https://shenxiaobing.com/post/2022/multiple-ssh-key-for-one-macbook/</guid>
       <description>如果你拥有2个或以上的github账号且需要在同一个电脑上进行git操作，下面是我亲测有效的配置流程。 具体步骤如下： 针对不同github账号</description>
     </item>
     <item>
       <title>搭建Shadowsocks翻墙回国</title>
-      <link>http://localhost:1313/post/2022/build-ss-back-to-china/</link>
+      <link>https://shenxiaobing.com/post/2022/build-ss-back-to-china/</link>
       <pubDate>Fri, 22 Apr 2022 05:13:31 +0800</pubDate>
-      <guid>http://localhost:1313/post/2022/build-ss-back-to-china/</guid>
+      <guid>https://shenxiaobing.com/post/2022/build-ss-back-to-china/</guid>
       <description>在海外生活的中国人，或多或少都有翻墙回国的需求，比如：访问仅限国内观看的视频，使用国内音乐App听歌，访问某些银行的App。对于我来说，这个</description>
     </item>
     <item>
       <title>在Ubuntu中使用Selenium Webdriver</title>
-      <link>http://localhost:1313/post/2021/selenium-webdriver-on-linux-ubuntu/</link>
+      <link>https://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</link>
       <pubDate>Sat, 13 Mar 2021 17:09:03 +0800</pubDate>
-      <guid>http://localhost:1313/post/2021/selenium-webdriver-on-linux-ubuntu/</guid>
+      <guid>https://shenxiaobing.com/post/2021/selenium-webdriver-on-linux-ubuntu/</guid>
       <description>在Windows上使用Selenium时，主要有三个步骤： 下载并按照Chrome浏览器。 下载并保存与Chrome相同版本的chromeweb</description>
     </item>
     <item>
       <title>极简股票交易入门——读《韭菜的自我修养》</title>
-      <link>http://localhost:1313/post/2020/self-improvement-as-jiu-cai/</link>
+      <link>https://shenxiaobing.com/post/2020/self-improvement-as-jiu-cai/</link>
       <pubDate>Sat, 08 Feb 2020 18:15:18 +0800</pubDate>
-      <guid>http://localhost:1313/post/2020/self-improvement-as-jiu-cai/</guid>
+      <guid>https://shenxiaobing.com/post/2020/self-improvement-as-jiu-cai/</guid>
       <description>&lt;p&gt;对于股票交易来说，最核心的问题就是三个：买什么，什么时候买，什么时候卖。以下是书中给股市入门玩家的回答。&lt;/p&gt;</description>
     </item>
     <item>
       <title>零基础自学编程有多难</title>
-      <link>http://localhost:1313/post/2019/how-hard-is-self-taught-programming/</link>
+      <link>https://shenxiaobing.com/post/2019/how-hard-is-self-taught-programming/</link>
       <pubDate>Sun, 13 Oct 2019 04:16:59 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/how-hard-is-self-taught-programming/</guid>
+      <guid>https://shenxiaobing.com/post/2019/how-hard-is-self-taught-programming/</guid>
       <description>&lt;p&gt;一个零基础的文科生学编程有多难？为什么单把文科生拎出来，这里不是歧视文科生，只是想强调过往没有任何的编程和计算机基础这一点，而大多数理工科的毕业生多少都有一点基础。&lt;/p&gt;&#xA;&lt;p&gt;我到现在都不能说自己是个程序员，但我自认为有足够曲折的编程自学经历来现身说法。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python正则表达式CheatSheet</title>
-      <link>http://localhost:1313/post/2019/python-regular-expression-cheatsheet/</link>
+      <link>https://shenxiaobing.com/post/2019/python-regular-expression-cheatsheet/</link>
       <pubDate>Thu, 05 Sep 2019 10:14:44 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/python-regular-expression-cheatsheet/</guid>
+      <guid>https://shenxiaobing.com/post/2019/python-regular-expression-cheatsheet/</guid>
       <description>&lt;p&gt;这里是正则表达式常用表示法与函数，以备查询。&lt;/p&gt;</description>
     </item>
     <item>
       <title>我为什么不玩魔兽世界怀旧服</title>
-      <link>http://localhost:1313/post/2019/say-no-to-wow-nostalgia-server/</link>
+      <link>https://shenxiaobing.com/post/2019/say-no-to-wow-nostalgia-server/</link>
       <pubDate>Tue, 03 Sep 2019 20:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/say-no-to-wow-nostalgia-server/</guid>
+      <guid>https://shenxiaobing.com/post/2019/say-no-to-wow-nostalgia-server/</guid>
       <description>&lt;p&gt;魔兽世界怀旧服开了，据说有的服务器排队时间高达5个小时。我兴味索然，虽然我从大二就开始玩魔兽世界，玩得疯的时候每天玩十个多小时，厌倦的时候又很久不上线。不管AFK多久，出了新版本总是想回来看看。&lt;/p&gt;&#xA;&lt;p&gt;但怀旧服是个例外，我不想玩。&lt;/p&gt;</description>
     </item>
     <item>
       <title>如何用 Python 生成带 Logo 二维码</title>
-      <link>http://localhost:1313/post/2019/make-qr-with-logo-in-python/</link>
+      <link>https://shenxiaobing.com/post/2019/make-qr-with-logo-in-python/</link>
       <pubDate>Fri, 09 Nov 2018 15:21:41 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/make-qr-with-logo-in-python/</guid>
+      <guid>https://shenxiaobing.com/post/2019/make-qr-with-logo-in-python/</guid>
       <description>&lt;p&gt;如何用 Python 生成像微信名片那样的中间带有 Logo 的二维码？使用 Python 的qrcode模块可以很容易做到。&lt;/p&gt;</description>
     </item>
     <item>
       <title>意义</title>
-      <link>http://localhost:1313/post/2019/meaning/</link>
+      <link>https://shenxiaobing.com/post/2019/meaning/</link>
       <pubDate>Mon, 03 Sep 2018 15:12:31 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/meaning/</guid>
+      <guid>https://shenxiaobing.com/post/2019/meaning/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;意义，就是对特定对象的价值。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;当这个词语被用到的时候，一般都会忽略到「特定对象」。“要过有意义的人生”，“人生没有意义”，这种泛指的用法让人迷惑。有意义的人生，对谁或者对什么有意义呢？对自己本人，对家庭，对族群，对国家？对世界和平、自由平等？对耶稣佛陀？&lt;/p&gt;&#xA;&lt;p&gt;厘清定义之后，意义不再令人困惑。没有意义，也不再令人恐惧。「我的人生」的意义，如果有，注定是为「第三方」提供价值。如果只是对我自己有价值，那这就是所有人的现状，自为的状态。因此，当提到「我的人生」的意义时，一定会指向第三方。&lt;/p&gt;&#xA;&lt;p&gt;第三方的可能性是什么？&lt;/p&gt;</description>
     </item>
     <item>
       <title>《爱上跑步的13周》专属App软件</title>
-      <link>http://localhost:1313/post/2019/app-for-13-week-run-program/</link>
+      <link>https://shenxiaobing.com/post/2019/app-for-13-week-run-program/</link>
       <pubDate>Sat, 04 Aug 2018 23:05:26 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/app-for-13-week-run-program/</guid>
+      <guid>https://shenxiaobing.com/post/2019/app-for-13-week-run-program/</guid>
       <description>&lt;p&gt;《爱上跑步的13周》提供了完整的13周跑步训练计划。该计划核心在于循序渐进地提升运动量，在避免运动受伤的前提下，用13周让几乎任何体能状况的人完成自己的10公里跑。&lt;/p&gt;&#xA;&lt;p&gt;心动不如行动。&lt;/p&gt;&#xA;&lt;p&gt;但实际行动起来，却发现要完全跟随计划有点困难，因为这套训练计划的核心是跑步与走路相结合。我们需要知道什么时候该跑步，什么时候该走路。&lt;/p&gt;&#xA;&lt;p&gt;《爱跑十三周》这个工具型app就是为此而生。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;下载地址：&lt;a href=&#34;https://itunes.apple.com/cn/app/id1403686503&#34;&gt;https://itunes.apple.com/cn/app/id1403686503&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;或苹果商店搜索「爱跑十三周」下载。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;《爱跑十三周》的主要功能如下：&lt;/p&gt;</description>
     </item>
     <item>
       <title>我的App审核简史</title>
-      <link>http://localhost:1313/post/2019/a-brief-history-of-app-review/</link>
+      <link>https://shenxiaobing.com/post/2019/a-brief-history-of-app-review/</link>
       <pubDate>Fri, 27 Jul 2018 12:33:33 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/a-brief-history-of-app-review/</guid>
+      <guid>https://shenxiaobing.com/post/2019/a-brief-history-of-app-review/</guid>
       <description>&lt;p&gt;两款应用终于过审了。记录下过程，以备参考。&lt;/p&gt;&#xA;&lt;p&gt;先交代下两款应用的背景：&lt;/p&gt;&#xA;&lt;p&gt;应用一：爱跑十三周，跑步应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题；&lt;/p&gt;&#xA;&lt;p&gt;应用二：魔板拼图，解谜游戏应用，本地化为3种语言，没有开关隐藏、热更、第三方支付等常见违规问题。&lt;/p&gt;</description>
     </item>
     <item>
       <title>数字华容道怎样才能有解</title>
-      <link>http://localhost:1313/post/2019/puzzle-random-algorithm/</link>
+      <link>https://shenxiaobing.com/post/2019/puzzle-random-algorithm/</link>
       <pubDate>Fri, 06 Jul 2018 00:01:16 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/puzzle-random-algorithm/</guid>
+      <guid>https://shenxiaobing.com/post/2019/puzzle-random-algorithm/</guid>
       <description>&lt;p&gt;数字华容道，是在4x4的格子中，依次从左到右，从上到下放置1-15这15个数字。经过一定的随机，必须将这15个数字复原。每个数字只能向相邻的唯一空格移动。难度更高的，格子和数字会更多，比如5x5。&lt;/p&gt;&#xA;&lt;p&gt;我在开发一个类数字华容道游戏时，发现自己3x3的格子，居然怎么都解不出来。比如：一排1、2、3，二排4、5、6，三排8，7。经过网上查询，才知道完全随机位置的数值华容道仅有50%的概率是有解的。而我就是用的完全随机方式去打乱次序。&lt;/p&gt;&#xA;&lt;p&gt;网上有两篇文章说的很好，以下是根据这两篇文章的总结。&lt;/p&gt;&#xA;&lt;h2 id=&#34;数字华容道必然有解的前提&#34;&gt;数字华容道必然有解的前提&lt;/h2&gt;&#xA;&lt;p&gt;首先，要弄清楚一个概念：逆序数。逆序数，即一个数字序列，将其中所有数字依次两两对比，若大数在前，小数在后，那么这就是一对逆序数。这里说到的逆序数，指的是数字序列中逆序数的数量。比如：上文提到的1、2、3、4、5、6、8、7，逆序数只有1个，即8和7。&lt;/p&gt;</description>
     </item>
     <item>
       <title>I made an app</title>
-      <link>http://localhost:1313/post/2019/i-made-an-app/</link>
+      <link>https://shenxiaobing.com/post/2019/i-made-an-app/</link>
       <pubDate>Fri, 29 Jun 2018 11:03:50 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019/i-made-an-app/</guid>
+      <guid>https://shenxiaobing.com/post/2019/i-made-an-app/</guid>
       <description>&lt;p&gt;我的第一个App终于提审了。&lt;/p&gt;&#xA;&lt;p&gt;从2015年开始，我就念叨着要做一个App；而2016和2017年的年度目标之一就是上架一个App。但直到现在，2018年，我才真正完成我的第一款App。&lt;/p&gt;</description>
     </item>
     <item>
       <title>iOS工程的本地化-Swift</title>
-      <link>http://localhost:1313/post/2019/localization-of-ios-project/</link>
+      <link>https://shenxiaobing.com/post/2019/localization-of-ios-project/</link>
       <pubDate>Fri, 29 Jun 2018 14:20:39 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/localization-of-ios-project/</guid>
+      <guid>https://shenxiaobing.com/post/2019/localization-of-ios-project/</guid>
       <description>&lt;p&gt;应用如果需要根据设备语言显示不同的语言，就需要进行本地化的工作。就iOS工程而言，需要本地化的内容主要有：文字、图片、语音。一般而言，图片和语言的本地化，都可以转化为实质上的字符串的本地化。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;info.plist本地化&lt;/li&gt;&#xA;&lt;li&gt;代码字符串本地化&lt;/li&gt;&#xA;&lt;li&gt;storyboard, xib文件本地化&lt;/li&gt;&#xA;&lt;li&gt;launchScreen.storyboard本地化&lt;/li&gt;&#xA;&lt;li&gt;图片本地化&lt;/li&gt;&#xA;&lt;li&gt;一次性导出本地化文件&lt;/li&gt;&#xA;&lt;li&gt;新增内容的本地化&lt;/li&gt;&#xA;&lt;li&gt;多人协作下使用自定义Localizable.strings文件&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>仿照微信WebView实现ProgressBar</title>
-      <link>http://localhost:1313/post/2019/progress-bar-like-wechat-webview/</link>
+      <link>https://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</link>
       <pubDate>Thu, 28 Jun 2018 10:03:47 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/progress-bar-like-wechat-webview/</guid>
+      <guid>https://shenxiaobing.com/post/2019/progress-bar-like-wechat-webview/</guid>
       <description>&lt;h2 id=&#34;两种进度条逻辑&#34;&gt;两种进度条逻辑&lt;/h2&gt;&#xA;&lt;p&gt;在网页中，一般我们会用顶部进度条来表示当前网页加载的进度。这里最常见的就是像Safari或Chrome浏览器那样的，用真实的进度百分比来更新进度条。当网速较慢时，进度条几乎完全不动；当网速较快时，进度条则会从大约20%位置嗖一下快速变为100%。&lt;/p&gt;&#xA;&lt;p&gt;还有一种，就是微信App里的网页加载进度条。这里的进度条反映的不是真实的加载进度，其设计初衷应该就是让网页加载『看起来』更快。经过观察，大约是这样的一个逻辑：&lt;/p&gt;</description>
     </item>
     <item>
       <title>理解KVO - 用Swift在WKWebView中添加进度条</title>
-      <link>http://localhost:1313/post/2019/understanding-kvo-in-swift/</link>
+      <link>https://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</link>
       <pubDate>Thu, 28 Jun 2018 05:40:11 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/understanding-kvo-in-swift/</guid>
+      <guid>https://shenxiaobing.com/post/2019/understanding-kvo-in-swift/</guid>
       <description>&lt;p&gt;KVO，即Key-value observation，是苹果提供的一种机制，它可以使监听对象在被监听对象的数值发生改变时收到通知，进而去进行响应的处理。&lt;/p&gt;</description>
     </item>
     <item>
       <title>苹果内购接入的坑与核心流程 - Swift</title>
-      <link>http://localhost:1313/post/2019/swift-iap-pitfalls/</link>
+      <link>https://shenxiaobing.com/post/2019/swift-iap-pitfalls/</link>
       <pubDate>Wed, 27 Jun 2018 19:56:09 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/swift-iap-pitfalls/</guid>
+      <guid>https://shenxiaobing.com/post/2019/swift-iap-pitfalls/</guid>
       <description>&lt;p&gt;通过苹果开发文档、搜索与挣扎摸索，我已经在App上实现了【消耗型商品】的内购。总结流程如下：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;完成必须的准备工作&lt;/li&gt;&#xA;&lt;li&gt;用有效的商品id创建&lt;code&gt;SKProductRequest&lt;/code&gt;请求苹果服务器返回商品（&lt;code&gt;SKProduct&lt;/code&gt;）。&lt;/li&gt;&#xA;&lt;li&gt;用返回的有效的商品创建payment，并将payment加入苹果的支付队列。&lt;/li&gt;&#xA;&lt;li&gt;监听队列，并根据监听到的交易状态进行适当的处理，尤其需要在交易完毕时关闭交易。&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
     <item>
       <title>自学路上的坑01 - Scheme勾选项带来的一些列问题</title>
-      <link>http://localhost:1313/post/2019/self-taught-swift-lesson-01/</link>
+      <link>https://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</link>
       <pubDate>Wed, 20 Jun 2018 07:43:51 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/self-taught-swift-lesson-01/</guid>
+      <guid>https://shenxiaobing.com/post/2019/self-taught-swift-lesson-01/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;如果你的问题在网上找不到，那一定是你犯了一个低级错误。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中勾选&lt;code&gt;Malloc Stack&lt;/code&gt;会导致每次Xcode覆盖安装App都预先占用一定量的数据存储空间，且由于某种原因，本来每次存储几十KB的数据结果占用了几十MB；同时，这个勾选项还会导致&lt;code&gt;Instrument - Leak&lt;/code&gt;界面出现名为&lt;code&gt;&amp;lt;Allocated Prior To Attach&amp;gt;&lt;/code&gt;的Leak。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;Edit Scheme&lt;/code&gt;中&lt;code&gt;Zombie Object&lt;/code&gt;调试结束要记得关掉，否则会在&lt;code&gt;Instrument - Leak&lt;/code&gt;界面产生大量的名为&lt;code&gt;Zombie Object&lt;/code&gt;的Leak。&lt;/p&gt;</description>
     </item>
     <item>
       <title>自学编程6年，从入门到放弃</title>
-      <link>http://localhost:1313/post/2019/from-zero-to-quit/</link>
+      <link>https://shenxiaobing.com/post/2019/from-zero-to-quit/</link>
       <pubDate>Wed, 20 Jun 2018 02:49:00 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/from-zero-to-quit/</guid>
+      <guid>https://shenxiaobing.com/post/2019/from-zero-to-quit/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;我会用4种编程语言写出Hello World！&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;2013年-c语言&#34;&gt;2013年 C语言&lt;/h2&gt;&#xA;&lt;p&gt;自学编程的想法，最早应该可以追溯到2013年，证据就是我于当时写下的博客，以及博客中提到的新买的、后来被村长带走的《C语言编程》。我已经记不得当时为何要学编程，为何要从C语言开始，以及那本书我看了多少。&lt;/p&gt;&#xA;&lt;p&gt;不过，打出上面最后一句话后，我还是想起来了：当时我没能用C语言打出&lt;code&gt;Hello World!&lt;/code&gt;就放弃了，因为没弄好编译器。&lt;/p&gt;</description>
     </item>
     <item>
       <title>一天</title>
-      <link>http://localhost:1313/post/2019/one-day/</link>
+      <link>https://shenxiaobing.com/post/2019/one-day/</link>
       <pubDate>Mon, 14 May 2018 16:30:02 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/one-day/</guid>
+      <guid>https://shenxiaobing.com/post/2019/one-day/</guid>
       <description>&lt;p&gt;我下楼去买可乐。&lt;/p&gt;&#xA;&lt;p&gt;走下楼梯时，看到楼梯上靠墙坐着一个头发花白的中年人。他低着头，在玩开心消消乐。我走过了，却还是忍不住回头看了他一样。他很严肃。&lt;/p&gt;&#xA;&lt;p&gt;这是我今天喝的第三罐可乐。可乐倒进嘴里，苦味已经盖过了甜味。我只能喝可乐。喝酒太辣太苦，而我也没有配得上酒的忧愁或把酒言欢的朋友。我有的只是这种说不出是甜还是苦的平常生活。&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>内购 on 小兵的诗篇</title>
-    <link>http://localhost:1313/tags/%E5%86%85%E8%B4%AD/</link>
+    <link>https://shenxiaobing.com/tags/%E5%86%85%E8%B4%AD/</link>
     <description>Recent content in 内购 on 小兵的诗篇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 27 Jun 2018 19:56:09 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E5%86%85%E8%B4%AD/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shenxiaobing.com/tags/%E5%86%85%E8%B4%AD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>苹果内购接入的坑与核心流程 - Swift</title>
-      <link>http://localhost:1313/post/2019/swift-iap-pitfalls/</link>
+      <link>https://shenxiaobing.com/post/2019/swift-iap-pitfalls/</link>
       <pubDate>Wed, 27 Jun 2018 19:56:09 +0800</pubDate>
-      <guid>http://localhost:1313/post/2019/swift-iap-pitfalls/</guid>
+      <guid>https://shenxiaobing.com/post/2019/swift-iap-pitfalls/</guid>
       <description>&lt;p&gt;通过苹果开发文档、搜索与挣扎摸索，我已经在App上实现了【消耗型商品】的内购。总结流程如下：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;完成必须的准备工作&lt;/li&gt;&#xA;&lt;li&gt;用有效的商品id创建&lt;code&gt;SKProductRequest&lt;/code&gt;请求苹果服务器返回商品（&lt;code&gt;SKProduct&lt;/code&gt;）。&lt;/li&gt;&#xA;&lt;li&gt;用返回的有效的商品创建payment，并将payment加入苹果的支付队列。&lt;/li&gt;&#xA;&lt;li&gt;监听队列，并根据监听到的交易状态进行适当的处理，尤其需要在交易完毕时关闭交易。&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
     </item>
   </channel>
